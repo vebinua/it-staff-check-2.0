@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Plus, Edit, Trash2, User, Shield, UserPlus, Users, Crown, Briefcase, Eye, Zap, Copy, EyeOff, Key } from 'lucide-react';
+import { Plus, Edit, Trash2, User, Shield, UserPlus, Users, Crown, Briefcase, Eye, Zap, Copy, EyeOff, Key } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { User as UserType } from '../types';
 import { AVAILABLE_MODULES } from '../modules';
 import { generatePassword, analyzePasswordStrength } from '../utils/passwordUtils';
 
-interface UsersPageProps {
-  onBack: () => void;
-}
-
-export function UsersPage({ onBack }: UsersPageProps) {
+export function UsersPage() {
   const { state, addUser, updateUser, deleteUser } = useApp();
   const [showAddForm, setShowAddForm] = useState(false);
   const [editingUser, setEditingUser] = useState<UserType | null>(null);
@@ -277,14 +273,9 @@ export function UsersPage({ onBack }: UsersPageProps) {
     <div className="h-full flex flex-col bg-white">
       {/* Header */}
       <div className="bg-gradient-to-r from-blue-600 to-purple-700 px-6 py-4 text-white flex-shrink-0">
-        <div className="flex items-center space-x-3">
-          <button onClick={onBack} className="text-white/80 hover:text-white hover:bg-white/20 rounded-full p-1.5 transition-all duration-200">
-            <ArrowLeft className="w-5 h-5" />
-          </button>
-          <div>
-            <h1 className="text-xl font-bold">User Management</h1>
-            <p className="text-sm text-blue-100 mt-0.5">Manage system users and permissions</p>
-          </div>
+        <div>
+          <h1 className="text-xl font-bold">User Management</h1>
+          <p className="text-sm text-blue-100 mt-0.5">Manage system users and permissions</p>
         </div>
       </div>
 

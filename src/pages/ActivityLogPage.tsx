@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Activity, User, Calendar, Filter, Search } from 'lucide-react';
+import { Activity, User, Calendar, Filter, Search } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { ActivityLog } from '../types';
 
-interface ActivityLogPageProps {
-  onBack: () => void;
-}
-
-export function ActivityLogPage({ onBack }: ActivityLogPageProps) {
+export function ActivityLogPage() {
   const { state } = useApp();
   const [searchTerm, setSearchTerm] = useState('');
   const [actionFilter, setActionFilter] = useState<string>('all');
@@ -68,14 +64,9 @@ export function ActivityLogPage({ onBack }: ActivityLogPageProps) {
     <div className="h-full flex flex-col bg-white">
       {/* Header */}
       <div className="bg-gradient-to-r from-blue-600 to-purple-700 px-6 py-4 text-white flex-shrink-0">
-        <div className="flex items-center space-x-3">
-          <button onClick={onBack} className="text-white/80 hover:text-white hover:bg-white/20 rounded-full p-1.5 transition-all duration-200">
-            <ArrowLeft className="w-5 h-5" />
-          </button>
-          <div>
-            <h1 className="text-xl font-bold">Activity Log</h1>
-            <p className="text-sm text-blue-100 mt-0.5">View system activity and user actions ({state.activityLogs.length} total activities)</p>
-          </div>
+        <div>
+          <h1 className="text-xl font-bold">Activity Log</h1>
+          <p className="text-sm text-blue-100 mt-0.5">View system activity and user actions ({state.activityLogs.length} total activities)</p>
         </div>
       </div>
 
