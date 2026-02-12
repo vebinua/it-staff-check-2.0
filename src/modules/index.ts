@@ -140,42 +140,6 @@ export const AVAILABLE_MODULES: Module[] = [
     enabled: true,
     permissions: ['global-admin'],
     component: SecurityAuditModule
-  },
-  {
-    id: 'inventory-tracking',
-    name: 'Inventory Tracking',
-    description: 'Real-time inventory tracking with barcode/QR code support',
-    icon: 'Scan',
-    category: 'management',
-    enabled: false,
-    permissions: ['global-admin', 'module-admin'],
-  },
-  {
-    id: 'vendor-management',
-    name: 'Vendor Management',
-    description: 'Manage vendor relationships, contracts, and performance',
-    icon: 'Building2',
-    category: 'management',
-    enabled: false,
-    permissions: ['global-admin', 'module-admin'],
-  },
-  {
-    id: 'cost-tracking',
-    name: 'Cost Tracking',
-    description: 'Track IT costs, budgets, and financial analytics',
-    icon: 'DollarSign',
-    category: 'analytics',
-    enabled: false,
-    permissions: ['global-admin'],
-  },
-  {
-    id: 'compliance-manager',
-    name: 'Compliance Manager',
-    description: 'Manage regulatory compliance and audit trails',
-    icon: 'FileCheck',
-    category: 'security',
-    enabled: false,
-    permissions: ['global-admin'],
   }
 ];
 
