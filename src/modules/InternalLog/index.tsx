@@ -555,32 +555,37 @@ export function InternalLogModule() {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                       <div className="flex space-x-2">
-                        <button 
+                        <button
                           onClick={() => handleViewEntry(entry)}
                           className="text-gray-600 hover:text-gray-800 p-1 rounded hover:bg-gray-50 transition-colors"
                           title="View Details"
                         >
                           <Eye className="w-4 h-4" />
                         </button>
-                        <button 
-                          onClick={() => {
-                            setEditingEntry({
-                              ...entry,
-                              dateStarted: entry.dateStarted.split('T')[0],
-                              dateFinished: entry.dateFinished.split('T')[0],
-                            });
-                          }}
-                          className="text-green-600 hover:text-green-800 p-1 rounded hover:bg-green-50 transition-colors"
-                          title="Edit Entry"
-                        >
-                          <Edit className="w-4 h-4" />
-                        </button>
-                        <button 
-                          onClick={() => handleDeleteEntry(entry.id)}
-                          className="text-red-600 hover:text-red-800 p-1 rounded hover:bg-red-50 transition-colors"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </button>
+                        {canManage && (
+                          <>
+                            <button
+                              onClick={() => {
+                                setEditingEntry({
+                                  ...entry,
+                                  dateStarted: entry.dateStarted.split('T')[0],
+                                  dateFinished: entry.dateFinished.split('T')[0],
+                                });
+                              }}
+                              className="text-green-600 hover:text-green-800 p-1 rounded hover:bg-green-50 transition-colors"
+                              title="Edit Entry"
+                            >
+                              <Edit className="w-4 h-4" />
+                            </button>
+                            <button
+                              onClick={() => handleDeleteEntry(entry.id)}
+                              className="text-red-600 hover:text-red-800 p-1 rounded hover:bg-red-50 transition-colors"
+                              title="Delete Entry"
+                            >
+                              <Trash2 className="w-4 h-4" />
+                            </button>
+                          </>
+                        )}
                       </div>
                     </td>
                   </tr>
