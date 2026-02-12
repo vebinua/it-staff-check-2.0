@@ -92,23 +92,11 @@ function AppContent() {
     return <LoginForm />;
   }
 
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'users':
-        return <UsersPage onBack={() => setCurrentPage('dashboard')} />;
-      case 'activity':
-        return <ActivityLogPage onBack={() => setCurrentPage('dashboard')} />;
-      case 'dashboard':
-      default:
-        return <Dashboard />;
-    }
-  };
-
   return (
     <div className="min-h-screen bg-gray-50">
       <Header onNavigate={setCurrentPage} currentPage={currentPage} />
-      <main className={currentPage === 'dashboard' ? '' : 'h-[calc(100vh-4rem)]'}>
-        {renderPage()}
+      <main className="h-[calc(100vh-4rem)]">
+        <Dashboard currentPage={currentPage} onNavigate={setCurrentPage} />
       </main>
     </div>
   );

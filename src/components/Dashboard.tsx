@@ -7,8 +7,15 @@ import { EmailModal } from './EmailModal';
 import { ViewDetailsModal } from './ViewDetailsModal';
 import { ModuleContainer } from './ModuleContainer';
 import { AVAILABLE_MODULES, getEnabledModules } from '../modules';
+import { UsersPage } from '../pages/UsersPage';
+import { ActivityLogPage } from '../pages/ActivityLogPage';
 
-export function Dashboard() {
+interface DashboardProps {
+  currentPage?: 'dashboard' | 'users' | 'activity';
+  onNavigate?: (page: 'dashboard' | 'users' | 'activity') => void;
+}
+
+export function Dashboard({ currentPage = 'dashboard', onNavigate }: DashboardProps) {
   const { state, deleteEntry, logActivity } = useApp();
   const [showAddModal, setShowAddModal] = useState(false);
   const [editingEntry, setEditingEntry] = useState<ITCheckEntry | null>(null);
@@ -244,25 +251,31 @@ export function Dashboard() {
       {/* Main Content */}
       <div className="flex-1 overflow-hidden">
         <div className="h-full overflow-y-auto">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            {/* Render selected module or default dashboard */}
-            {selectedModule ? (
-              <div>
-                {(() => {
-                  const module = AVAILABLE_MODULES.find(m => m.id === selectedModule);
-                  if (module && module.component) {
-                    const ModuleComponent = module.component;
-                    return <ModuleComponent />;
-                  }
-                  return (
-                    <div className="text-center py-12">
-                      <h2 className="text-xl font-bold text-gray-900 mb-4">Module Not Found</h2>
-                      <p className="text-gray-600">The requested module could not be loaded.</p>
-                    </div>
-                  );
-                })()}
-              </div>
-            ) : (
+          {/* Render page based on navigation */}
+          {currentPage === 'users' ? (
+            <UsersPage onBack={() => onNavigate?.('dashboard')} />
+          ) : currentPage === 'activity' ? (
+            <ActivityLogPage onBack={() => onNavigate?.('dashboard')} />
+          ) : (
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+              {/* Render selected module or default dashboard */}
+              {selectedModule ? (
+                <div>
+                  {(() => {
+                    const module = AVAILABLE_MODULES.find(m => m.id === selectedModule);
+                    if (module && module.component) {
+                      const ModuleComponent = module.component;
+                      return <ModuleComponent />;
+                    }
+                    return (
+                      <div className="text-center py-12">
+                        <h2 className="text-xl font-bold text-gray-900 mb-4">Module Not Found</h2>
+                        <p className="text-gray-600">The requested module could not be loaded.</p>
+                      </div>
+                    );
+                  })()}
+                </div>
+              ) : (
               /* Analytics Dashboard - Default View */
               <div>
                 {analyticsData && (
@@ -484,10 +497,9 @@ export function Dashboard() {
                   </div>
                 )}
               </div>
-            )}
-
-            {/* Modals */}
-          </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>
