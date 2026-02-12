@@ -20,7 +20,7 @@ export function ModuleContainer({ moduleId, onClose, onBack }: ModuleContainerPr
             <p className="text-gray-600 mb-6">The requested module could not be loaded.</p>
             <button
               onClick={onClose}
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all"
+              className="bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-hover transition-all"
             >
               Close
             </button>
@@ -35,7 +35,7 @@ export function ModuleContainer({ moduleId, onClose, onBack }: ModuleContainerPr
   return (
     <div className="h-full flex flex-col bg-white">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-700 px-8 py-6 text-white flex-shrink-0 border-b border-gray-200">
+      <div className="bg-gradient-to-r from-primary to-primary-dark px-8 py-6 text-white flex-shrink-0 border-b border-gray-200">
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-4">
             <button
@@ -46,7 +46,7 @@ export function ModuleContainer({ moduleId, onClose, onBack }: ModuleContainerPr
             </button>
             <div>
               <h2 className="text-2xl font-bold">{module.name}</h2>
-              <p className="text-blue-100 mt-1">{module.description}</p>
+              <p className="text-primary-light mt-1">{module.description}</p>
             </div>
           </div>
           <button

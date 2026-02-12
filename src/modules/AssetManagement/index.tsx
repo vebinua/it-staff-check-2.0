@@ -302,7 +302,7 @@ export function ChapmanCGLogModule() {
       <div className="flex justify-between items-center">
         <div>
           <h2 className="text-2xl font-bold text-gray-900 flex items-center">
-            <FileText className="w-8 h-8 mr-3 text-blue-600" />
+            <FileText className="w-8 h-8 mr-3 text-primary" />
             ChapmanCG Log
           </h2>
           <p className="text-gray-600 mt-1">
@@ -313,7 +313,7 @@ export function ChapmanCGLogModule() {
           <div className="flex space-x-3">
             <button 
               onClick={() => setShowAddModal(true)}
-              className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 transition-all flex items-center space-x-2 font-medium text-sm"
+              className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-hover focus:ring-4 focus:ring-primary-light transition-all flex items-center space-x-2 font-medium text-sm"
             >
               <Plus className="w-4 h-4" />
               <span>Add Log Entry</span>
@@ -340,8 +340,8 @@ export function ChapmanCGLogModule() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center">
-            <div className="p-3 rounded-full bg-blue-100">
-              <FileText className="w-6 h-6 text-blue-600" />
+            <div className="p-3 rounded-full bg-primary-light">
+              <FileText className="w-6 h-6 text-primary" />
             </div>
             <div className="ml-4">
               <p className="text-sm font-medium text-gray-600">Total Entries</p>
@@ -517,8 +517,8 @@ export function ChapmanCGLogModule() {
             <div className="lg:col-span-2">
               <div className="bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-lg px-4 py-2.5 h-full flex items-center">
                 <div className="flex items-center space-x-3 text-blue-700">
-                  <div className="bg-blue-100 rounded-full p-1.5">
-                    <Filter className="w-3 h-3 text-blue-600" />
+                  <div className="bg-primary-light rounded-full p-1.5">
+                    <Filter className="w-3 h-3 text-primary" />
                   </div>
                   <div>
                     <p className="font-semibold text-sm">
@@ -602,7 +602,7 @@ export function ChapmanCGLogModule() {
                 filteredEntries.map((entry) => (
                   <tr key={entry.id} className="hover:bg-gray-50 transition-colors">
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="font-mono text-sm font-medium text-blue-600">{entry.idCode}</div>
+                      <div className="font-mono text-sm font-medium text-primary">{entry.idCode}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="font-medium text-gray-900">{entry.clientName}</div>
@@ -613,7 +613,7 @@ export function ChapmanCGLogModule() {
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                         entry.category === 'hardware'
-                          ? 'bg-blue-100 text-blue-800'
+                          ? 'bg-primary-light text-blue-800'
                           : entry.category === 'software'
                           ? 'bg-green-100 text-green-800'
                           : entry.category === 'network'
@@ -673,7 +673,7 @@ export function ChapmanCGLogModule() {
                             };
                             setEditingEntry(formattedEntry);
                           }}
-                          className="text-blue-600 hover:text-blue-800 p-1 rounded hover:bg-blue-50 transition-colors"
+                          className="text-primary hover:text-blue-800 p-1 rounded hover:bg-blue-50 transition-colors"
                         >
                           <Edit className="w-4 h-4" />
                         </button>
@@ -699,7 +699,7 @@ export function ChapmanCGLogModule() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="bg-white p-4 rounded-lg">
             <h4 className="font-medium text-gray-900 mb-2">Total Time Logged</h4>
-            <p className="text-2xl font-bold text-blue-600">{totalTimeCharge} minutes</p>
+            <p className="text-2xl font-bold text-primary">{totalTimeCharge} minutes</p>
             <p className="text-sm text-gray-600">{Math.floor(totalTimeCharge / 60)}h {totalTimeCharge % 60}m</p>
           </div>
           <div className="bg-white p-4 rounded-lg">

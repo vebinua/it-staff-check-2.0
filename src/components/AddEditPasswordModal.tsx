@@ -168,7 +168,7 @@ export function AddEditPasswordModal({ entry, onClose, onSave }: AddEditPassword
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden border border-gray-100 flex flex-col">
         {/* Header */}
-        <div className="bg-gradient-to-r from-blue-600 to-purple-700 px-8 py-6 text-white">
+        <div className="bg-gradient-to-r from-primary to-primary-dark px-8 py-6 text-white">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-4">
               <div className="bg-white/20 rounded-full p-2">
@@ -178,7 +178,7 @@ export function AddEditPasswordModal({ entry, onClose, onSave }: AddEditPassword
                 <h2 className="text-xl font-semibold">
                   {isEditing ? 'Edit Password' : 'Add New Password'}
                 </h2>
-                <p className="text-blue-100 text-sm">
+                <p className="text-primary-light text-sm">
                   {isEditing ? 'Update password information' : 'Store a new password securely'}
                 </p>
               </div>
@@ -197,7 +197,7 @@ export function AddEditPasswordModal({ entry, onClose, onSave }: AddEditPassword
             {/* Basic Information */}
             <section>
               <h3 className="text-lg font-semibold text-gray-900 mb-6 flex items-center">
-                <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-semibold mr-3 shadow-md">1</span>
+                <span className="bg-gradient-to-r from-primary to-primary-dark text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-semibold mr-3 shadow-md">1</span>
                 <span className="text-gray-900">Basic Information</span>
               </h3>
               <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 space-y-4">
@@ -212,7 +212,7 @@ export function AddEditPasswordModal({ entry, onClose, onSave }: AddEditPassword
                       required
                       value={formData.title}
                       onChange={(e) => handleInputChange('title', e.target.value)}
-                      className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white text-sm"
+                      className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary-light focus:border-primary transition-all duration-200 bg-white text-sm"
                       placeholder="e.g., Gmail Account, Company Portal"
                     />
                   </div>
@@ -225,7 +225,7 @@ export function AddEditPasswordModal({ entry, onClose, onSave }: AddEditPassword
                       type="url"
                       value={formData.website}
                       onChange={(e) => handleInputChange('website', e.target.value)}
-                      className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white text-sm"
+                      className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary-light focus:border-primary transition-all duration-200 bg-white text-sm"
                       placeholder="https://example.com"
                     />
                   </div>
@@ -241,7 +241,7 @@ export function AddEditPasswordModal({ entry, onClose, onSave }: AddEditPassword
                       type="text"
                       value={formData.username}
                       onChange={(e) => handleInputChange('username', e.target.value)}
-                      className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white text-sm"
+                      className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary-light focus:border-primary transition-all duration-200 bg-white text-sm"
                       placeholder="Enter username"
                     />
                   </div>
@@ -254,7 +254,7 @@ export function AddEditPasswordModal({ entry, onClose, onSave }: AddEditPassword
                       type="email"
                       value={formData.email}
                       onChange={(e) => handleInputChange('email', e.target.value)}
-                      className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white text-sm"
+                      className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary-light focus:border-primary transition-all duration-200 bg-white text-sm"
                       placeholder="Enter email address"
                     />
                   </div>
@@ -265,7 +265,7 @@ export function AddEditPasswordModal({ entry, onClose, onSave }: AddEditPassword
             {/* Password Section */}
             <section>
               <h3 className="text-lg font-semibold text-gray-900 mb-6 flex items-center">
-                <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-semibold mr-3 shadow-md">2</span>
+                <span className="bg-gradient-to-r from-primary to-primary-dark text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-semibold mr-3 shadow-md">2</span>
                 <span className="text-gray-900">Password</span>
               </h3>
               <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 space-y-4">
@@ -277,7 +277,7 @@ export function AddEditPasswordModal({ entry, onClose, onSave }: AddEditPassword
                     <button
                       type="button"
                       onClick={() => setShowGenerator(true)}
-                      className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 hover:bg-blue-50 px-3 py-1 rounded-lg transition-all text-sm"
+                      className="flex items-center space-x-2 text-primary hover:text-primary-dark hover:bg-primary-light px-3 py-1 rounded-lg transition-all text-sm"
                     >
                       <Zap className="w-4 h-4" />
                       <span>Generate</span>
@@ -289,7 +289,7 @@ export function AddEditPasswordModal({ entry, onClose, onSave }: AddEditPassword
                       required
                       value={formData.password}
                       onChange={(e) => handleInputChange('password', e.target.value)}
-                      className="w-full border border-gray-300 rounded-lg px-3 py-2 pr-10 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white text-sm font-mono"
+                      className="w-full border border-gray-300 rounded-lg px-3 py-2 pr-10 focus:ring-2 focus:ring-primary-light focus:border-primary transition-all duration-200 bg-white text-sm font-mono"
                       placeholder="Enter or generate a password"
                     />
                     <button
@@ -344,7 +344,7 @@ export function AddEditPasswordModal({ entry, onClose, onSave }: AddEditPassword
             {/* Category and Organization */}
             <section>
               <h3 className="text-lg font-semibold text-gray-900 mb-6 flex items-center">
-                <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-semibold mr-3 shadow-md">3</span>
+                <span className="bg-gradient-to-r from-primary to-primary-dark text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-semibold mr-3 shadow-md">3</span>
                 <span className="text-gray-900">Category & Organization</span>
               </h3>
               <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 space-y-4">
@@ -404,8 +404,8 @@ export function AddEditPasswordModal({ entry, onClose, onSave }: AddEditPassword
                         onClick={() => toggleTag(tag)}
                         className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 ${
                           formData.tags.includes(tag)
-                            ? 'bg-blue-600 text-white'
-                            : 'bg-white text-gray-700 border border-gray-300 hover:border-blue-300'
+                            ? 'bg-primary text-white'
+                            : 'bg-white text-gray-700 border border-gray-300 hover:border-primary-light'
                         }`}
                       >
                         {tag}
@@ -419,7 +419,7 @@ export function AddEditPasswordModal({ entry, onClose, onSave }: AddEditPassword
             {/* Custom Fields */}
             <section>
               <h3 className="text-lg font-semibold text-gray-900 mb-6 flex items-center">
-                <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-semibold mr-3 shadow-md">4</span>
+                <span className="bg-gradient-to-r from-primary to-primary-dark text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-semibold mr-3 shadow-md">4</span>
                 <span className="text-gray-900">Custom Fields</span>
               </h3>
               <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 space-y-4">
@@ -443,7 +443,7 @@ export function AddEditPasswordModal({ entry, onClose, onSave }: AddEditPassword
                           type="text"
                           value={field.label}
                           onChange={(e) => updateCustomField(index, 'label', e.target.value)}
-                          className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 text-sm"
+                          className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary-light focus:border-primary transition-all duration-200 text-sm"
                           placeholder="Field name"
                         />
                       </div>
@@ -452,7 +452,7 @@ export function AddEditPasswordModal({ entry, onClose, onSave }: AddEditPassword
                         <select
                           value={field.type}
                           onChange={(e) => updateCustomField(index, 'type', e.target.value)}
-                          className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 text-sm"
+                          className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary-light focus:border-primary transition-all duration-200 text-sm"
                         >
                           <option value="text">Text</option>
                           <option value="password">Password</option>
@@ -466,7 +466,7 @@ export function AddEditPasswordModal({ entry, onClose, onSave }: AddEditPassword
                           type={field.type === 'password' && !field.isHidden ? 'password' : 'text'}
                           value={field.value}
                           onChange={(e) => updateCustomField(index, 'value', e.target.value)}
-                          className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 text-sm"
+                          className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary-light focus:border-primary transition-all duration-200 text-sm"
                           placeholder="Field value"
                         />
                       </div>
@@ -477,7 +477,7 @@ export function AddEditPasswordModal({ entry, onClose, onSave }: AddEditPassword
                 <button
                   type="button"
                   onClick={addCustomField}
-                  className="w-full flex items-center justify-center space-x-2 text-blue-600 hover:text-blue-800 hover:bg-blue-50 px-4 py-3 rounded-xl font-medium transition-all duration-200 border-2 border-dashed border-blue-300 hover:border-blue-400"
+                  className="w-full flex items-center justify-center space-x-2 text-primary hover:text-primary-dark hover:bg-primary-light px-4 py-3 rounded-xl font-medium transition-all duration-200 border-2 border-dashed border-primary-light hover:border-primary"
                 >
                   <Plus className="w-5 h-5" />
                   <span>Add Custom Field</span>
@@ -488,7 +488,7 @@ export function AddEditPasswordModal({ entry, onClose, onSave }: AddEditPassword
             {/* Notes */}
             <section>
               <h3 className="text-lg font-semibold text-gray-900 mb-6 flex items-center">
-                <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-semibold mr-3 shadow-md">5</span>
+                <span className="bg-gradient-to-r from-primary to-primary-dark text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-semibold mr-3 shadow-md">5</span>
                 <span className="text-gray-900">Additional Notes</span>
               </h3>
               <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
@@ -501,7 +501,7 @@ export function AddEditPasswordModal({ entry, onClose, onSave }: AddEditPassword
                     value={formData.notes}
                     onChange={(e) => handleInputChange('notes', e.target.value)}
                     rows={4}
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white text-sm resize-none"
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary-light focus:border-primary transition-all duration-200 bg-white text-sm resize-none"
                     placeholder="Additional notes, recovery information, or special instructions..."
                   />
                 </div>
@@ -522,7 +522,7 @@ export function AddEditPasswordModal({ entry, onClose, onSave }: AddEditPassword
             <button
               type="submit"
               form="password-form"
-              className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-700 text-white rounded-xl hover:from-blue-700 hover:to-purple-800 font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
+              className="px-8 py-3 bg-gradient-to-r from-primary to-primary-dark text-white rounded-xl hover:from-primary-hover hover:to-primary-dark font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               {isEditing ? 'Update Password' : 'Save Password'}
             </button>

@@ -179,7 +179,7 @@ export function CustomerServiceFeedbackModule() {
       <div className="flex justify-between items-center">
         <div>
           <h2 className="text-2xl font-bold text-gray-900 flex items-center">
-            <MessageSquare className="w-8 h-8 mr-3 text-indigo-600" />
+            <MessageSquare className="w-8 h-8 mr-3 text-primary" />
             Customer Service Feedback
           </h2>
           <p className="text-gray-600 mt-1">
@@ -221,8 +221,8 @@ export function CustomerServiceFeedbackModule() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center">
-            <div className="p-3 rounded-full bg-indigo-100">
-              <Link className="w-6 h-6 text-indigo-600" />
+            <div className="p-3 rounded-full bg-primary-light">
+              <Link className="w-6 h-6 text-primary" />
             </div>
             <div className="ml-4">
               <p className="text-sm font-medium text-gray-600">Total Links</p>
@@ -280,7 +280,7 @@ export function CustomerServiceFeedbackModule() {
 
       {/* Feedback Link Generator */}
       <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-        <div className="bg-gradient-to-r from-indigo-600 to-purple-700 px-6 py-4 text-white">
+        <div className="bg-gradient-to-r from-primary to-primary-dark px-6 py-4 text-white">
           <div className="flex items-center space-x-3">
             <div className="bg-white/20 rounded-full p-2">
               <Link className="w-6 h-6" />
@@ -301,7 +301,7 @@ export function CustomerServiceFeedbackModule() {
               <select
                 value={formData.staffName}
                 onChange={(e) => handleInputChange('staffName', e.target.value)}
-                className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 transition-all duration-200 bg-white shadow-sm"
+                className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-primary-light focus:border-primary transition-all duration-200 bg-white shadow-sm"
               >
                 <option value="">-- Select staff name --</option>
                 {staffNames.map(name => (
@@ -318,7 +318,7 @@ export function CustomerServiceFeedbackModule() {
                 type="text"
                 value={formData.customerName}
                 onChange={(e) => handleInputChange('customerName', e.target.value)}
-                className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 transition-all duration-200 bg-white shadow-sm"
+                className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-primary-light focus:border-primary transition-all duration-200 bg-white shadow-sm"
                 placeholder="Enter customer's full name"
                 required
               />
@@ -331,7 +331,7 @@ export function CustomerServiceFeedbackModule() {
               <select
                 value={formData.client}
                 onChange={(e) => handleInputChange('client', e.target.value)}
-                className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 transition-all duration-200 bg-white shadow-sm"
+                className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-primary-light focus:border-primary transition-all duration-200 bg-white shadow-sm"
                 required
               >
                 <option value="">-- Select client --</option>
@@ -351,7 +351,7 @@ export function CustomerServiceFeedbackModule() {
                 type="text"
                 value={formData.taskName}
                 onChange={(e) => handleInputChange('taskName', e.target.value)}
-                className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 transition-all duration-200 bg-white shadow-sm"
+                className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-primary-light focus:border-primary transition-all duration-200 bg-white shadow-sm"
                 placeholder="Enter the task or service provided"
               />
             </div>
@@ -360,7 +360,7 @@ export function CustomerServiceFeedbackModule() {
           <div className="mt-6 flex justify-center">
             <button
               onClick={generateFeedbackLink}
-              className="bg-gradient-to-r from-indigo-600 to-purple-700 hover:from-indigo-700 hover:to-purple-800 text-white px-8 py-3 rounded-xl font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center space-x-3"
+              className="bg-gradient-to-r from-primary to-primary-dark hover:from-primary-hover hover:to-primary-dark text-white px-8 py-3 rounded-xl font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center space-x-3"
             >
               <Link className="w-5 h-5" />
               <span>Generate Feedback Link</span>
@@ -436,8 +436,8 @@ export function CustomerServiceFeedbackModule() {
                   <tr key={link.id} className="hover:bg-gray-50 transition-colors">
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
-                        <div className="bg-indigo-100 rounded-full p-2 mr-3">
-                          <User className="w-4 h-4 text-indigo-600" />
+                        <div className="bg-primary-light rounded-full p-2 mr-3">
+                          <User className="w-4 h-4 text-primary" />
                         </div>
                         <div className="font-medium text-gray-900">{link.staffName}</div>
                       </div>
@@ -447,7 +447,7 @@ export function CustomerServiceFeedbackModule() {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                        link.client === 'CG' ? 'bg-blue-100 text-blue-800' :
+                        link.client === 'CG' ? 'bg-primary-light text-blue-800' :
                         link.client === 'GIL' ? 'bg-green-100 text-green-800' :
                         link.client === 'Coach' ? 'bg-purple-100 text-purple-800' :
                         link.client === 'Student' ? 'bg-yellow-100 text-yellow-800' :
@@ -470,7 +470,7 @@ export function CustomerServiceFeedbackModule() {
                         {!link.isUsed && (
                           <button
                             onClick={() => copyToClipboard(link.generatedLink.replace('http://localhost:5173', 'https://techassetmanagement.abledonline.com'))}
-                            className="text-indigo-600 hover:text-indigo-800 p-1 rounded hover:bg-indigo-50 transition-colors"
+                            className="text-primary hover:text-indigo-800 p-1 rounded hover:bg-indigo-50 transition-colors"
                             title="Copy Link"
                           >
                             <Copy className="w-4 h-4" />
@@ -544,7 +544,7 @@ export function CustomerServiceFeedbackModule() {
                       <div className="flex space-x-2">
                         <button
                           onClick={() => viewFeedbackResults(link.id)}
-                          className="text-blue-600 hover:text-blue-800 p-1 rounded hover:bg-blue-50 transition-colors"
+                          className="text-primary hover:text-primary-dark p-1 rounded hover:bg-blue-50 transition-colors"
                           title="View Feedback Results"
                         >
                           <MessageSquare className="w-4 h-4" />
@@ -553,7 +553,7 @@ export function CustomerServiceFeedbackModule() {
                           <>
                             <button
                               onClick={() => copyToClipboard(link.generatedLink)}
-                              className="text-indigo-600 hover:text-indigo-800 p-1 rounded hover:bg-indigo-50 transition-colors"
+                              className="text-primary hover:text-indigo-800 p-1 rounded hover:bg-indigo-50 transition-colors"
                               title="Copy Link"
                             >
                               <Copy className="w-4 h-4" />
@@ -584,7 +584,7 @@ export function CustomerServiceFeedbackModule() {
         {/* Client Distribution */}
         <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
           <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-            <Building className="w-5 h-5 mr-2 text-indigo-600" />
+            <Building className="w-5 h-5 mr-2 text-primary" />
             Feedback by Client
           </h3>
           <div className="space-y-3">
@@ -599,7 +599,7 @@ export function CustomerServiceFeedbackModule() {
                 <div key={client.value} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                   <div className="flex items-center space-x-3">
                     <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
-                      client.value === 'CG' ? 'bg-blue-100 text-blue-800' :
+                      client.value === 'CG' ? 'bg-primary-light text-blue-800' :
                       client.value === 'GIL' ? 'bg-green-100 text-green-800' :
                       client.value === 'Coach' ? 'bg-purple-100 text-purple-800' :
                       client.value === 'Student' ? 'bg-yellow-100 text-yellow-800' :
@@ -629,14 +629,14 @@ export function CustomerServiceFeedbackModule() {
         {/* Recent Activity */}
         <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
           <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-            <Calendar className="w-5 h-5 mr-2 text-indigo-600" />
+            <Calendar className="w-5 h-5 mr-2 text-primary" />
             Recent Activity
           </h3>
           <div className="space-y-3">
             {feedbackLinks.slice(0, 5).map((link) => (
               <div key={link.id} className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                <div className="bg-indigo-100 rounded-full p-2">
-                  <Link className="w-4 h-4 text-indigo-600" />
+                <div className="bg-primary-light rounded-full p-2">
+                  <Link className="w-4 h-4 text-primary" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-gray-900 truncate">
@@ -679,7 +679,7 @@ export function CustomerServiceFeedbackModule() {
                   />
                 ))}
               </div>
-              <span className="text-xl font-bold text-indigo-600">{averageRating.toFixed(1)}</span>
+              <span className="text-xl font-bold text-primary">{averageRating.toFixed(1)}</span>
             </div>
             <p className="text-sm text-gray-600">Based on {totalResponses} responses</p>
           </div>
@@ -768,7 +768,7 @@ export function CustomerServiceFeedbackModule() {
                         <h3 className="text-lg font-semibold text-gray-900 mb-4">Feedback Summary</h3>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                           <div className="bg-blue-50 rounded-lg p-4 text-center">
-                            <p className="text-sm text-blue-600 font-medium">Total Responses</p>
+                            <p className="text-sm text-primary font-medium">Total Responses</p>
                             <p className="text-2xl font-bold text-blue-900">{responses.length}</p>
                           </div>
                           <div className="bg-yellow-50 rounded-lg p-4 text-center">
@@ -805,8 +805,8 @@ export function CustomerServiceFeedbackModule() {
                             <div key={response.id} className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                               <div className="flex items-center justify-between mb-3">
                                 <div className="flex items-center space-x-3">
-                                  <div className="bg-blue-100 rounded-full p-2">
-                                    <User className="w-4 h-4 text-blue-600" />
+                                  <div className="bg-primary-light rounded-full p-2">
+                                    <User className="w-4 h-4 text-primary" />
                                   </div>
                                   <div>
                                     <p className="font-medium text-gray-900">

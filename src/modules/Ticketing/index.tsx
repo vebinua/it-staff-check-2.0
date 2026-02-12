@@ -156,7 +156,7 @@ const loadTickets = async () => {
   const getStatusColor = (status: TicketStatus) => {
     switch (status) {
       case 'open':
-        return 'bg-blue-100 text-blue-800';
+        return 'bg-primary-light text-blue-800';
       case 'in-progress':
         return 'bg-purple-100 text-purple-800';
       case 'pending-customer':
@@ -191,7 +191,7 @@ const loadTickets = async () => {
       <div className="flex justify-between items-center">
         <div>
           <h2 className="text-2xl font-bold text-gray-900 flex items-center">
-            <Ticket className="w-8 h-8 mr-3 text-indigo-600" />
+            <Ticket className="w-8 h-8 mr-3 text-primary" />
             Ticketing System
           </h2>
           <p className="text-gray-600 mt-1">
@@ -201,7 +201,7 @@ const loadTickets = async () => {
         {canManage && (
           <button 
             onClick={() => setShowCreateModal(true)}
-            className="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-200 transition-all flex items-center space-x-2 font-medium"
+            className="bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-hover focus:ring-4 focus:ring-primary-light transition-all flex items-center space-x-2 font-medium"
           >
             <Plus className="w-5 h-5" />
             <span>Create Ticket</span>
@@ -213,8 +213,8 @@ const loadTickets = async () => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center">
-            <div className="p-3 rounded-full bg-blue-100">
-              <Ticket className="w-6 h-6 text-blue-600" />
+            <div className="p-3 rounded-full bg-primary-light">
+              <Ticket className="w-6 h-6 text-primary" />
             </div>
             <div className="ml-4">
               <p className="text-sm font-medium text-gray-600">Total Tickets</p>
@@ -273,14 +273,14 @@ const loadTickets = async () => {
                   onClick={() => setSelectedView(view.id as any)}
                   className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-left transition-colors ${
                     selectedView === view.id
-                      ? 'bg-indigo-100 text-indigo-700'
+                      ? 'bg-primary-light text-primary-dark'
                       : 'text-gray-700 hover:bg-gray-100'
                   }`}
                 >
                   <span>{view.name}</span>
                   <span className={`px-2 py-1 rounded-full text-xs font-medium ${
                     selectedView === view.id
-                      ? 'bg-indigo-200 text-indigo-800'
+                      ? 'bg-primary-light text-primary-dark'
                       : 'bg-gray-200 text-gray-600'
                   }`}>
                     {view.count}
@@ -303,14 +303,14 @@ const loadTickets = async () => {
                   placeholder="Search tickets..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
                 />
               </div>
               
               <select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value)}
-                className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary focus:border-primary"
               >
                 <option value="all">All Status</option>
                 <option value="open">Open</option>
@@ -324,7 +324,7 @@ const loadTickets = async () => {
               <select
                 value={priorityFilter}
                 onChange={(e) => setPriorityFilter(e.target.value)}
-                className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary focus:border-primary"
               >
                 <option value="all">All Priority</option>
                 <option value="urgent">Urgent</option>
@@ -359,7 +359,7 @@ const loadTickets = async () => {
                     <div className="flex items-start justify-between">
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center space-x-3 mb-2">
-                          <span className="font-mono text-sm text-indigo-600 font-medium">
+                          <span className="font-mono text-sm text-primary font-medium">
                             {ticket.ticketNumber}
                           </span>
                           <div className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium border ${getPriorityColor(ticket.priority)}`}>

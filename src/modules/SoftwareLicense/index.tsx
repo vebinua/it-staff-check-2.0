@@ -182,7 +182,7 @@ export function SoftwareLicenseModule() {
   const getLicenseTypeColor = (type: string) => {
     switch (type) {
       case 'subscription':
-        return 'bg-blue-100 text-blue-800';
+        return 'bg-primary-light text-primary-dark';
       case 'perpetual':
         return 'bg-green-100 text-green-800';
       case 'volume':
@@ -209,7 +209,7 @@ export function SoftwareLicenseModule() {
       <div className="flex justify-between items-center">
         <div>
           <h2 className="text-2xl font-bold text-gray-900 flex items-center">
-            <Key className="w-8 h-8 mr-3 text-blue-600" />
+            <Key className="w-8 h-8 mr-3 text-primary" />
             Software License Management
           </h2>
           <p className="text-gray-600 mt-1">
@@ -222,7 +222,7 @@ export function SoftwareLicenseModule() {
               setShowAddModal(true);
               setEditingLicense(null);
             }}
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 transition-all flex items-center space-x-2 font-medium"
+            className="bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-hover focus:ring-4 focus:ring-primary-light transition-all flex items-center space-x-2 font-medium"
           >
             <Plus className="w-5 h-5" />
             <span>Add License</span>
@@ -234,8 +234,8 @@ export function SoftwareLicenseModule() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center">
-            <div className="p-3 rounded-full bg-blue-100">
-              <Key className="w-6 h-6 text-blue-600" />
+            <div className="p-3 rounded-full bg-primary-light">
+              <Key className="w-6 h-6 text-primary" />
             </div>
             <div className="ml-4">
               <p className="text-sm font-medium text-gray-600">Total Licenses</p>
@@ -325,7 +325,7 @@ export function SoftwareLicenseModule() {
                       </div>
                       <button
                         onClick={() => handleViewLicense(item)}
-                        className="text-blue-600 hover:text-blue-800 font-medium text-sm"
+                        className="text-primary hover:text-primary-dark font-medium text-sm"
                       >
                         View Details
                       </button>
@@ -354,14 +354,14 @@ export function SoftwareLicenseModule() {
               placeholder="Search licenses..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
             />
           </div>
           
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary focus:border-primary"
           >
             <option value="all">All Status</option>
             <option value="active">Active</option>
@@ -372,7 +372,7 @@ export function SoftwareLicenseModule() {
           <select
             value={typeFilter}
             onChange={(e) => setTypeFilter(e.target.value)}
-            className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary focus:border-primary"
           >
             <option value="all">All Types</option>
             <option value="subscription">Subscription</option>
@@ -490,7 +490,7 @@ export function SoftwareLicenseModule() {
                         </button>
                         <button 
                           onClick={() => handleEditLicense(license)}
-                          className="text-blue-600 hover:text-blue-800 p-1 rounded hover:bg-blue-50 transition-colors"
+                          className="text-primary hover:text-primary-dark p-1 rounded hover:bg-primary-light transition-colors"
                           title="Edit License"
                         >
                           <Edit className="w-4 h-4" />
@@ -518,7 +518,7 @@ export function SoftwareLicenseModule() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="bg-white p-4 rounded-lg">
             <h4 className="font-medium text-gray-900 mb-2">Total Investment</h4>
-            <p className="text-2xl font-bold text-blue-600">${totalCost.toLocaleString()}</p>
+            <p className="text-2xl font-bold text-primary">${totalCost.toLocaleString()}</p>
             <p className="text-sm text-gray-600">Across {licenses.length} software licenses</p>
           </div>
           <div className="bg-white p-4 rounded-lg">
