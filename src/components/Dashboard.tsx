@@ -164,6 +164,10 @@ export function Dashboard({ currentPage = 'dashboard', onNavigate }: DashboardPr
   };
 
   const handleModuleSelect = (moduleId: string) => {
+    // If we're not on dashboard, navigate back to dashboard first
+    if (currentPage !== 'dashboard') {
+      onNavigate?.('dashboard');
+    }
     setSelectedModule(moduleId);
   };
 
