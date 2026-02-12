@@ -335,14 +335,24 @@ export function AddChapmanCGLogModal({ entry, onClose, onSave, existingEntries }
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Technician's Name *
                   </label>
-                  <input
-                    type="text"
+                  <select
                     required
                     value={formData.technicianName}
                     onChange={(e) => handleInputChange('technicianName', e.target.value)}
                     className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white text-sm"
-                    placeholder="Enter technician's full name"
-                  />
+                  >
+                    <option value="">Select a technician</option>
+                    <option value="Abdullah Qasimi">Abdullah Qasimi</option>
+                    <option value="Ali Riad">Ali Riad</option>
+                    <option value="Jennelyn Barizo">Jennelyn Barizo</option>
+                    <option value="Jett Esguerra">Jett Esguerra</option>
+                    <option value="Joe Tuzara">Joe Tuzara</option>
+                    <option value="Miguel De Castro">Miguel De Castro</option>
+                    <option value="Mushtaq Hussain">Mushtaq Hussain</option>
+                    <option value="Nqobile Kagowa">Nqobile Kagowa</option>
+                    <option value="Samim Jawadi">Samim Jawadi</option>
+                    <option value="Samuel Chibuike">Samuel Chibuike</option>
+                  </select>
                 </div>
               </div>
             </section>
