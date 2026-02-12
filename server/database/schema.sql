@@ -2,6 +2,37 @@
 -- This schema includes all tables for the comprehensive IT management system
 
 -- ============================================
+-- STAFF MEMBERS
+-- ============================================
+
+CREATE TABLE IF NOT EXISTS staff (
+  id VARCHAR(36) PRIMARY KEY DEFAULT (UUID()),
+  name VARCHAR(100) NOT NULL,
+  department VARCHAR(100) DEFAULT NULL,
+  position VARCHAR(100) DEFAULT NULL,
+  email VARCHAR(255) DEFAULT NULL,
+  is_active BOOLEAN NOT NULL DEFAULT TRUE,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX idx_name (name),
+  INDEX idx_department (department),
+  INDEX idx_is_active (is_active)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Insert initial staff members
+INSERT IGNORE INTO staff (id, name, department, position) VALUES
+(UUID(), 'Abdullah Qasimi', 'IT', 'Technician'),
+(UUID(), 'Ali Riad', 'IT', 'Technician'),
+(UUID(), 'Jennelyn Barizo', 'IT', 'Associate Consultant'),
+(UUID(), 'Jett Esguerra', 'IT', 'Technician'),
+(UUID(), 'Joe Tuzara', 'IT', 'Technician'),
+(UUID(), 'Miguel De Castro', 'IT', 'Technician'),
+(UUID(), 'Mushtaq Hussain', 'IT', 'Technician'),
+(UUID(), 'Nqobile Kagowa', 'IT', 'Technician'),
+(UUID(), 'Samim Jawadi', 'IT', 'Technician'),
+(UUID(), 'Samuel Chibuike', 'IT', 'Technician');
+
+-- ============================================
 -- USERS AND AUTHENTICATION
 -- ============================================
 

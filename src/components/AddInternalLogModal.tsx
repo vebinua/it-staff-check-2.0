@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { X, Clock, User, FileText, Calendar } from 'lucide-react';
+import { apiClient } from '../lib/api';
+
+interface StaffMember {
+  id: string;
+  name: string;
+  department: string | null;
+  position: string | null;
+}
 
 interface InternalLogEntry {
   id: string;
@@ -30,7 +38,8 @@ interface AddInternalLogModalProps {
 
 export function AddInternalLogModal({ entry, onClose, onSave, existingEntries }: AddInternalLogModalProps) {
   const isEditing = !!entry;
-  
+  const [staffMembers, setStaffMembers] = useState<StaffMember[]>([]);
+
   const [formData, setFormData] = useState({
     clientName: '',
     subjectIssue: '',
@@ -44,6 +53,18 @@ export function AddInternalLogModal({ entry, onClose, onSave, existingEntries }:
     remarks: '',
     status: 'pending' as 'done' | 'pending' | 'on-hold',
   });
+
+  useEffect(() => {
+    const loadStaff = async () => {
+      try {
+        const staff = await apiClient.getStaff();
+        setStaffMembers(staff);
+      } catch (error) {
+        console.error('Error loading staff:', error);
+      }
+    };
+    loadStaff();
+  }, []);
 
   useEffect(() => {
     if (entry) {
@@ -341,16 +362,11 @@ export function AddInternalLogModal({ entry, onClose, onSave, existingEntries }:
                     className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-100 focus:border-green-500 transition-all duration-200 bg-white text-sm"
                   >
                     <option value="">Select a technician</option>
-                    <option value="Abdullah Qasimi">Abdullah Qasimi</option>
-                    <option value="Ali Riad">Ali Riad</option>
-                    <option value="Jennelyn Barizo">Jennelyn Barizo</option>
-                    <option value="Jett Esguerra">Jett Esguerra</option>
-                    <option value="Joe Tuzara">Joe Tuzara</option>
-                    <option value="Miguel De Castro">Miguel De Castro</option>
-                    <option value="Mushtaq Hussain">Mushtaq Hussain</option>
-                    <option value="Nqobile Kagowa">Nqobile Kagowa</option>
-                    <option value="Samim Jawadi">Samim Jawadi</option>
-                    <option value="Samuel Chibuike">Samuel Chibuike</option>
+                    {staffMembers.map((staff) => (
+                      <option key={staff.id} value={staff.name}>
+                        {staff.name}
+                      </option>
+                    ))}
                   </select>
                 </div>
               </div>

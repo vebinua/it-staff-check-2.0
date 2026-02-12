@@ -345,6 +345,34 @@ class ApiClient {
       body: JSON.stringify(data),
     });
   }
+
+  async getStaff() {
+    return this.request('/staff');
+  }
+
+  async getStaffMember(id: string) {
+    return this.request(`/staff/${id}`);
+  }
+
+  async createStaffMember(staff: any) {
+    return this.request('/staff', {
+      method: 'POST',
+      body: JSON.stringify(staff),
+    });
+  }
+
+  async updateStaffMember(id: string, staff: any) {
+    return this.request(`/staff/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify(staff),
+    });
+  }
+
+  async deleteStaffMember(id: string) {
+    return this.request(`/staff/${id}`, {
+      method: 'DELETE',
+    });
+  }
 }
 
 export const apiClient = new ApiClient();

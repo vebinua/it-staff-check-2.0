@@ -18,6 +18,7 @@ const licensesRoutes = require('./routes/licenses');
 const passwordsRoutes = require('./routes/passwords');
 const ticketsRoutes = require('./routes/tickets');
 const feedbackRoutes = require('./routes/feedback');
+const staffRoutes = require('./routes/staff');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -40,6 +41,7 @@ app.use('/api/licenses', licensesRoutes);
 app.use('/api/passwords', passwordsRoutes);
 app.use('/api/tickets', ticketsRoutes);
 app.use('/api/feedback', feedbackRoutes);
+app.use('/api/staff', staffRoutes);
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {

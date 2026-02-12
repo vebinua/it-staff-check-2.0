@@ -3,6 +3,14 @@ import { X, AlertTriangle, Plus, Trash2 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { ITCheckEntry, SpeedTest, InstalledApp, DEPARTMENTS, WINDOWS_OS_OPTIONS, MAC_OS_OPTIONS, INTEL_SERIES, AMD_SERIES, GENERATIONS, MAC_PROCESSORS, MEMORY_OPTIONS, STORAGE_OPTIONS } from '../types';
 import { validateEntry } from '../utils/validation';
+import { apiClient } from '../lib/api';
+
+interface StaffMember {
+  id: string;
+  name: string;
+  department: string | null;
+  position: string | null;
+}
 
 interface AddEditEntryModalProps {
   entry: ITCheckEntry | null;
@@ -12,6 +20,7 @@ interface AddEditEntryModalProps {
 export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
   const { addEntry, updateEntry } = useApp();
   const isEditing = !!entry;
+  const [staffMembers, setStaffMembers] = useState<StaffMember[]>([]);
 
   // Form state
   const [formData, setFormData] = useState({
@@ -41,6 +50,18 @@ export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
     storage: '',
     pcModel: '',
   });
+
+  useEffect(() => {
+    const loadStaff = async () => {
+      try {
+        const staff = await apiClient.getStaff();
+        setStaffMembers(staff);
+      } catch (error) {
+        console.error('Error loading staff:', error);
+      }
+    };
+    loadStaff();
+  }, []);
 
   // Initialize form with entry data if editing
  useEffect(() => {
@@ -296,14 +317,19 @@ export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Staff Name *
                 </label>
-                <input
-                  type="text"
+                <select
                   required
                   value={formData.name}
                   onChange={(e) => handleInputChange('name', e.target.value)}
                   className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
-                  placeholder="Enter staff member's full name"
-                />
+                >
+                  <option value="">Select Staff Member</option>
+                  {staffMembers.map((staff) => (
+                    <option key={staff.id} value={staff.name}>
+                      {staff.name}
+                    </option>
+                  ))}
+                </select>
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
