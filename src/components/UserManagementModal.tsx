@@ -626,7 +626,7 @@ export function UserManagementModal({ onClose }: UserManagementModalProps) {
           )}
 
           {/* Users List */}
-          <div className="bg-white border-2 border-gray-100 rounded-2xl overflow-hidden shadow-lg">
+          <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-lg">
             <div className="bg-gradient-to-r from-gray-50 to-gray-100 px-8 py-6 border-b border-gray-200">
               <div className="flex items-center space-x-3">
                 <Users className="w-6 h-6 text-gray-600" />
@@ -764,7 +764,7 @@ export function UserManagementModal({ onClose }: UserManagementModalProps) {
           </div>
 
           {/* Security Notice */}
-          <div className="mt-8 bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-200 rounded-2xl p-6">
+          <div className="mt-8 bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-2xl p-6">
             <div className="flex items-start space-x-3">
               <div className="bg-amber-100 rounded-full p-2 mt-1">
                 <Shield className="w-5 h-5 text-amber-600" />
