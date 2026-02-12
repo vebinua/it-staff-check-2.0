@@ -7,23 +7,12 @@ import { Dashboard } from './components/Dashboard';
 import { FeedbackForm } from './components/FeedbackForm';
 import { UsersPage } from './pages/UsersPage';
 import { ActivityLogPage } from './pages/ActivityLogPage';
-import { AddEditEntryModal } from './components/AddEditEntryModal';
-import { EmailModal } from './components/EmailModal';
-import { ViewDetailsModal } from './components/ViewDetailsModal';
-import { ITCheckEntry } from './types';
 
 type PageType = 'dashboard' | 'users' | 'activity';
 
 function AppContent() {
   const { state } = useApp();
   const [currentPage, setCurrentPage] = useState<PageType>('dashboard');
-
-  // Lifted modal states from Dashboard
-  const [showAddModal, setShowAddModal] = useState(false);
-  const [editingEntry, setEditingEntry] = useState<ITCheckEntry | null>(null);
-  const [emailEntry, setEmailEntry] = useState<ITCheckEntry | null>(null);
-  const [viewingEntry, setViewingEntry] = useState<ITCheckEntry | null>(null);
-  const [selectedModule, setSelectedModule] = useState<string | null>(null);
 
   // Check if this is a feedback form URL
   const urlParams = new URLSearchParams(window.location.search);
@@ -111,20 +100,7 @@ function AppContent() {
         return <ActivityLogPage onBack={() => setCurrentPage('dashboard')} />;
       case 'dashboard':
       default:
-        return (
-          <Dashboard
-            showAddModal={showAddModal}
-            setShowAddModal={setShowAddModal}
-            editingEntry={editingEntry}
-            setEditingEntry={setEditingEntry}
-            emailEntry={emailEntry}
-            setEmailEntry={setEmailEntry}
-            viewingEntry={viewingEntry}
-            setViewingEntry={setViewingEntry}
-            selectedModule={selectedModule}
-            setSelectedModule={setSelectedModule}
-          />
-        );
+        return <Dashboard />;
     }
   };
 
@@ -134,31 +110,6 @@ function AppContent() {
       <main className={currentPage === 'dashboard' ? '' : 'h-[calc(100vh-4rem)]'}>
         {renderPage()}
       </main>
-
-      {/* Persistent modals that remain visible across page navigation */}
-      {(showAddModal || editingEntry) && (
-        <AddEditEntryModal
-          entry={editingEntry || undefined}
-          onClose={() => {
-            setShowAddModal(false);
-            setEditingEntry(null);
-          }}
-        />
-      )}
-
-      {emailEntry && (
-        <EmailModal
-          entry={emailEntry}
-          onClose={() => setEmailEntry(null)}
-        />
-      )}
-
-      {viewingEntry && (
-        <ViewDetailsModal
-          entry={viewingEntry}
-          onClose={() => setViewingEntry(null)}
-        />
-      )}
     </div>
   );
 }

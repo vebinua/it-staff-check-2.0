@@ -2,35 +2,19 @@ import React, { useState } from 'react';
 import { Plus, Edit, Trash2, Mail, Search, Filter, CheckCircle, XCircle, Eye, Package, Wrench, Key, BarChart3, Shield, TrendingUp, Building2, DollarSign, FileCheck, Scan, ChevronRight, Users, Activity, AlertTriangle } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { ITCheckEntry } from '../types';
+import { AddEditEntryModal } from './AddEditEntryModal';
+import { EmailModal } from './EmailModal';
+import { ViewDetailsModal } from './ViewDetailsModal';
 import { ModuleContainer } from './ModuleContainer';
 import { AVAILABLE_MODULES, getEnabledModules } from '../modules';
 
-interface DashboardProps {
-  showAddModal: boolean;
-  setShowAddModal: (show: boolean) => void;
-  editingEntry: ITCheckEntry | null;
-  setEditingEntry: (entry: ITCheckEntry | null) => void;
-  emailEntry: ITCheckEntry | null;
-  setEmailEntry: (entry: ITCheckEntry | null) => void;
-  viewingEntry: ITCheckEntry | null;
-  setViewingEntry: (entry: ITCheckEntry | null) => void;
-  selectedModule: string | null;
-  setSelectedModule: (module: string | null) => void;
-}
-
-export function Dashboard({
-  showAddModal,
-  setShowAddModal,
-  editingEntry,
-  setEditingEntry,
-  emailEntry,
-  setEmailEntry,
-  viewingEntry,
-  setViewingEntry,
-  selectedModule,
-  setSelectedModule
-}: DashboardProps) {
+export function Dashboard() {
   const { state, deleteEntry, logActivity } = useApp();
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [editingEntry, setEditingEntry] = useState<ITCheckEntry | null>(null);
+  const [emailEntry, setEmailEntry] = useState<ITCheckEntry | null>(null);
+  const [viewingEntry, setViewingEntry] = useState<ITCheckEntry | null>(null);
+  const [selectedModule, setSelectedModule] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState<'all' | 'passed' | 'failed'>('all');
   const [departmentFilter, setDepartmentFilter] = useState<string>('all');
