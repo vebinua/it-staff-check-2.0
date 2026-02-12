@@ -165,9 +165,9 @@ export function Dashboard() {
   };
 
   return (
-    <div className="flex h-screen bg-gray-50">
+    <div className="flex h-screen bg-mint-100">
       {/* Sidebar */}
-      <div className="w-80 bg-white shadow-lg border-r border-gray-200 flex flex-col">
+      <div className="w-80 bg-mint-100 shadow-lg border-r border-gray-200 flex flex-col">
         <div className="p-6 border-b border-gray-200">
           <h2 className="text-xl font-bold text-gray-900">System Modules</h2>
           <p className="text-sm text-gray-600 mt-1">Available features and tools</p>
@@ -187,7 +187,7 @@ export function Dashboard() {
                   className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-all duration-200 ${
                     isSelected
                       ? 'bg-primary text-white shadow-lg'
-                      : 'text-gray-700 hover:bg-gray-100'
+                      : 'text-gray-700 hover:bg-mint-50'
                   }`}
                 >
                   <IconComponent className="w-5 h-5 flex-shrink-0" />
