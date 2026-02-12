@@ -107,33 +107,43 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   const initializeApp = async () => {
     dispatch({ type: 'SET_LOADING', payload: true });
-    
+
     try {
-      // Check if user is already logged in
-      const token = localStorage.getItem('authToken');
-      if (token) {
-        try {
-          const { user } = await apiClient.getCurrentUser();
-          dispatch({ type: 'LOGIN', payload: user });
-          await loadAppData();
-        } catch (error) {
-          // Token is invalid, clear it
-          apiClient.clearToken();
-          // Fall back to mock data if database connection fails
-          console.log('Database not available, using mock data');
-          loadMockData();
-        }
-      } else {
-        // No token, try to load from database anyway to test connection
-        try {
-          // Just test the connection without authentication
-          await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:3001/api'}/health`);
-          console.log('Database connection available');
-        } catch (error) {
-          console.log('Database not available, using mock data');
-          loadMockData();
-        }
-      }
+      // TEMPORARY BYPASS: Auto-login with mock user
+      const mockUser: User = {
+        id: 'bypass-user',
+        username: 'admin',
+        password: '',
+        name: 'Admin User',
+        role: 'global-admin',
+        modules: [],
+        createdAt: new Date().toISOString(),
+      };
+
+      dispatch({ type: 'LOGIN', payload: mockUser });
+      loadMockData();
+
+      // Original authentication logic (commented out for bypass)
+      // const token = localStorage.getItem('authToken');
+      // if (token) {
+      //   try {
+      //     const { user } = await apiClient.getCurrentUser();
+      //     dispatch({ type: 'LOGIN', payload: user });
+      //     await loadAppData();
+      //   } catch (error) {
+      //     apiClient.clearToken();
+      //     console.log('Database not available, using mock data');
+      //     loadMockData();
+      //   }
+      // } else {
+      //   try {
+      //     await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:3001/api'}/health`);
+      //     console.log('Database connection available');
+      //   } catch (error) {
+      //     console.log('Database not available, using mock data');
+      //     loadMockData();
+      //   }
+      // }
     } catch (error) {
       console.error('Error initializing app:', error);
       // Fall back to mock data
