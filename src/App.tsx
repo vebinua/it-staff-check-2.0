@@ -5,14 +5,19 @@ import { LoginForm } from './components/LoginForm';
 import { Header } from './components/Header';
 import { Dashboard } from './components/Dashboard';
 import { FeedbackForm } from './components/FeedbackForm';
+import { UsersPage } from './pages/UsersPage';
+import { ActivityLogPage } from './pages/ActivityLogPage';
+
+type PageType = 'dashboard' | 'users' | 'activity';
 
 function AppContent() {
   const { state } = useApp();
-  
+  const [currentPage, setCurrentPage] = useState<PageType>('dashboard');
+
   // Check if this is a feedback form URL
   const urlParams = new URLSearchParams(window.location.search);
   const feedbackId = urlParams.get('id');
-  
+
   const [feedbackData, setFeedbackData] = useState<any>(null);
   const [feedbackLoading, setFeedbackLoading] = useState(true);
 
@@ -87,11 +92,23 @@ function AppContent() {
     return <LoginForm />;
   }
 
+  const renderPage = () => {
+    switch (currentPage) {
+      case 'users':
+        return <UsersPage onBack={() => setCurrentPage('dashboard')} />;
+      case 'activity':
+        return <ActivityLogPage onBack={() => setCurrentPage('dashboard')} />;
+      case 'dashboard':
+      default:
+        return <Dashboard />;
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header />
-      <main>
-        <Dashboard />
+      <Header onNavigate={setCurrentPage} currentPage={currentPage} />
+      <main className={currentPage === 'dashboard' ? '' : 'h-[calc(100vh-4rem)]'}>
+        {renderPage()}
       </main>
     </div>
   );

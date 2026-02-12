@@ -1,13 +1,14 @@
 import React from 'react';
 import { LogOut, User, Shield, Settings, Activity } from 'lucide-react';
 import { useApp } from '../context/AppContext';
-import { UserManagementModal } from './UserManagementModal';
-import { ActivityLogModal } from './ActivityLogModal';
 
-export function Header() {
+interface HeaderProps {
+  onNavigate: (page: 'dashboard' | 'users' | 'activity') => void;
+  currentPage: 'dashboard' | 'users' | 'activity';
+}
+
+export function Header({ onNavigate, currentPage }: HeaderProps) {
   const { state, logout, migrateLocalDataToDatabase } = useApp();
-  const [showUserManagement, setShowUserManagement] = React.useState(false);
-  const [showActivityLog, setShowActivityLog] = React.useState(false);
   const [showMigrationModal, setShowMigrationModal] = React.useState(false);
 
   const isAdmin = state.currentUser?.role === 'admin';
@@ -48,8 +49,12 @@ export function Header() {
             
             {isGlobalAdmin && (
               <button
-                onClick={() => setShowUserManagement(true)}
-                className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors h-9 text-sm"
+                onClick={() => onNavigate('users')}
+                className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-colors h-9 text-sm ${
+                  currentPage === 'users'
+                    ? 'bg-blue-100 text-blue-700'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                }`}
                 title="Manage Users"
               >
                 <Settings className="w-5 h-5" />
@@ -59,8 +64,12 @@ export function Header() {
 
             {isGlobalAdmin && (
               <button
-                onClick={() => setShowActivityLog(true)}
-                className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors h-9 text-sm"
+                onClick={() => onNavigate('activity')}
+                className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-colors h-9 text-sm ${
+                  currentPage === 'activity'
+                    ? 'bg-blue-100 text-blue-700'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                }`}
                 title="View Activity Log"
               >
                 <Activity className="w-5 h-5" />
@@ -79,26 +88,18 @@ export function Header() {
         </div>
       </div>
 
-      {showUserManagement && (
-        <UserManagementModal onClose={() => setShowUserManagement(false)} />
-      )}
-
-      {showActivityLog && (
-        <ActivityLogModal onClose={() => setShowActivityLog(false)} />
-      )}
-
       {showMigrationModal && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Migrate Local Data</h3>
-            <p className="text-gray-600 mb-6">
-              This will transfer your local sample data to the MySQL database. 
+            <p className="text-sm text-gray-600 mb-6">
+              This will transfer your local sample data to the MySQL database.
               Make sure your database is connected first.
             </p>
             <div className="flex justify-end space-x-3">
               <button
                 onClick={() => setShowMigrationModal(false)}
-                className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50"
+                className="h-10 px-4 py-2 text-sm border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50"
               >
                 Cancel
               </button>
@@ -107,7 +108,7 @@ export function Header() {
                   setShowMigrationModal(false);
                   await migrateLocalDataToDatabase();
                 }}
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+                className="h-10 px-4 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700"
               >
                 Migrate Data
               </button>
