@@ -73,12 +73,12 @@ PC Type: ${entry.computerType === 'Windows' ? 'Desktop/Laptop' : 'Mac'}`;
             onClick={onClose}
             className="text-gray-400 hover:text-gray-600 transition-colors"
           >
-            <X className="w-6 h-6" />
+            <X className="w-5 h-5" />
           </button>
         </div>
 
         <div className="p-6">
-          <div className="mb-6">
+          <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Subject
             </label>
@@ -86,11 +86,11 @@ PC Type: ${entry.computerType === 'Windows' ? 'Desktop/Laptop' : 'Mac'}`;
               type="text"
               value={subject}
               readOnly
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 bg-gray-50 text-gray-900"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm bg-gray-50 text-gray-900"
             />
           </div>
 
-          <div className="mb-6">
+          <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Email Body
             </label>
@@ -98,14 +98,14 @@ PC Type: ${entry.computerType === 'Windows' ? 'Desktop/Laptop' : 'Mac'}`;
               value={body}
               readOnly
               rows={20}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 bg-gray-50 text-gray-900 font-mono text-sm"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 bg-gray-50 text-gray-900 font-mono text-xs"
             />
           </div>
 
-          <div className="flex justify-end space-x-4">
+          <div className="flex justify-end space-x-3">
             <button
               onClick={copyToClipboard}
-              className="flex items-center space-x-2 px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 focus:ring-4 focus:ring-gray-200 transition-all"
+              className="flex items-center space-x-2 h-10 px-4 py-2 border border-gray-300 text-gray-700 text-sm rounded-lg hover:bg-gray-50 focus:ring-2 focus:ring-gray-200 transition-all"
             >
               <Copy className="w-4 h-4" />
               <span>Copy to Clipboard</span>
@@ -113,7 +113,7 @@ PC Type: ${entry.computerType === 'Windows' ? 'Desktop/Laptop' : 'Mac'}`;
             <a
               href={mailtoLink}
               onClick={handleEmailClick}
-              className="flex items-center space-x-2 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 transition-all font-medium"
+              className="flex items-center space-x-2 h-10 px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 focus:ring-2 focus:ring-blue-200 transition-all font-medium"
             >
               <Mail className="w-4 h-4" />
               <span>Open in Email Client</span>

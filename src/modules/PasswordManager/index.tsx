@@ -216,7 +216,7 @@ export function PasswordManagerModule() {
           <div className="flex space-x-3">
             <button 
               onClick={() => setShowGenerator(true)}
-              className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 focus:ring-4 focus:ring-green-200 transition-all flex items-center space-x-2 font-medium text-sm"
+              className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 focus:ring-4 focus:ring-green-200 transition-all flex items-center space-x-2 text-sm font-medium h-10"
             >
               <Zap className="w-4 h-4" />
               <span>Generate Password</span>
@@ -226,7 +226,7 @@ export function PasswordManagerModule() {
                 setShowAddModal(true);
                 setEditingPassword(null);
               }}
-              className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 transition-all flex items-center space-x-2 font-medium text-sm"
+              className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 transition-all flex items-center space-x-2 text-sm font-medium h-10"
             >
               <Plus className="w-4 h-4" />
               <span>Add Password</span>
@@ -239,8 +239,8 @@ export function PasswordManagerModule() {
       <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-2 border-blue-200 rounded-2xl p-6">
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center space-x-3">
-            <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-full p-3">
-              <Shield className="w-8 h-8 text-white" />
+            <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-full p-2">
+              <Shield className="w-6 h-6 text-white" />
             </div>
             <div>
               <h3 className="text-xl font-bold text-blue-900">Vault Health Score</h3>
@@ -417,14 +417,14 @@ export function PasswordManagerModule() {
                   placeholder="Search passwords..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm h-10"
                 />
               </div>
               
               <select
                 value={tagFilter}
                 onChange={(e) => setTagFilter(e.target.value)}
-                className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm h-10"
               >
                 <option value="all">All Tags</option>
                 {allTags.map(tag => (
@@ -435,7 +435,7 @@ export function PasswordManagerModule() {
               <select
                 value={securityFilter}
                 onChange={(e) => setSecurityFilter(e.target.value)}
-                className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm h-10"
               >
                 <option value="all">All Security</option>
                 <option value="strong">Strong Passwords</option>
@@ -465,11 +465,11 @@ export function PasswordManagerModule() {
                   return (
                     <div
                       key={password.id}
-                      className="p-6 hover:bg-gray-50 transition-colors"
+                      className="p-4 hover:bg-gray-50 transition-colors"
                     >
                       <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-4 flex-1 min-w-0">
-                          <div className={`w-12 h-12 rounded-full ${password.category?.color || 'bg-gray-400'} flex items-center justify-center text-white font-bold text-lg`}>  
+                          <div className={`w-10 h-10 rounded-full ${password.category?.color || 'bg-gray-400'} flex items-center justify-center text-white font-bold text-base`}>  
                             {password.title?.charAt(0).toUpperCase() || '?'}
                           </div>
                           

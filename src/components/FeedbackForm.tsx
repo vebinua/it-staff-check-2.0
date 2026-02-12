@@ -49,7 +49,7 @@ export function FeedbackForm({ linkId, staffName, customerName, client, taskName
   if (submitted) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 flex items-center justify-center p-4">
-        <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-8 text-center">
+        <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-6 text-center">
           <div className="bg-green-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
             <CheckCircle className="w-10 h-10 text-green-600" />
           </div>
@@ -69,18 +69,18 @@ export function FeedbackForm({ linkId, staffName, customerName, client, taskName
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl p-8">
-        <div className="text-center mb-8">
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl p-6">
+        <div className="text-center mb-6">
           <div className="bg-blue-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
             <MessageSquare className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Service Feedback</h1>
-          <p className="text-gray-600">We'd love to hear about your experience</p>
+          <h1 className="text-2xl font-bold text-gray-900 mb-2">Service Feedback</h1>
+          <p className="text-sm text-gray-600">We'd love to hear about your experience</p>
         </div>
 
         {/* Service Details */}
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 mb-8 border border-blue-200">
-          <h2 className="text-lg font-semibold text-blue-900 mb-4">Service Details</h2>
+        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 mb-6 border border-blue-200">
+          <h2 className="text-xl font-semibold text-blue-900 mb-4">Service Details</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="flex items-center space-x-3">
               <User className="w-5 h-5 text-blue-600" />
@@ -113,10 +113,10 @@ export function FeedbackForm({ linkId, staffName, customerName, client, taskName
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-4">
           {/* Rating Section */}
           <div>
-            <label className="block text-lg font-semibold text-gray-900 mb-4 text-center">
+            <label className="block text-base font-semibold text-gray-900 mb-3 text-center">
               How would you rate the service you received?
             </label>
             <div className="flex justify-center space-x-2 mb-2">
@@ -127,10 +127,10 @@ export function FeedbackForm({ linkId, staffName, customerName, client, taskName
                   onClick={() => setRating(star)}
                   onMouseEnter={() => setHoveredRating(star)}
                   onMouseLeave={() => setHoveredRating(0)}
-                  className="p-2 transition-transform hover:scale-110"
+                  className="p-1 transition-transform hover:scale-110"
                 >
                   <Star
-                    className={`w-12 h-12 transition-colors ${
+                    className={`w-10 h-10 transition-colors ${
                       star <= (hoveredRating || rating)
                         ? 'text-yellow-400 fill-current'
                         : 'text-gray-300 hover:text-yellow-200'
@@ -160,14 +160,14 @@ export function FeedbackForm({ linkId, staffName, customerName, client, taskName
               value={comments}
               onChange={(e) => setComments(e.target.value)}
               rows={4}
-              className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 resize-none"
+              className="w-full text-sm border-2 border-gray-200 rounded-xl px-3 py-2 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 resize-none"
               placeholder="Please share any additional feedback about the service you received..."
             />
           </div>
 
           {/* Client Information */}
           <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Your Information (Optional)</h3>
+            <h3 className="text-base font-semibold text-gray-900 mb-4">Your Information (Optional)</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -177,7 +177,7 @@ export function FeedbackForm({ linkId, staffName, customerName, client, taskName
                   type="text"
                   value={clientInfo.name}
                   onChange={(e) => setClientInfo(prev => ({ ...prev, name: e.target.value }))}
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+                  className="w-full h-10 text-sm border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
                   placeholder="Enter your name"
                 />
               </div>
@@ -189,7 +189,7 @@ export function FeedbackForm({ linkId, staffName, customerName, client, taskName
                   type="email"
                   value={clientInfo.email}
                   onChange={(e) => setClientInfo(prev => ({ ...prev, email: e.target.value }))}
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+                  className="w-full h-10 text-sm border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
                   placeholder="Enter your email"
                 />
               </div>
@@ -201,7 +201,7 @@ export function FeedbackForm({ linkId, staffName, customerName, client, taskName
                   type="text"
                   value={clientInfo.company}
                   onChange={(e) => setClientInfo(prev => ({ ...prev, company: e.target.value }))}
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+                  className="w-full h-10 text-sm border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
                   placeholder="Enter your company or organization"
                 />
               </div>
@@ -212,9 +212,9 @@ export function FeedbackForm({ linkId, staffName, customerName, client, taskName
           <div className="text-center pt-4">
             <button
               type="submit"
-              className="bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center space-x-3 mx-auto"
+              className="h-10 bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white text-sm px-6 py-2 rounded-xl font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center space-x-2 mx-auto"
             >
-              <Send className="w-5 h-5" />
+              <Send className="w-4 h-4" />
               <span>Submit Feedback</span>
             </button>
           </div>

@@ -168,7 +168,7 @@ export function AddEditPasswordModal({ entry, onClose, onSave }: AddEditPassword
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden border border-gray-100 flex flex-col">
         {/* Header */}
-        <div className="bg-gradient-to-r from-blue-600 to-purple-700 px-8 py-6 text-white">
+        <div className="bg-gradient-to-r from-blue-600 to-purple-700 px-8 py-4 text-white">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-4">
               <div className="bg-white/20 rounded-full p-2">
@@ -187,16 +187,16 @@ export function AddEditPasswordModal({ entry, onClose, onSave }: AddEditPassword
               onClick={onClose}
               className="text-white/80 hover:text-white hover:bg-white/20 rounded-full p-2 transition-all duration-200"
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5" />
             </button>
           </div>
         </div>
 
         <div className="overflow-y-auto flex-1 min-h-0">
-          <form id="password-form" onSubmit={handleSubmit} className="p-8 space-y-8">
+          <form id="password-form" onSubmit={handleSubmit} className="p-6 space-y-4">
             {/* Basic Information */}
             <section>
-              <h3 className="text-lg font-semibold text-gray-900 mb-6 flex items-center">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
                 <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-semibold mr-3 shadow-md">1</span>
                 <span className="text-gray-900">Basic Information</span>
               </h3>
@@ -264,7 +264,7 @@ export function AddEditPasswordModal({ entry, onClose, onSave }: AddEditPassword
 
             {/* Password Section */}
             <section>
-              <h3 className="text-lg font-semibold text-gray-900 mb-6 flex items-center">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
                 <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-semibold mr-3 shadow-md">2</span>
                 <span className="text-gray-900">Password</span>
               </h3>
@@ -277,7 +277,7 @@ export function AddEditPasswordModal({ entry, onClose, onSave }: AddEditPassword
                     <button
                       type="button"
                       onClick={() => setShowGenerator(true)}
-                      className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 hover:bg-blue-50 px-3 py-1 rounded-lg transition-all text-sm"
+                      className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 hover:bg-blue-50 px-3 py-1 rounded-lg transition-all text-sm font-medium"
                     >
                       <Zap className="w-4 h-4" />
                       <span>Generate</span>
@@ -289,7 +289,7 @@ export function AddEditPasswordModal({ entry, onClose, onSave }: AddEditPassword
                       required
                       value={formData.password}
                       onChange={(e) => handleInputChange('password', e.target.value)}
-                      className="w-full border border-gray-300 rounded-lg px-3 py-2 pr-10 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white text-sm font-mono"
+                      className="w-full h-10 border border-gray-300 rounded-lg px-3 py-2 pr-10 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white text-sm font-mono"
                       placeholder="Enter or generate a password"
                     />
                     <button
@@ -343,7 +343,7 @@ export function AddEditPasswordModal({ entry, onClose, onSave }: AddEditPassword
 
             {/* Category and Organization */}
             <section>
-              <h3 className="text-lg font-semibold text-gray-900 mb-6 flex items-center">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
                 <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-semibold mr-3 shadow-md">3</span>
                 <span className="text-gray-900">Category & Organization</span>
               </h3>
@@ -356,7 +356,7 @@ export function AddEditPasswordModal({ entry, onClose, onSave }: AddEditPassword
                     {DEFAULT_CATEGORIES.map((category) => (
                         <label
                           key={category.id}
-                          className={`flex items-center space-x-3 p-3 rounded-lg border-2 cursor-pointer transition-all duration-200 ${
+                          className={`flex items-center space-x-3 p-3 rounded-lg border cursor-pointer transition-all duration-200 ${
                             formData.category === category.id
                               ? `${category.color} text-white border-current`
                               : 'border-gray-200 bg-white hover:border-gray-300'
@@ -418,7 +418,7 @@ export function AddEditPasswordModal({ entry, onClose, onSave }: AddEditPassword
 
             {/* Custom Fields */}
             <section>
-              <h3 className="text-lg font-semibold text-gray-900 mb-6 flex items-center">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
                 <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-semibold mr-3 shadow-md">4</span>
                 <span className="text-gray-900">Custom Fields</span>
               </h3>
@@ -473,13 +473,13 @@ export function AddEditPasswordModal({ entry, onClose, onSave }: AddEditPassword
                     </div>
                   </div>
                 ))}
-                
+
                 <button
                   type="button"
                   onClick={addCustomField}
-                  className="w-full flex items-center justify-center space-x-2 text-blue-600 hover:text-blue-800 hover:bg-blue-50 px-4 py-3 rounded-xl font-medium transition-all duration-200 border-2 border-dashed border-blue-300 hover:border-blue-400"
+                  className="w-full h-10 flex items-center justify-center space-x-2 text-blue-600 hover:text-blue-800 hover:bg-blue-50 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 border border-dashed border-blue-300 hover:border-blue-400"
                 >
-                  <Plus className="w-5 h-5" />
+                  <Plus className="w-4 h-4" />
                   <span>Add Custom Field</span>
                 </button>
               </div>
@@ -487,7 +487,7 @@ export function AddEditPasswordModal({ entry, onClose, onSave }: AddEditPassword
 
             {/* Notes */}
             <section>
-              <h3 className="text-lg font-semibold text-gray-900 mb-6 flex items-center">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
                 <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-semibold mr-3 shadow-md">5</span>
                 <span className="text-gray-900">Additional Notes</span>
               </h3>
@@ -511,18 +511,18 @@ export function AddEditPasswordModal({ entry, onClose, onSave }: AddEditPassword
         </div>
 
         {/* Footer */}
-        <div className="bg-gray-50 px-8 py-6 border-t border-gray-200 flex-shrink-0">
+        <div className="bg-gray-50 px-8 py-4 border-t border-gray-200 flex-shrink-0">
           <div className="flex justify-end space-x-4">
             <button
               onClick={onClose}
-              className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-xl hover:bg-gray-100 hover:border-gray-400 font-medium transition-all duration-200"
+              className="h-10 px-4 py-2 border border-gray-300 text-gray-700 rounded-xl hover:bg-gray-100 hover:border-gray-400 text-sm font-medium transition-all duration-200"
             >
               Cancel
             </button>
             <button
               type="submit"
               form="password-form"
-              className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-700 text-white rounded-xl hover:from-blue-700 hover:to-purple-800 font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
+              className="h-10 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-700 text-white rounded-xl hover:from-blue-700 hover:to-purple-800 text-sm font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               {isEditing ? 'Update Password' : 'Save Password'}
             </button>

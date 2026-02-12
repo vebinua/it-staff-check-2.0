@@ -168,7 +168,7 @@ export function Dashboard() {
     <div className="flex h-screen bg-gray-50">
       {/* Sidebar */}
       <div className="w-80 bg-white shadow-lg border-r border-gray-200 flex flex-col">
-        <div className="p-6 border-b border-gray-200">
+        <div className="p-5 border-b border-gray-200">
           <h2 className="text-xl font-bold text-gray-900">System Modules</h2>
           <p className="text-sm text-gray-600 mt-1">Available features and tools</p>
         </div>
@@ -256,7 +256,7 @@ export function Dashboard() {
                   }
                   return (
                     <div className="text-center py-12">
-                      <h2 className="text-2xl font-bold text-gray-900 mb-4">Module Not Found</h2>
+                      <h2 className="text-xl font-bold text-gray-900 mb-4">Module Not Found</h2>
                       <p className="text-gray-600">The requested module could not be loaded.</p>
                     </div>
                   );
@@ -268,11 +268,11 @@ export function Dashboard() {
                 {analyticsData && (
                   <div className="space-y-6">
                     {/* System Health Overview */}
-                    <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-2 border-blue-200 rounded-2xl p-6">
+                    <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-2 border-blue-200 rounded-2xl p-5">
                       <div className="flex items-center justify-between mb-6">
                         <div className="flex items-center space-x-3">
-                          <div className={`bg-gradient-to-r ${getHealthBgColor(analyticsData.system.systemHealth)} rounded-full p-3`}>
-                            <Shield className="w-8 h-8 text-white" />
+                          <div className={`bg-gradient-to-r ${getHealthBgColor(analyticsData.system.systemHealth)} rounded-full p-2.5`}>
+                            <Shield className="w-6 h-6 text-white" />
                           </div>
                           <div>
                             <h3 className="text-xl font-bold text-blue-900">System Health Score</h3>
@@ -283,14 +283,14 @@ export function Dashboard() {
                           <select
                             value={selectedTimeRange}
                             onChange={(e) => setSelectedTimeRange(e.target.value)}
-                            className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            className="border border-gray-300 rounded-lg px-4 py-2 h-10 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                           >
                             {timeRanges.map(range => (
                               <option key={range.value} value={range.value}>{range.label}</option>
                             ))}
                           </select>
                           <div className="text-right">
-                            <div className={`text-4xl font-bold ${getHealthColor(analyticsData.system.systemHealth)}`}>
+                            <div className={`text-3xl font-bold ${getHealthColor(analyticsData.system.systemHealth)}`}>
                               {analyticsData.system.systemHealth}%
                             </div>
                             <p className="text-sm text-blue-700">Health Score</p>
@@ -307,37 +307,37 @@ export function Dashboard() {
                                 {analyticsData.itCheck.total > 0 ? Math.round((analyticsData.itCheck.passed / analyticsData.itCheck.total) * 100) : 0}%
                               </p>
                             </div>
-                            <CheckCircle className="w-8 h-8 text-blue-500" />
+                            <CheckCircle className="w-10 h-10 text-blue-500" />
                           </div>
                         </div>
-                        
+
                         <div className="bg-white rounded-lg p-4 border border-green-200">
                           <div className="flex items-center justify-between">
                             <div>
                               <p className="text-green-600 text-sm font-medium">Active Users</p>
                               <p className="text-2xl font-bold text-green-900">{analyticsData.system.totalUsers}</p>
                             </div>
-                            <Users className="w-8 h-8 text-green-500" />
+                            <Users className="w-10 h-10 text-green-500" />
                           </div>
                         </div>
-                        
+
                         <div className="bg-white rounded-lg p-4 border border-purple-200">
                           <div className="flex items-center justify-between">
                             <div>
                               <p className="text-purple-600 text-sm font-medium">Active Modules</p>
                               <p className="text-2xl font-bold text-purple-900">{analyticsData.system.activeModules}</p>
                             </div>
-                            <Package className="w-8 h-8 text-purple-500" />
+                            <Package className="w-10 h-10 text-purple-500" />
                           </div>
                         </div>
-                        
+
                         <div className="bg-white rounded-lg p-4 border border-orange-200">
                           <div className="flex items-center justify-between">
                             <div>
                               <p className="text-orange-600 text-sm font-medium">Total Activities</p>
                               <p className="text-2xl font-bold text-orange-900">{analyticsData.activity.totalActivities}</p>
                             </div>
-                            <Activity className="w-8 h-8 text-orange-500" />
+                            <Activity className="w-10 h-10 text-orange-500" />
                           </div>
                         </div>
                       </div>
@@ -345,8 +345,8 @@ export function Dashboard() {
 
                     {/* Key Performance Indicators */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                      <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-                        <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                      <div className="bg-white p-5 rounded-lg shadow-sm border border-gray-200">
+                        <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
                           <BarChart3 className="w-5 h-5 mr-2 text-indigo-600" />
                           Key Performance Indicators
                         </h3>
@@ -384,8 +384,8 @@ export function Dashboard() {
                       </div>
 
                       {/* Recent Activity Feed */}
-                      <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-                        <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                      <div className="bg-white p-5 rounded-lg shadow-sm border border-gray-200">
+                        <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
                           <Activity className="w-5 h-5 mr-2 text-indigo-600" />
                           Recent System Activity
                         </h3>
@@ -421,8 +421,8 @@ export function Dashboard() {
 
                     {/* Department Performance */}
                     {Object.keys(analyticsData.itCheck.byDepartment).length > 0 && (
-                      <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-                        <h3 className="text-lg font-semibold text-gray-900 mb-4">Department Performance</h3>
+                      <div className="bg-white p-5 rounded-lg shadow-sm border border-gray-200">
+                        <h3 className="text-xl font-semibold text-gray-900 mb-4">Department Performance</h3>
                         <div className="space-y-3">
                           {Object.entries(analyticsData.itCheck.byDepartment).map(([dept, data]) => (
                             <div key={dept} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
@@ -461,8 +461,8 @@ export function Dashboard() {
 
                     {/* Common Failure Reasons */}
                     {Object.keys(analyticsData.itCheck.failureReasons).length > 0 && (
-                      <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-                        <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                      <div className="bg-white p-5 rounded-lg shadow-sm border border-gray-200">
+                        <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
                           <AlertTriangle className="w-5 h-5 mr-2 text-red-600" />
                           Common Failure Reasons
                         </h3>

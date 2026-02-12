@@ -117,35 +117,35 @@ export function AddEditLicenseModal({ license, onClose, onSave }: AddEditLicense
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden border border-gray-100 flex flex-col">
         {/* Header */}
-        <div className="bg-gradient-to-r from-blue-600 to-purple-700 px-8 py-6 text-white">
+        <div className="bg-gradient-to-r from-blue-600 to-purple-700 px-6 py-4 text-white">
           <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-4">
-              <div className="bg-white/20 rounded-full p-2">
-                <Key className="w-6 h-6" />
+            <div className="flex items-center space-x-3">
+              <div className="bg-white/20 rounded-full p-1.5">
+                <Key className="w-5 h-5" />
               </div>
               <div>
-                <h2 className="text-xl font-semibold">
+                <h2 className="text-lg font-semibold">
                   {isEditing ? 'Edit License' : 'Add New License'}
                 </h2>
-                <p className="text-blue-100 text-sm">
+                <p className="text-blue-100 text-xs">
                   {isEditing ? 'Update license information' : 'Create a new software license'}
                 </p>
               </div>
             </div>
             <button
               onClick={onClose}
-              className="text-white/80 hover:text-white hover:bg-white/20 rounded-full p-2 transition-all duration-200"
+              className="text-white/80 hover:text-white hover:bg-white/20 rounded-full p-1.5 transition-all duration-200"
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5" />
             </button>
           </div>
         </div>
 
         <div className="overflow-y-auto flex-1 min-h-0">
-          <form id="license-form" onSubmit={handleSubmit} className="p-6 space-y-6">
+          <form id="license-form" onSubmit={handleSubmit} className="p-6 space-y-4">
             {/* Basic Information */}
             <section>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Basic Information</h3>
+              <h3 className="text-base font-semibold text-gray-900 mb-3">Basic Information</h3>
               <div className="bg-gray-50 rounded-xl p-4 space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
@@ -208,7 +208,7 @@ export function AddEditLicenseModal({ license, onClose, onSave }: AddEditLicense
 
             {/* License Details */}
             <section>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">License Details</h3>
+              <h3 className="text-base font-semibold text-gray-900 mb-3">License Details</h3>
               <div className="bg-gray-50 rounded-xl p-4 space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
@@ -320,7 +320,7 @@ export function AddEditLicenseModal({ license, onClose, onSave }: AddEditLicense
 
             {/* Add-ins Section */}
             <section>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Add-ins</h3>
+              <h3 className="text-base font-semibold text-gray-900 mb-3">Add-ins</h3>
               <div className="bg-gray-50 rounded-xl p-4 space-y-4">
                 {formData.addIns.map((addIn, index) => (
                   <div key={addIn.id} className="bg-white rounded-lg p-4 border border-gray-200">
@@ -432,9 +432,9 @@ export function AddEditLicenseModal({ license, onClose, onSave }: AddEditLicense
                 <button
                   type="button"
                   onClick={addAddIn}
-                  className="w-full flex items-center justify-center space-x-2 text-blue-600 hover:text-blue-800 hover:bg-blue-50 px-4 py-3 rounded-xl font-medium transition-all duration-200 border-2 border-dashed border-blue-300 hover:border-blue-400"
+                  className="w-full flex items-center justify-center space-x-2 text-blue-600 hover:text-blue-800 hover:bg-blue-50 px-4 py-2 rounded-xl font-medium transition-all duration-200 border border-dashed border-blue-300 hover:border-blue-400 text-sm"
                 >
-                  <Plus className="w-5 h-5" />
+                  <Plus className="w-4 h-4" />
                   <span>Add New Add-in</span>
                 </button>
               </div>
@@ -443,18 +443,18 @@ export function AddEditLicenseModal({ license, onClose, onSave }: AddEditLicense
         </div>
 
         {/* Footer */}
-        <div className="bg-gray-50 px-8 py-6 border-t border-gray-200 flex-shrink-0">
-          <div className="flex justify-end space-x-4">
+        <div className="bg-gray-50 px-6 py-4 border-t border-gray-200 flex-shrink-0">
+          <div className="flex justify-end space-x-3">
             <button
               onClick={onClose}
-              className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-xl hover:bg-gray-100 hover:border-gray-400 font-medium transition-all duration-200"
+              className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-100 hover:border-gray-400 font-medium transition-all duration-200 text-sm"
             >
               Cancel
             </button>
             <button
               type="submit"
               form="license-form"
-              className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-700 text-white rounded-xl hover:from-blue-700 hover:to-purple-800 font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
+              className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-700 text-white rounded-lg hover:from-blue-700 hover:to-purple-800 font-medium transition-all duration-200 shadow-lg hover:shadow-xl text-sm"
             >
               {isEditing ? 'Update License' : 'Create License'}
             </button>

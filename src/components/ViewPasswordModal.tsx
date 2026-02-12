@@ -67,7 +67,7 @@ export function ViewPasswordModal({ entry, onClose, onEdit }: ViewPasswordModalP
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden border border-gray-100 flex flex-col">
         {/* Header */}
-        <div className="bg-gradient-to-r from-blue-600 to-purple-700 px-8 py-6 text-white">
+        <div className="bg-gradient-to-r from-blue-600 to-purple-700 px-8 py-4 text-white">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-4">
               <div className="bg-white/20 rounded-full p-2">
@@ -89,28 +89,28 @@ export function ViewPasswordModal({ entry, onClose, onEdit }: ViewPasswordModalP
                 className="text-white/80 hover:text-white hover:bg-white/20 rounded-full p-2 transition-all duration-200"
                 title="Edit Password"
               >
-                <Edit className="w-5 h-5" />
+                <Edit className="w-4 h-4" />
               </button>
               <button
                 onClick={onClose}
                 className="text-white/80 hover:text-white hover:bg-white/20 rounded-full p-2 transition-all duration-200"
               >
-                <X className="w-6 h-6" />
+                <X className="w-5 h-5" />
               </button>
             </div>
           </div>
         </div>
 
-        <div className="overflow-y-auto flex-1 min-h-0 p-8 space-y-8">
+        <div className="overflow-y-auto flex-1 min-h-0 p-6 space-y-4">
           {/* Security Alerts */}
           {(entry.isCompromised || passwordStrength.score < 2) && (
-            <div className="bg-red-50 border-2 border-red-200 rounded-xl p-6">
+            <div className="bg-red-50 border border-red-200 rounded-xl p-6">
               <div className="flex items-start space-x-3">
                 <div className="bg-red-100 rounded-full p-2">
-                  <AlertTriangle className="w-6 h-6 text-red-600" />
+                  <AlertTriangle className="w-5 h-5 text-red-600" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-red-900 mb-2">Security Alert</h3>
+                  <h3 className="text-base font-semibold text-red-900 mb-2">Security Alert</h3>
                   <div className="space-y-2 text-sm text-red-800">
                     {entry.isCompromised && (
                       <p>• This password has been found in known data breaches</p>
@@ -121,7 +121,7 @@ export function ViewPasswordModal({ entry, onClose, onEdit }: ViewPasswordModalP
                   </div>
                   <button
                     onClick={() => onEdit(entry)}
-                    className="mt-3 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-all text-sm font-medium"
+                    className="mt-3 h-10 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-all text-sm font-medium"
                   >
                     Update Password
                   </button>
@@ -132,7 +132,7 @@ export function ViewPasswordModal({ entry, onClose, onEdit }: ViewPasswordModalP
 
           {/* Basic Information */}
           <section>
-            <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+            <h3 className="text-base font-semibold text-gray-900 mb-3 flex items-center">
               <Key className="w-5 h-5 mr-2 text-blue-600" />
               Login Information
             </h3>
@@ -268,7 +268,7 @@ export function ViewPasswordModal({ entry, onClose, onEdit }: ViewPasswordModalP
           {/* Custom Fields */}
           {entry.customFields.length > 0 && (
             <section>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+              <h3 className="text-base font-semibold text-gray-900 mb-3 flex items-center">
                 <FileText className="w-5 h-5 mr-2 text-blue-600" />
                 Custom Fields ({entry.customFields.length})
               </h3>
@@ -312,7 +312,7 @@ export function ViewPasswordModal({ entry, onClose, onEdit }: ViewPasswordModalP
           {/* Tags */}
           {entry.tags.length > 0 && (
             <section>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+              <h3 className="text-base font-semibold text-gray-900 mb-3 flex items-center">
                 <Tag className="w-5 h-5 mr-2 text-blue-600" />
                 Tags
               </h3>
@@ -332,7 +332,7 @@ export function ViewPasswordModal({ entry, onClose, onEdit }: ViewPasswordModalP
           {/* Notes */}
           {entry.notes && (
             <section>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+              <h3 className="text-base font-semibold text-gray-900 mb-3 flex items-center">
                 <FileText className="w-5 h-5 mr-2 text-blue-600" />
                 Notes
               </h3>
@@ -346,7 +346,7 @@ export function ViewPasswordModal({ entry, onClose, onEdit }: ViewPasswordModalP
 
           {/* Metadata */}
           <section>
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Information</h3>
+            <h3 className="text-base font-semibold text-gray-900 mb-3">Information</h3>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
@@ -388,18 +388,18 @@ export function ViewPasswordModal({ entry, onClose, onEdit }: ViewPasswordModalP
         </div>
 
         {/* Footer */}
-        <div className="bg-gray-50 px-8 py-6 border-t border-gray-200 flex-shrink-0">
+        <div className="bg-gray-50 px-8 py-4 border-t border-gray-200 flex-shrink-0">
           <div className="flex justify-between">
             <button
               onClick={() => onEdit(entry)}
-              className="px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 font-medium transition-all duration-200 flex items-center space-x-2"
+              className="h-10 px-4 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 text-sm font-medium transition-all duration-200 flex items-center space-x-2"
             >
               <Edit className="w-4 h-4" />
               <span>Edit Password</span>
             </button>
             <button
               onClick={onClose}
-              className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-xl hover:bg-gray-100 hover:border-gray-400 font-medium transition-all duration-200"
+              className="h-10 px-4 py-2 border border-gray-300 text-gray-700 rounded-xl hover:bg-gray-100 hover:border-gray-400 text-sm font-medium transition-all duration-200"
             >
               Close
             </button>

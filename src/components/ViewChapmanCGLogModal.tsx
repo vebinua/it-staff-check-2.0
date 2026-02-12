@@ -62,14 +62,14 @@ export function ViewChapmanCGLogModal({ entry, onClose }: ViewChapmanCGLogModalP
       <div className="bg-white rounded-lg shadow-xl w-full max-w-4xl max-h-[90vh] overflow-y-auto">
         <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-3">
-            <FileText className="w-6 h-6 text-blue-600" />
+            <FileText className="w-5 h-5 text-blue-600" />
             <div>
-              <h2 className="text-xl font-semibold text-gray-900">{entry.idCode}</h2>
-              <p className="text-sm text-gray-600">{entry.clientName}</p>
+              <h2 className="text-lg font-semibold text-gray-900">{entry.idCode}</h2>
+              <p className="text-xs text-gray-600">{entry.clientName}</p>
             </div>
           </div>
-          <div className="flex items-center space-x-4">
-            <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(entry.status)}`}>
+          <div className="flex items-center space-x-3">
+            <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium ${getStatusColor(entry.status)}`}>
               {getStatusIcon(entry.status)}
               <span className="ml-1 capitalize">{entry.status === 'on-hold' ? 'On Hold' : entry.status}</span>
             </span>
@@ -77,16 +77,16 @@ export function ViewChapmanCGLogModal({ entry, onClose }: ViewChapmanCGLogModalP
               onClick={onClose}
               className="text-gray-400 hover:text-gray-600 transition-colors"
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5" />
             </button>
           </div>
         </div>
 
-        <div className="p-6 space-y-8">
+        <div className="p-6 space-y-6">
           {/* Basic Information */}
           <section>
-            <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-              <User className="w-5 h-5 mr-2 text-blue-600" />
+            <h3 className="text-base font-semibold text-gray-900 mb-3 flex items-center">
+              <User className="w-4 h-4 mr-2 text-blue-600" />
               Basic Information
             </h3>
             <div className="bg-gray-50 rounded-lg p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -132,8 +132,8 @@ export function ViewChapmanCGLogModal({ entry, onClose }: ViewChapmanCGLogModalP
 
           {/* Time Tracking */}
           <section>
-            <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-              <Clock className="w-5 h-5 mr-2 text-blue-600" />
+            <h3 className="text-base font-semibold text-gray-900 mb-3 flex items-center">
+              <Clock className="w-4 h-4 mr-2 text-blue-600" />
               Time Tracking
             </h3>
             <div className="bg-gray-50 rounded-lg p-4 space-y-4">
@@ -204,8 +204,8 @@ export function ViewChapmanCGLogModal({ entry, onClose }: ViewChapmanCGLogModalP
 
           {/* Resolution and Status */}
           <section>
-            <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-              <CheckCircle className="w-5 h-5 mr-2 text-blue-600" />
+            <h3 className="text-base font-semibold text-gray-900 mb-3 flex items-center">
+              <CheckCircle className="w-4 h-4 mr-2 text-blue-600" />
               Resolution and Status
             </h3>
             <div className="bg-gray-50 rounded-lg p-4 space-y-4">
@@ -237,7 +237,7 @@ export function ViewChapmanCGLogModal({ entry, onClose }: ViewChapmanCGLogModalP
 
           {/* System Information */}
           <section>
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">System Information</h3>
+            <h3 className="text-base font-semibold text-gray-900 mb-3">System Information</h3>
             <div className="bg-gray-50 rounded-lg p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-600">Added By</label>
@@ -255,7 +255,7 @@ export function ViewChapmanCGLogModal({ entry, onClose }: ViewChapmanCGLogModalP
           <div className="flex justify-end">
             <button
               onClick={onClose}
-              className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 transition-all font-medium"
+              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 transition-all font-medium text-sm"
             >
               Close
             </button>

@@ -36,15 +36,15 @@ export function ViewDetailsModal({ entry, onClose }: ViewDetailsModalProps) {
             </div>
           </div>
           <div className="flex items-center space-x-4">
-            <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
+            <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
               entry.status === 'Passed'
                 ? 'bg-green-100 text-green-800'
                 : 'bg-red-100 text-red-800'
             }`}>
               {entry.status === 'Passed' ? (
-                <CheckCircle className="w-4 h-4 mr-1" />
+                <CheckCircle className="w-3 h-3 mr-1" />
               ) : (
-                <XCircle className="w-4 h-4 mr-1" />
+                <XCircle className="w-3 h-3 mr-1" />
               )}
               {entry.status}
             </span>
@@ -52,12 +52,12 @@ export function ViewDetailsModal({ entry, onClose }: ViewDetailsModalProps) {
               onClick={onClose}
               className="text-gray-400 hover:text-gray-600 transition-colors"
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5" />
             </button>
           </div>
         </div>
 
-        <div className="p-6 space-y-8">
+        <div className="p-6 space-y-4">
           {/* Basic Information */}
           <section>
             <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
@@ -304,7 +304,7 @@ export function ViewDetailsModal({ entry, onClose }: ViewDetailsModalProps) {
           <div className="flex justify-end">
             <button
               onClick={onClose}
-              className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 transition-all font-medium"
+              className="h-10 px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 focus:ring-2 focus:ring-blue-200 transition-all font-medium"
             >
               Close
             </button>

@@ -199,9 +199,9 @@ const loadTickets = async () => {
           </p>
         </div>
         {canManage && (
-          <button 
+          <button
             onClick={() => setShowCreateModal(true)}
-            className="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-200 transition-all flex items-center space-x-2 font-medium"
+            className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-200 transition-all flex items-center space-x-2 text-sm font-medium h-10"
           >
             <Plus className="w-5 h-5" />
             <span>Create Ticket</span>
@@ -211,7 +211,7 @@ const loadTickets = async () => {
 
       {/* Stats Dashboard */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+        <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center">
             <div className="p-3 rounded-full bg-blue-100">
               <Ticket className="w-6 h-6 text-blue-600" />
@@ -223,7 +223,7 @@ const loadTickets = async () => {
           </div>
         </div>
 
-        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+        <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center">
             <div className="p-3 rounded-full bg-green-100">
               <CheckCircle className="w-6 h-6 text-green-600" />
@@ -235,7 +235,7 @@ const loadTickets = async () => {
           </div>
         </div>
 
-        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+        <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center">
             <div className="p-3 rounded-full bg-purple-100">
               <Clock className="w-6 h-6 text-purple-600" />
@@ -247,7 +247,7 @@ const loadTickets = async () => {
           </div>
         </div>
 
-        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+        <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center">
             <div className="p-3 rounded-full bg-red-100">
               <AlertTriangle className="w-6 h-6 text-red-600" />
@@ -303,14 +303,14 @@ const loadTickets = async () => {
                   placeholder="Search tickets..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm h-10"
                 />
               </div>
               
               <select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value)}
-                className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm h-10"
               >
                 <option value="all">All Status</option>
                 <option value="open">Open</option>
@@ -324,7 +324,7 @@ const loadTickets = async () => {
               <select
                 value={priorityFilter}
                 onChange={(e) => setPriorityFilter(e.target.value)}
-                className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm h-10"
               >
                 <option value="all">All Priority</option>
                 <option value="urgent">Urgent</option>
@@ -353,7 +353,7 @@ const loadTickets = async () => {
                 {filteredTickets.map((ticket) => (
                   <div
                     key={ticket.id}
-                    className="p-6 hover:bg-gray-50 transition-colors cursor-pointer"
+                    className="p-4 hover:bg-gray-50 transition-colors cursor-pointer"
                     onClick={() => handleViewTicket(ticket)}
                   >
                     <div className="flex items-start justify-between">
@@ -422,7 +422,7 @@ const loadTickets = async () => {
                       </div>
                       
                       <div className="flex flex-col items-end space-y-2 ml-4">
-                        <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getStatusColor(ticket.status)}`}>
+                        <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(ticket.status)}`}>
                           {formatStatus(ticket.status)}
                         </span>
                         

@@ -88,7 +88,7 @@ export function PasswordGeneratorModal({ onClose, onUsePassword }: PasswordGener
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl overflow-hidden border border-gray-100">
         {/* Header */}
-        <div className="bg-gradient-to-r from-blue-600 to-purple-700 px-8 py-6 text-white">
+        <div className="bg-gradient-to-r from-blue-600 to-purple-700 px-8 py-4 text-white">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-4">
               <div className="bg-white/20 rounded-full p-2">
@@ -103,33 +103,33 @@ export function PasswordGeneratorModal({ onClose, onUsePassword }: PasswordGener
               onClick={onClose}
               className="text-white/80 hover:text-white hover:bg-white/20 rounded-full p-2 transition-all duration-200"
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5" />
             </button>
           </div>
         </div>
 
-        <div className="p-8 space-y-6">
+        <div className="p-6 space-y-4">
           {/* Generated Password Display */}
           <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border border-gray-200">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-gray-900">Generated Password</h3>
+              <h3 className="text-base font-semibold text-gray-900">Generated Password</h3>
               <button
                 onClick={generateNewPassword}
-                className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 hover:bg-blue-50 px-3 py-2 rounded-lg transition-all"
+                className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 hover:bg-blue-50 px-3 py-2 rounded-lg transition-all text-sm font-medium"
               >
                 <RefreshCw className="w-4 h-4" />
                 <span>Regenerate</span>
               </button>
             </div>
-            
-            <div className="bg-white border-2 border-gray-200 rounded-xl p-4 mb-4">
+
+            <div className="bg-white border border-gray-200 rounded-xl p-4 mb-4">
               <div className="flex items-center justify-between">
-                <code className="text-lg font-mono text-gray-900 break-all flex-1 mr-4">
+                <code className="text-base font-mono text-gray-900 break-all flex-1 mr-4">
                   {generatedPassword}
                 </code>
                 <button
                   onClick={copyToClipboard}
-                  className="flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-all"
+                  className="h-10 flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-all text-sm font-medium"
                 >
                   <Copy className="w-4 h-4" />
                   <span>Copy</span>
@@ -177,14 +177,14 @@ export function PasswordGeneratorModal({ onClose, onUsePassword }: PasswordGener
 
           {/* Generator Settings */}
           <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border border-gray-200">
-            <div className="flex items-center space-x-3 mb-6">
+            <div className="flex items-center space-x-3 mb-4">
               <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-full p-2">
                 <Settings className="w-5 h-5 text-white" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900">Generator Settings</h3>
+              <h3 className="text-base font-semibold text-gray-900">Generator Settings</h3>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-4">
               {/* Password Length */}
               <div>
                 <div className="flex items-center justify-between mb-3">
@@ -288,14 +288,14 @@ export function PasswordGeneratorModal({ onClose, onUsePassword }: PasswordGener
           <div className="flex justify-end space-x-4">
             <button
               onClick={onClose}
-              className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-xl hover:bg-gray-100 hover:border-gray-400 font-medium transition-all duration-200"
+              className="h-10 px-4 py-2 border border-gray-300 text-gray-700 rounded-xl hover:bg-gray-100 hover:border-gray-400 text-sm font-medium transition-all duration-200"
             >
               Cancel
             </button>
             {onUsePassword && (
               <button
                 onClick={handleUsePassword}
-                className="px-6 py-3 bg-green-600 text-white rounded-xl hover:bg-green-700 font-medium transition-all duration-200 flex items-center space-x-2"
+                className="h-10 px-4 py-2 bg-green-600 text-white rounded-xl hover:bg-green-700 text-sm font-medium transition-all duration-200 flex items-center space-x-2"
               >
                 <Shield className="w-4 h-4" />
                 <span>Use This Password</span>
@@ -303,7 +303,7 @@ export function PasswordGeneratorModal({ onClose, onUsePassword }: PasswordGener
             )}
             <button
               onClick={copyToClipboard}
-              className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-700 text-white rounded-xl hover:from-blue-700 hover:to-purple-800 font-medium transition-all duration-200 shadow-lg hover:shadow-xl flex items-center space-x-2"
+              className="h-10 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-700 text-white rounded-xl hover:from-blue-700 hover:to-purple-800 text-sm font-medium transition-all duration-200 shadow-lg hover:shadow-xl flex items-center space-x-2"
             >
               <Copy className="w-4 h-4" />
               <span>Copy Password</span>

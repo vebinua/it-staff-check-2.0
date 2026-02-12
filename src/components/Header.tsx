@@ -18,7 +18,7 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <Shield className="w-8 h-8 text-blue-600 mr-3" />
+            <Shield className="w-5 h-5 text-blue-600 mr-3" />
             <h1 className="text-xl font-semibold text-gray-900">
               IT Asset Management System
             </h1>
@@ -27,10 +27,15 @@ export function Header() {
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2">
               <User className="w-5 h-5 text-gray-500" />
-              <span className="text-gray-700 font-medium">
-                {state.currentUser?.name}
-              </span>
-              <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+              <div className="flex items-center space-x-2">
+                <div className="w-9 h-9 rounded-full bg-gray-200 flex items-center justify-center">
+                  <User className="w-5 h-5 text-gray-600" />
+                </div>
+                <span className="text-gray-700 font-medium text-sm">
+                  {state.currentUser?.name}
+                </span>
+              </div>
+              <span className={`px-2.5 py-1 rounded-full text-xs font-medium ${
                 state.currentUser?.role === 'global-admin'
                   ? 'bg-blue-100 text-blue-800'
                   : state.currentUser?.role === 'module-admin'
@@ -44,30 +49,30 @@ export function Header() {
             {isGlobalAdmin && (
               <button
                 onClick={() => setShowUserManagement(true)}
-                className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors"
+                className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors h-9 text-sm"
                 title="Manage Users"
               >
-                <Settings className="w-4 h-4" />
+                <Settings className="w-5 h-5" />
                 <span>Users</span>
               </button>
             )}
-            
+
             {isGlobalAdmin && (
               <button
                 onClick={() => setShowActivityLog(true)}
-                className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors"
+                className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors h-9 text-sm"
                 title="View Activity Log"
               >
-                <Activity className="w-4 h-4" />
+                <Activity className="w-5 h-5" />
                 <span>Activity</span>
               </button>
             )}
-            
+
             <button
               onClick={logout}
-              className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors"
+              className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors h-9 text-sm"
             >
-              <LogOut className="w-4 h-4" />
+              <LogOut className="w-5 h-5" />
               <span>Logout</span>
             </button>
           </div>

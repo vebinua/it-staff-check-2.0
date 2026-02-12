@@ -52,10 +52,10 @@ export function UserManagementModal({ onClose }: UserManagementModalProps) {
     e.preventDefault();
 
     // Check if username already exists (excluding current user when editing)
-    const existingUser = state.users.find(u => 
+    const existingUser = state.users.find(u =>
       u.username === formData.username && u.id !== editingUser?.id
     );
-    
+
     if (existingUser) {
       alert('Username already exists. Please choose a different username.');
       return;
@@ -281,10 +281,10 @@ export function UserManagementModal({ onClose }: UserManagementModalProps) {
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-4">
               <div className="bg-white/20 rounded-full p-3">
-                <Shield className="w-8 h-8" />
+                <Shield className="w-6 h-6" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold">User Management</h2>
+                <h2 className="text-xl font-bold">User Management</h2>
                 <p className="text-blue-100 mt-1">Manage system users and permissions</p>
               </div>
             </div>
@@ -297,49 +297,49 @@ export function UserManagementModal({ onClose }: UserManagementModalProps) {
           </div>
         </div>
 
-        <div className="p-8 overflow-y-auto flex-1 min-h-0">
+        <div className="p-6 overflow-y-auto flex-1 min-h-0">
           {/* Stats Cards */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 border border-blue-200">
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-4 border border-blue-200">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-blue-600 text-sm font-medium">Total Users</p>
-                  <p className="text-2xl font-bold text-blue-900">{state.users.length}</p>
+                  <p className="text-xl font-bold text-blue-900">{state.users.length}</p>
                 </div>
-                <Users className="w-8 h-8 text-blue-500" />
+                <Users className="w-6 h-6 text-blue-500" />
               </div>
             </div>
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 border border-purple-200">
+            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-4 border border-purple-200">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-purple-600 text-sm font-medium">Admins</p>
-                  <p className="text-2xl font-bold text-purple-900">
+                  <p className="text-xl font-bold text-purple-900">
                     {state.users.filter(u => u.role === 'admin').length}
                   </p>
                 </div>
-                <Crown className="w-8 h-8 text-blue-500" />
+                <Crown className="w-6 h-6 text-blue-500" />
               </div>
             </div>
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 border border-purple-200">
+            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-4 border border-purple-200">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-purple-600 text-sm font-medium">Module Admins</p>
-                  <p className="text-2xl font-bold text-purple-900">
+                  <p className="text-xl font-bold text-purple-900">
                     {state.users.filter(u => u.role === 'module-admin').length}
                   </p>
                 </div>
-                <Briefcase className="w-8 h-8 text-purple-500" />
+                <Briefcase className="w-6 h-6 text-purple-500" />
               </div>
             </div>
-            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 border border-green-200">
+            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-4 border border-green-200">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-green-600 text-sm font-medium">Standard Users</p>
-                  <p className="text-2xl font-bold text-green-900">
+                  <p className="text-xl font-bold text-green-900">
                     {state.users.filter(u => u.role === 'standard-user').length}
                   </p>
                 </div>
-                <Eye className="w-8 h-8 text-green-500" />
+                <Eye className="w-6 h-6 text-green-500" />
               </div>
             </div>
           </div>
@@ -349,7 +349,7 @@ export function UserManagementModal({ onClose }: UserManagementModalProps) {
             <div className="mb-8">
               <button
                 onClick={() => setShowAddForm(true)}
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-xl font-medium transition-all duration-200 flex items-center space-x-3 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white h-10 px-4 py-2 text-sm rounded-xl font-medium transition-all duration-200 flex items-center space-x-3 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
               >
                 <UserPlus className="w-5 h-5" />
                 <span>Add New User</span>
@@ -359,19 +359,19 @@ export function UserManagementModal({ onClose }: UserManagementModalProps) {
 
           {/* Add/Edit User Form */}
           {showAddForm && (
-            <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 mb-8 border border-gray-200 shadow-inner">
+            <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 mb-8 border border-gray-200 shadow-inner">
               <div className="flex items-center space-x-3 mb-6">
                 <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-full p-2">
                   <UserPlus className="w-5 h-5 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">
+                <h3 className="text-lg font-bold text-gray-900">
                   {editingUser ? 'Edit User' : 'Add New User'}
                 </h3>
               </div>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
+
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-1.5">
                     <label className="block text-sm font-semibold text-gray-700">
                       Username *
                     </label>
@@ -380,11 +380,11 @@ export function UserManagementModal({ onClose }: UserManagementModalProps) {
                       required
                       value={formData.username}
                       onChange={(e) => setFormData(prev => ({ ...prev, username: e.target.value }))}
-                      className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white"
+                      className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white"
                       placeholder="Enter username"
                     />
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-1.5">
                     <label className="block text-sm font-semibold text-gray-700">
                       Full Name *
                     </label>
@@ -393,7 +393,7 @@ export function UserManagementModal({ onClose }: UserManagementModalProps) {
                       required
                       value={formData.name}
                       onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                      className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white"
+                      className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white"
                       placeholder="Enter full name"
                     />
                   </div>
@@ -438,7 +438,7 @@ export function UserManagementModal({ onClose }: UserManagementModalProps) {
                             required
                             value={formData.password}
                             onChange={(e) => setFormData(prev => ({ ...prev, password: e.target.value }))}
-                            className="w-full border border-gray-300 rounded-lg px-3 py-2 pr-10 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 font-mono"
+                            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm pr-10 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 font-mono"
                             placeholder="Enter password"
                           />
                           <button
@@ -460,7 +460,7 @@ export function UserManagementModal({ onClose }: UserManagementModalProps) {
                             <button
                               type="button"
                               onClick={generateSecurePassword}
-                              className="ml-3 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-all flex items-center space-x-2"
+                              className="ml-3 bg-green-600 text-white px-4 py-2 text-sm rounded-lg hover:bg-green-700 transition-all flex items-center space-x-2"
                             >
                               <Zap className="w-4 h-4" />
                               <span>Generate</span>
@@ -511,8 +511,8 @@ export function UserManagementModal({ onClose }: UserManagementModalProps) {
                     </div>
                   </div>
                 )}
-                
-                <div className="space-y-2">
+
+                <div className="space-y-1.5">
                   <label className="block text-sm font-semibold text-gray-700">
                     Role *
                   </label>
@@ -520,17 +520,17 @@ export function UserManagementModal({ onClose }: UserManagementModalProps) {
                     required
                     value={formData.role}
                     onChange={(e) => setFormData(prev => ({ ...prev, role: e.target.value as 'global-admin' | 'module-admin' | 'standard-user' }))}
-                    className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white"
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white"
                   >
                     <option value="standard-user">Standard User - View Only</option>
                     <option value="module-admin">Module Admin - Manage Entries</option>
                     <option value="global-admin">Global Admin - Full Access</option>
                   </select>
                 </div>
-                
+
                 {/* Module Permissions for Module Admin */}
                 {formData.role === 'module-admin' && (
-                  <div className="space-y-2">
+                  <div className="space-y-1.5">
                     <label className="block text-sm font-semibold text-gray-700">
                       Module Permissions
                     </label>
@@ -566,10 +566,10 @@ export function UserManagementModal({ onClose }: UserManagementModalProps) {
                     </div>
                   </div>
                 )}
-                
+
                 {/* Module Permissions for Standard User */}
                 {formData.role === 'standard-user' && (
-                  <div className="space-y-2">
+                  <div className="space-y-1.5">
                     <label className="block text-sm font-semibold text-gray-700">
                       Module Permissions
                     </label>
@@ -605,18 +605,18 @@ export function UserManagementModal({ onClose }: UserManagementModalProps) {
                     </div>
                   </div>
                 )}
-                
+
                 <div className="flex justify-end space-x-4 pt-4">
                   <button
                     type="button"
                     onClick={resetForm}
-                    className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-xl hover:bg-gray-50 focus:ring-4 focus:ring-gray-100 transition-all duration-200 font-medium"
+                    className="h-10 px-4 py-2 text-sm border-2 border-gray-300 text-gray-700 rounded-xl hover:bg-gray-50 focus:ring-4 focus:ring-gray-100 transition-all duration-200 font-medium"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-xl focus:ring-4 focus:ring-blue-200 transition-all duration-200 font-medium shadow-lg"
+                    className="h-10 px-4 py-2 text-sm bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-xl focus:ring-4 focus:ring-blue-200 transition-all duration-200 font-medium shadow-lg"
                   >
                     {editingUser ? 'Update User' : 'Add User'}
                   </button>
@@ -635,21 +635,21 @@ export function UserManagementModal({ onClose }: UserManagementModalProps) {
                 </h3>
               </div>
             </div>
-            
+
             <div className="overflow-x-auto">
               <table className="min-w-full">
                 <thead className="bg-gray-50 border-b border-gray-200">
                   <tr>
-                    <th className="px-8 py-4 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">
+                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">
                       User
                     </th>
-                    <th className="px-8 py-4 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">
+                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">
                       Username
                     </th>
-                    <th className="px-8 py-4 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">
+                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">
                       Role & Permissions
                     </th>
-                    <th className="px-8 py-4 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">
+                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">
                       Actions
                     </th>
                   </tr>
@@ -657,7 +657,7 @@ export function UserManagementModal({ onClose }: UserManagementModalProps) {
                 <tbody className="divide-y divide-gray-100">
                   {state.users.map((user, index) => (
                     <tr key={user.id} className="hover:bg-gray-50 transition-colors duration-150">
-                      <td className="px-8 py-6">
+                      <td className="px-4 py-3">
                         <div className="flex items-center space-x-4">
                           <div className="bg-gradient-to-br from-blue-100 to-purple-100 rounded-full p-3">
                             <User className="w-6 h-6 text-blue-600" />
@@ -672,12 +672,12 @@ export function UserManagementModal({ onClose }: UserManagementModalProps) {
                           </div>
                         </div>
                       </td>
-                      <td className="px-8 py-6">
+                      <td className="px-4 py-3">
                         <span className="font-mono text-sm bg-gray-100 px-3 py-1 rounded-lg text-gray-800">
                           {user.username}
                         </span>
                       </td>
-                      <td className="px-8 py-6">
+                      <td className="px-4 py-3">
                         <div className="space-y-2">
                           <div className={`inline-flex items-center px-3 py-2 rounded-xl text-sm font-semibold ${getRoleColor(user.role)}`}>
                             {getRoleIcon(user.role)}
@@ -729,29 +729,29 @@ export function UserManagementModal({ onClose }: UserManagementModalProps) {
                           )}
                         </div>
                       </td>
-                      <td className="px-8 py-6">
+                      <td className="px-4 py-3">
                         <div className="flex space-x-2">
                           <button
                             onClick={() => handleEdit(user)}
-                            className="p-2 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-lg transition-all duration-200"
+                            className="h-8 w-8 flex items-center justify-center text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-lg transition-all duration-200"
                             title="Edit User"
                           >
-                            <Edit className="w-5 h-5" />
+                            <Edit className="w-4 h-4" />
                           </button>
                           <button
                             onClick={() => handleResetPassword(user)}
-                            className="p-2 text-green-600 hover:text-green-800 hover:bg-green-50 rounded-lg transition-all duration-200"
+                            className="h-8 w-8 flex items-center justify-center text-green-600 hover:text-green-800 hover:bg-green-50 rounded-lg transition-all duration-200"
                             title="Reset Password"
                           >
-                            <Key className="w-5 h-5" />
+                            <Key className="w-4 h-4" />
                           </button>
                           {state.currentUser?.id !== user.id && (
                             <button
                               onClick={() => handleDelete(user.id)}
-                              className="p-2 text-red-600 hover:text-red-800 hover:bg-red-50 rounded-lg transition-all duration-200"
+                              className="h-8 w-8 flex items-center justify-center text-red-600 hover:text-red-800 hover:bg-red-50 rounded-lg transition-all duration-200"
                               title="Delete User"
                             >
-                              <Trash2 className="w-5 h-5" />
+                              <Trash2 className="w-4 h-4" />
                             </button>
                           )}
                         </div>
@@ -772,7 +772,7 @@ export function UserManagementModal({ onClose }: UserManagementModalProps) {
               <div>
                 <h4 className="font-semibold text-amber-900 mb-2">Security Notice</h4>
                 <p className="text-sm text-amber-800 leading-relaxed">
-                  All users use the default password <span className="font-mono bg-amber-100 px-2 py-1 rounded">password</span>. 
+                  All users use the default password <span className="font-mono bg-amber-100 px-2 py-1 rounded">password</span>.
                   In a production environment, implement proper password management and require users to change their passwords on first login.
                 </p>
               </div>
@@ -785,7 +785,7 @@ export function UserManagementModal({ onClose }: UserManagementModalProps) {
           <div className="flex justify-end">
             <button
               onClick={onClose}
-              className="px-8 py-3 bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 text-white rounded-xl font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              className="h-10 px-4 py-2 text-sm bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 text-white rounded-xl font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
             >
               Close
             </button>
@@ -805,7 +805,7 @@ export function UserManagementModal({ onClose }: UserManagementModalProps) {
                     <Key className="w-6 h-6" />
                   </div>
                   <div>
-                    <h2 className="text-2xl font-bold">Reset Password</h2>
+                    <h2 className="text-xl font-bold">Reset Password</h2>
                     <p className="text-green-100 mt-1">Reset password for {resetPasswordUser.name}</p>
                   </div>
                 </div>
@@ -818,7 +818,7 @@ export function UserManagementModal({ onClose }: UserManagementModalProps) {
               </div>
             </div>
 
-            <div className="p-8">
+            <div className="p-6">
               {/* User Info */}
               <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-6 mb-6">
                 <div className="flex items-center space-x-4">
@@ -871,7 +871,7 @@ export function UserManagementModal({ onClose }: UserManagementModalProps) {
                         required
                         value={resetPasswordValue}
                         onChange={(e) => setResetPasswordValue(e.target.value)}
-                        className="w-full border border-gray-300 rounded-lg px-3 py-2 pr-10 focus:ring-2 focus:ring-green-100 focus:border-green-500 transition-all duration-200 font-mono"
+                        className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm pr-10 focus:ring-2 focus:ring-green-100 focus:border-green-500 transition-all duration-200 font-mono"
                         placeholder="Enter new password"
                       />
                       <button
@@ -893,7 +893,7 @@ export function UserManagementModal({ onClose }: UserManagementModalProps) {
                         <button
                           type="button"
                           onClick={generateResetPassword}
-                          className="ml-3 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-all flex items-center space-x-2"
+                          className="ml-3 bg-green-600 text-white px-4 py-2 text-sm rounded-lg hover:bg-green-700 transition-all flex items-center space-x-2"
                         >
                           <Zap className="w-4 h-4" />
                           <span>Generate</span>
@@ -962,14 +962,14 @@ export function UserManagementModal({ onClose }: UserManagementModalProps) {
                 <button
                   type="button"
                   onClick={() => setShowResetPasswordModal(false)}
-                  className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-xl hover:bg-gray-50 focus:ring-4 focus:ring-gray-100 transition-all duration-200 font-medium"
+                  className="h-10 px-4 py-2 text-sm border-2 border-gray-300 text-gray-700 rounded-xl hover:bg-gray-50 focus:ring-4 focus:ring-gray-100 transition-all duration-200 font-medium"
                 >
                   Cancel
                 </button>
                 <button
                   type="button"
                   onClick={confirmResetPassword}
-                  className="px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-700 hover:from-green-700 hover:to-emerald-800 text-white rounded-xl focus:ring-4 focus:ring-green-200 transition-all duration-200 font-medium shadow-lg"
+                  className="h-10 px-4 py-2 text-sm bg-gradient-to-r from-green-600 to-emerald-700 hover:from-green-700 hover:to-emerald-800 text-white rounded-xl focus:ring-4 focus:ring-green-200 transition-all duration-200 font-medium shadow-lg"
                 >
                   Reset Password
                 </button>

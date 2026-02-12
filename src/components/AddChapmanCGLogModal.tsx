@@ -143,7 +143,7 @@ export function AddChapmanCGLogModal({ entry, onClose, onSave, existingEntries }
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden border border-gray-100 flex flex-col">
         {/* Header */}
-        <div className="bg-gradient-to-r from-blue-600 to-purple-700 px-8 py-6 text-white">
+        <div className="bg-gradient-to-r from-blue-600 to-purple-700 px-8 py-4 text-white">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-4">
               <div className="bg-white/20 rounded-full p-2">
@@ -160,16 +160,16 @@ export function AddChapmanCGLogModal({ entry, onClose, onSave, existingEntries }
               onClick={onClose}
               className="text-white/80 hover:text-white hover:bg-white/20 rounded-full p-2 transition-all duration-200"
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5" />
             </button>
           </div>
         </div>
 
         <div className="overflow-y-auto flex-1 min-h-0">
-          <form id="log-form" onSubmit={handleSubmit} className="p-6 space-y-6">
+          <form id="log-form" onSubmit={handleSubmit} className="p-6 space-y-4">
             {/* Client Information */}
             <section>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+              <h3 className="text-base font-semibold text-gray-900 mb-3 flex items-center">
                 <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-semibold mr-3 shadow-md">1</span>
                 <span className="text-gray-900">Client Information</span>
               </h3>
@@ -234,20 +234,20 @@ export function AddChapmanCGLogModal({ entry, onClose, onSave, existingEntries }
 
             {/* Time Tracking */}
             <section>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+              <h3 className="text-base font-semibold text-gray-900 mb-3 flex items-center">
                 <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-semibold mr-3 shadow-md">2</span>
                 <span className="text-gray-900">Time Tracking</span>
               </h3>
               <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {/* Start Time */}
                   <div className="space-y-3">
-                    <div className="flex items-center space-x-2 mb-3">
-                      <Calendar className="w-5 h-5 text-green-600" />
-                     <h4 className="font-normal text-gray-700">Start Time</h4>
+                    <div className="flex items-center space-x-2 mb-2">
+                      <Calendar className="w-4 h-4 text-green-600" />
+                     <h4 className="font-normal text-gray-700 text-sm">Start Time</h4>
                     </div>
                     <div>
-                     <label className="block text-sm font-normal text-gray-600 mb-2">
+                     <label className="block text-sm font-medium text-gray-700 mb-2">
                         Date Started *
                       </label>
                       <input
@@ -255,11 +255,11 @@ export function AddChapmanCGLogModal({ entry, onClose, onSave, existingEntries }
                         required
                         value={formData.dateStarted}
                         onChange={(e) => handleInputChange('dateStarted', e.target.value)}
-                        className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
+                        className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
                       />
                     </div>
                     <div>
-                     <label className="block text-sm font-normal text-gray-600 mb-2">
+                     <label className="block text-sm font-medium text-gray-700 mb-2">
                         Time Started *
                       </label>
                       <input
@@ -267,19 +267,19 @@ export function AddChapmanCGLogModal({ entry, onClose, onSave, existingEntries }
                         required
                         value={formData.timeStarted}
                         onChange={(e) => handleInputChange('timeStarted', e.target.value)}
-                        className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
+                        className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
                       />
                     </div>
                   </div>
 
                   {/* End Time */}
-                  <div className="space-y-4">
-                    <div className="flex items-center space-x-2 mb-4">
-                      <Clock className="w-5 h-5 text-red-600" />
-                     <h4 className="font-normal text-gray-700">End Time</h4>
+                  <div className="space-y-3">
+                    <div className="flex items-center space-x-2 mb-2">
+                      <Clock className="w-4 h-4 text-red-600" />
+                     <h4 className="font-normal text-gray-700 text-sm">End Time</h4>
                     </div>
                     <div>
-                     <label className="block text-sm font-normal text-gray-600 mb-2">
+                     <label className="block text-sm font-medium text-gray-700 mb-2">
                         Date Finished *
                       </label>
                       <input
@@ -287,11 +287,11 @@ export function AddChapmanCGLogModal({ entry, onClose, onSave, existingEntries }
                         required
                         value={formData.dateFinished}
                         onChange={(e) => handleInputChange('dateFinished', e.target.value)}
-                        className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
+                        className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
                       />
                     </div>
                     <div>
-                     <label className="block text-sm font-normal text-gray-600 mb-2">
+                     <label className="block text-sm font-medium text-gray-700 mb-2">
                         Time Finished *
                       </label>
                       <input
@@ -299,15 +299,15 @@ export function AddChapmanCGLogModal({ entry, onClose, onSave, existingEntries }
                         required
                         value={formData.timeFinished}
                         onChange={(e) => handleInputChange('timeFinished', e.target.value)}
-                        className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
+                        className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
                       />
                     </div>
                   </div>
                 </div>
                 {previewTimeConsumed > 0 && (
-                  <div className="mt-6 bg-blue-50 border border-blue-200 rounded-xl p-4">
+                  <div className="mt-4 bg-blue-50 border border-blue-200 rounded-xl p-3">
                     <h4 className="font-medium text-blue-900 mb-2 text-sm">Time Calculation Preview</h4>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
                       <div>
                         <span className="text-blue-700">Time Consumed:</span>
                         <span className="ml-2 font-medium text-blue-900">
@@ -326,7 +326,7 @@ export function AddChapmanCGLogModal({ entry, onClose, onSave, existingEntries }
 
             {/* Technician Information */}
             <section>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+              <h3 className="text-base font-semibold text-gray-900 mb-3 flex items-center">
                 <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-semibold mr-3 shadow-md">3</span>
                 <span className="text-gray-900">Technician Information</span>
               </h3>
@@ -339,7 +339,7 @@ export function AddChapmanCGLogModal({ entry, onClose, onSave, existingEntries }
                     required
                     value={formData.technicianName}
                     onChange={(e) => handleInputChange('technicianName', e.target.value)}
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white text-sm"
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white"
                   >
                     <option value="">Select a technician</option>
                     <option value="Abdullah Qasimi">Abdullah Qasimi</option>
@@ -359,7 +359,7 @@ export function AddChapmanCGLogModal({ entry, onClose, onSave, existingEntries }
 
             {/* Resolution and Status */}
             <section>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+              <h3 className="text-base font-semibold text-gray-900 mb-3 flex items-center">
                 <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-semibold mr-3 shadow-md">4</span>
                 <span className="text-gray-900">Resolution and Status</span>
               </h3>
@@ -413,18 +413,18 @@ export function AddChapmanCGLogModal({ entry, onClose, onSave, existingEntries }
         </div>
 
         {/* Footer */}
-        <div className="bg-gray-50 px-8 py-6 border-t border-gray-200 flex-shrink-0">
-          <div className="flex justify-end space-x-4">
+        <div className="bg-gray-50 px-8 py-4 border-t border-gray-200 flex-shrink-0">
+          <div className="flex justify-end space-x-3">
             <button
               onClick={onClose}
-              className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-xl hover:bg-gray-100 hover:border-gray-400 font-medium transition-all duration-200"
+              className="h-10 px-4 py-2 border border-gray-300 text-gray-700 text-sm rounded-xl hover:bg-gray-100 hover:border-gray-400 font-medium transition-all duration-200"
             >
               Cancel
             </button>
             <button
               type="submit"
               form="log-form"
-              className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-700 text-white rounded-xl hover:from-blue-700 hover:to-purple-800 font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
+              className="h-10 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-700 text-white text-sm rounded-xl hover:from-blue-700 hover:to-purple-800 font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               {isEditing ? 'Update Entry' : 'Create Entry'}
             </button>

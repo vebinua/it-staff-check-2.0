@@ -260,40 +260,40 @@ export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-5xl max-h-[90vh] overflow-hidden border border-gray-100 flex flex-col">
         {/* Modern Header */}
-        <div className="bg-gradient-to-r from-blue-600 to-purple-700 px-8 py-6 text-white">
+        <div className="bg-gradient-to-r from-blue-600 to-purple-700 px-8 py-4 text-white">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-4">
-              <div className="bg-white/20 rounded-full p-3">
-                <Plus className="w-8 h-8" />
+              <div className="bg-white/20 rounded-full p-2">
+                <Plus className="w-6 h-6" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold">
+                <h2 className="text-xl font-bold">
                   {isEditing ? 'Edit IT Check Entry' : 'Add New IT Check Entry'}
                 </h2>
-                <p className="text-blue-100 mt-1">Complete the form below to {isEditing ? 'update' : 'create'} an IT check entry</p>
+                <p className="text-blue-100 mt-1 text-sm">Complete the form below to {isEditing ? 'update' : 'create'} an IT check entry</p>
               </div>
             </div>
             <button
               onClick={onClose}
               className="text-white/80 hover:text-white hover:bg-white/20 rounded-full p-2 transition-all duration-200"
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5" />
             </button>
           </div>
         </div>
 
         <div className="overflow-y-auto flex-1 min-h-0">
-          <form id="entry-form" onSubmit={handleSubmit} className="p-8 space-y-8">
+          <form id="entry-form" onSubmit={handleSubmit} className="p-6 space-y-4">
           {/* Basic Information */}
           <section>
-            <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-              <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 shadow-lg">1</span>
+            <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
+              <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 shadow-lg">1</span>
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Basic Information</span>
             </h3>
-            <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border border-gray-200 shadow-inner">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-4 border border-gray-200 shadow-inner">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-bold text-gray-700 mb-3">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Staff Name *
                 </label>
                 <input
@@ -301,19 +301,19 @@ export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
                   required
                   value={formData.name}
                   onChange={(e) => handleInputChange('name', e.target.value)}
-                  className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
+                  className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
                   placeholder="Enter staff member's full name"
                 />
               </div>
               <div>
-                <label className="block text-sm font-bold text-gray-700 mb-3">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Department *
                 </label>
                 <select
                   required
                   value={formData.department}
                   onChange={(e) => handleInputChange('department', e.target.value)}
-                  className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
+                  className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
                 >
                   <option value="">Select Department</option>
                   {DEPARTMENTS.map(dept => (
@@ -323,7 +323,7 @@ export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
               </div>
               {formData.department === 'BLAB' && (
                 <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-3">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
                     Batch Number *
                   </label>
                   <input
@@ -332,41 +332,41 @@ export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
                     value={formData.batchNumber}
                     onChange={(e) => handleInputChange('batchNumber', e.target.value)}
                     placeholder="Enter batch number"
-                    className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
+                    className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
                   />
                 </div>
               )}
               <div>
-                <label className="block text-sm font-bold text-gray-700 mb-3">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Computer Type *
                 </label>
-                <div className="flex space-x-6">
-                  <label className="flex items-center bg-white rounded-xl px-4 py-3 border-2 border-gray-200 hover:border-blue-300 transition-all duration-200 cursor-pointer shadow-sm">
+                <div className="flex space-x-4">
+                  <label className="flex items-center bg-white rounded-xl px-3 py-2 border border-gray-200 hover:border-blue-300 transition-all duration-200 cursor-pointer shadow-sm">
                     <input
                       type="radio"
                       name="computerType"
                       value="Windows"
                       checked={formData.computerType === 'Windows'}
                       onChange={(e) => handleInputChange('computerType', e.target.value)}
-                      className="mr-3 text-blue-600 focus:ring-blue-500"
+                      className="mr-2 text-blue-600 focus:ring-blue-500"
                     />
-                    <span className="font-medium">Windows</span>
+                    <span className="font-medium text-sm">Windows</span>
                   </label>
-                  <label className="flex items-center bg-white rounded-xl px-4 py-3 border-2 border-gray-200 hover:border-blue-300 transition-all duration-200 cursor-pointer shadow-sm">
+                  <label className="flex items-center bg-white rounded-xl px-3 py-2 border border-gray-200 hover:border-blue-300 transition-all duration-200 cursor-pointer shadow-sm">
                     <input
                       type="radio"
                       name="computerType"
                       value="Mac"
                       checked={formData.computerType === 'Mac'}
                       onChange={(e) => handleInputChange('computerType', e.target.value)}
-                      className="mr-3 text-blue-600 focus:ring-blue-500"
+                      className="mr-2 text-blue-600 focus:ring-blue-500"
                     />
-                    <span className="font-medium">Mac</span>
+                    <span className="font-medium text-sm">Mac</span>
                   </label>
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-bold text-gray-700 mb-3">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   IT Check Completed Date *
                 </label>
                 <input
@@ -380,7 +380,7 @@ export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
                     onChange={(e) =>
                       handleInputChange('itCheckCompleted', e.target.value || '')
                     }
-                    className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
+                    className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
                   />
 
               </div>
@@ -390,14 +390,14 @@ export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
 
           {/* Network Information */}
           <section>
-            <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-              <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 shadow-lg">2</span>
+            <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
+              <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 shadow-lg">2</span>
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Network Information</span>
             </h3>
-            <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border border-gray-200 shadow-inner">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-4 border border-gray-200 shadow-inner">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
-                <label className="block text-sm font-bold text-gray-700 mb-3">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   IP Address *
                 </label>
                 <input
@@ -405,12 +405,12 @@ export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
                   required
                   value={formData.ipAddress}
                   onChange={(e) => handleInputChange('ipAddress', e.target.value)}
-                  className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm font-mono"
+                  className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm font-mono"
                   placeholder="192.168.1.1"
                 />
               </div>
               <div>
-                <label className="block text-sm font-bold text-gray-700 mb-3">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   ISP *
                 </label>
                 <input
@@ -418,12 +418,12 @@ export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
                   required
                   value={formData.isp}
                   onChange={(e) => handleInputChange('isp', e.target.value)}
-                  className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
+                  className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
                   placeholder="Internet Service Provider"
                 />
               </div>
               <div>
-                <label className="block text-sm font-bold text-gray-700 mb-3">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Connection Type *
                 </label>
                 <input
@@ -432,7 +432,7 @@ export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
                   value={formData.connectionType}
                   onChange={(e) => handleInputChange('connectionType', e.target.value)}
                   placeholder="e.g., Fiber, DSL, Cable"
-                  className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
+                  className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
                 />
               </div>
               </div>
@@ -441,23 +441,23 @@ export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
 
           {/* Internet Speed Tests */}
           <section>
-            <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-              <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 shadow-lg">3</span>
+            <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
+              <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 shadow-lg">3</span>
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Internet Speed Tests</span>
-              <span className="ml-3 bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">3 Required</span>
+              <span className="ml-3 bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-medium">3 Required</span>
             </h3>
-            <div className="space-y-6">
+            <div className="space-y-4">
             {formData.speedTests.map((test, index) => (
-              <div key={index} className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border border-gray-200 shadow-inner">
-                <div className="flex items-center mb-4">
-                  <div className="bg-gradient-to-r from-green-500 to-teal-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3">
+              <div key={index} className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-4 border border-gray-200 shadow-inner">
+                <div className="flex items-center mb-3">
+                  <div className="bg-gradient-to-r from-green-500 to-teal-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold mr-2">
                     {index + 1}
                   </div>
-                  <h4 className="font-bold text-gray-900">Speed Test {index + 1}</h4>
+                  <h4 className="font-bold text-gray-900 text-sm">Speed Test {index + 1}</h4>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                   <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-3">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       URL *
                     </label>
                     <input
@@ -465,12 +465,12 @@ export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
                       required
                       value={test.url}
                       onChange={(e) => updateSpeedTest(index, 'url', e.target.value)}
-                      className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
+                      className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
                       placeholder="https://speedtest.net/result/..."
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-3">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       Download (Mbps) *
                     </label>
                     <input
@@ -479,12 +479,12 @@ export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
                       required
                       value={test.downloadSpeed}
                       onChange={(e) => updateSpeedTest(index, 'downloadSpeed', e.target.value)}
-                      className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
+                      className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
                       placeholder="0.0"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-3">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       Upload (Mbps) *
                     </label>
                     <input
@@ -493,12 +493,12 @@ export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
                       required
                       value={test.uploadSpeed}
                       onChange={(e) => updateSpeedTest(index, 'uploadSpeed', e.target.value)}
-                      className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
+                      className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
                       placeholder="0.0"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-3">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       Ping (ms) *
                     </label>
                     <input
@@ -506,7 +506,7 @@ export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
                       required
                       value={test.ping}
                       onChange={(e) => updateSpeedTest(index, 'ping', e.target.value)}
-                      className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
+                      className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
                       placeholder="0"
                     />
                   </div>
@@ -518,34 +518,34 @@ export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
 
           {/* Installed Applications */}
           <section>
-            <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-              <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 shadow-lg">4</span>
+            <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
+              <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 shadow-lg">4</span>
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Installed Applications</span>
             </h3>
-            <div className="space-y-6">
+            <div className="space-y-4">
             {formData.installedApps.map((app, index) => (
-              <div key={index} className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border border-gray-200 shadow-inner">
-                <div className="flex justify-between items-center mb-4">
+              <div key={index} className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-4 border border-gray-200 shadow-inner">
+                <div className="flex justify-between items-center mb-3">
                   <div className="flex items-center">
-                    <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3">
+                    <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold mr-2">
                       {index + 1}
                     </div>
-                    <h4 className="font-bold text-gray-900">Application {index + 1}</h4>
+                    <h4 className="font-bold text-gray-900 text-sm">Application {index + 1}</h4>
                   </div>
                   {formData.installedApps.length > 1 && (
                     <button
                       type="button"
                       onClick={() => removeInstalledApp(index)}
-                      className="text-red-600 hover:text-red-800 hover:bg-red-50 p-2 rounded-lg transition-all duration-200"
+                      className="text-red-600 hover:text-red-800 hover:bg-red-50 p-1.5 rounded-lg transition-all duration-200"
                       title="Remove Application"
                     >
-                      <Trash2 className="w-5 h-5" />
+                      <Trash2 className="w-4 h-4" />
                     </button>
                   )}
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-3">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       Application Name *
                     </label>
                     <input
@@ -553,12 +553,12 @@ export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
                       required
                       value={app.name}
                       onChange={(e) => updateInstalledApp(index, 'name', e.target.value)}
-                      className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
+                      className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
                       placeholder="e.g., Microsoft Office"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-3">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       Version *
                     </label>
                     <input
@@ -566,18 +566,18 @@ export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
                       required
                       value={app.version}
                       onChange={(e) => updateInstalledApp(index, 'version', e.target.value)}
-                      className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm font-mono"
+                      className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm font-mono"
                       placeholder="e.g., 16.0.18129.20116"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-3">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       Notes
                     </label>
                     <textarea
                       value={app.notes}
                       onChange={(e) => updateInstalledApp(index, 'notes', e.target.value)}
-                      className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm resize-none"
+                      className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm resize-none"
                       rows={2}
                       placeholder="Optional notes..."
                     />
@@ -589,30 +589,30 @@ export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
             <button
               type="button"
               onClick={addInstalledApp}
-              className="flex items-center space-x-3 text-blue-600 hover:text-blue-800 hover:bg-blue-50 px-4 py-3 rounded-xl font-medium transition-all duration-200 border-2 border-dashed border-blue-300 hover:border-blue-400 w-full justify-center"
+              className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 hover:bg-blue-50 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 border border-dashed border-blue-300 hover:border-blue-400 w-full justify-center"
             >
-              <Plus className="w-5 h-5" />
+              <Plus className="w-4 h-4" />
               <span>Add Another Application</span>
             </button>
           </section>
 
           {/* PC Specifications */}
           <section>
-            <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-              <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 shadow-lg">5</span>
+            <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
+              <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 shadow-lg">5</span>
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">PC Specifications</span>
             </h3>
-            <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border border-gray-200 shadow-inner space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-4 border border-gray-200 shadow-inner space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-3">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
                     Operating System *
                   </label>
                   <select
                     required
                     value={formData.operatingSystem}
                     onChange={(e) => handleInputChange('operatingSystem', e.target.value)}
-                    className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
+                    className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
                   >
                     <option value="">Select OS</option>
                     {getOSOptions().map(os => (
@@ -621,7 +621,7 @@ export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-3">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
                     PC Model *
                   </label>
                   <input
@@ -629,7 +629,7 @@ export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
                     required
                     value={formData.pcModel}
                     onChange={(e) => handleInputChange('pcModel', e.target.value)}
-                    className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
+                    className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
                     placeholder="e.g., Dell Inspiron 15 3000"
                   />
                 </div>
@@ -637,16 +637,16 @@ export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
 
               {/* Processor section */}
               <div>
-                <label className="block text-sm font-bold text-gray-700 mb-3">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Processor *
                 </label>
                 {formData.computerType === 'Windows' ? (
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <select
                       required
                       value={formData.processor.brand}
                       onChange={(e) => handleInputChange('processor', e.target.value, 'brand')}
-                      className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
+                      className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
                     >
                       <option value="">Select Brand</option>
                       <option value="Intel">Intel</option>
@@ -656,7 +656,7 @@ export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
                       required
                       value={formData.processor.series}
                       onChange={(e) => handleInputChange('processor', e.target.value, 'series')}
-                      className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
+                      className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
                       disabled={!formData.processor.brand}
                     >
                       <option value="">Select Series</option>
@@ -668,7 +668,7 @@ export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
                       required
                       value={formData.processor.generation}
                       onChange={(e) => handleInputChange('processor', e.target.value, 'generation')}
-                      className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
+                      className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
                     >
                       <option value="">Select Generation</option>
                       {GENERATIONS.map(gen => (
@@ -681,7 +681,7 @@ export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
                     required
                     value={formData.processor.macProcessor}
                     onChange={(e) => handleInputChange('processor', e.target.value, 'macProcessor')}
-                    className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
+                    className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
                   >
                     <option value="">Select Processor</option>
                     {MAC_PROCESSORS.map(proc => (
@@ -691,16 +691,16 @@ export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
                 )}
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-3">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
                     Memory (RAM) *
                   </label>
                   <select
                     required
                     value={formData.memory}
                     onChange={(e) => handleInputChange('memory', e.target.value)}
-                    className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
+                    className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
                   >
                     <option value="">Select Memory</option>
                     {MEMORY_OPTIONS.map(mem => (
@@ -709,7 +709,7 @@ export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-3">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
                     Graphics *
                   </label>
                   <input
@@ -718,18 +718,18 @@ export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
                     value={formData.graphics}
                     onChange={(e) => handleInputChange('graphics', e.target.value)}
                     placeholder="e.g., NVIDIA RTX 3060, Intel Iris XE"
-                    className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
+                    className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-3">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
                     Storage *
                   </label>
                   <select
                     required
                     value={formData.storage}
                     onChange={(e) => handleInputChange('storage', e.target.value)}
-                    className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
+                    className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
                   >
                     <option value="">Select Storage</option>
                     {STORAGE_OPTIONS.map(storage => (
@@ -746,19 +746,19 @@ export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
         </div>
 
         {/* Footer with action buttons */}
-        <div className="bg-gray-50 px-8 py-6 border-t border-gray-200 flex-shrink-0">
-          <div className="flex justify-end space-x-4">
+        <div className="bg-gray-50 px-8 py-4 border-t border-gray-200 flex-shrink-0">
+          <div className="flex justify-end space-x-3">
             <button
               type="button"
               onClick={onClose}
-              className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-xl hover:bg-gray-100 hover:border-gray-400 font-medium transition-all duration-200"
+              className="h-10 px-4 py-2 border border-gray-300 text-gray-700 text-sm rounded-xl hover:bg-gray-100 hover:border-gray-400 font-medium transition-all duration-200"
             >
               Cancel
             </button>
             <button
               type="submit"
               form="entry-form"
-              className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-700 text-white rounded-xl hover:from-blue-700 hover:to-purple-800 font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
+              className="h-10 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-700 text-white text-sm rounded-xl hover:from-blue-700 hover:to-purple-800 font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               {isEditing ? 'Update Entry' : 'Create Entry'}
             </button>

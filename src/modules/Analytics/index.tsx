@@ -206,8 +206,8 @@ export function AnalyticsModule() {
       <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-2 border-blue-200 rounded-2xl p-6">
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center space-x-3">
-            <div className={`bg-gradient-to-r ${getHealthBgColor(analyticsData.system.systemHealth)} rounded-full p-3`}>
-              <Shield className="w-8 h-8 text-white" />
+            <div className={`bg-gradient-to-r ${getHealthBgColor(analyticsData.system.systemHealth)} rounded-full p-2`}>
+              <Shield className="w-6 h-6 text-white" />
             </div>
             <div>
               <h3 className="text-xl font-bold text-blue-900">System Health Score</h3>
@@ -215,7 +215,7 @@ export function AnalyticsModule() {
             </div>
           </div>
           <div className="text-right">
-            <div className={`text-4xl font-bold ${getHealthColor(analyticsData.system.systemHealth)}`}>
+            <div className={`text-3xl font-bold ${getHealthColor(analyticsData.system.systemHealth)}`}>
               {analyticsData.system.systemHealth}%
             </div>
             <p className="text-sm text-blue-700">Health Score</p>
@@ -299,7 +299,7 @@ export function AnalyticsModule() {
       {selectedMetric === 'overview' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Key Metrics Overview */}
-          <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+          <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
             <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
               <BarChart3 className="w-5 h-5 mr-2 text-indigo-600" />
               Key Performance Indicators
@@ -348,7 +348,7 @@ export function AnalyticsModule() {
           </div>
 
           {/* Recent Activity Feed */}
-          <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+          <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
             <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
               <Activity className="w-5 h-5 mr-2 text-indigo-600" />
               Recent System Activity
@@ -382,7 +382,7 @@ export function AnalyticsModule() {
         <div className="space-y-6">
           {/* IT Check Stats */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
               <div className="flex items-center">
                 <div className="p-3 rounded-full bg-blue-100">
                   <CheckCircle className="w-6 h-6 text-blue-600" />
@@ -394,7 +394,7 @@ export function AnalyticsModule() {
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
               <div className="flex items-center">
                 <div className="p-3 rounded-full bg-green-100">
                   <CheckCircle className="w-6 h-6 text-green-600" />
@@ -406,7 +406,7 @@ export function AnalyticsModule() {
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
               <div className="flex items-center">
                 <div className="p-3 rounded-full bg-red-100">
                   <XCircle className="w-6 h-6 text-red-600" />
@@ -418,7 +418,7 @@ export function AnalyticsModule() {
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
               <div className="flex items-center">
                 <div className="p-3 rounded-full bg-purple-100">
                   <BarChart3 className="w-6 h-6 text-purple-600" />
@@ -434,7 +434,7 @@ export function AnalyticsModule() {
           </div>
 
           {/* Department Performance */}
-          <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+          <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Department Performance</h3>
             <div className="space-y-3">
               {Object.entries(analyticsData.itCheck.byDepartment).map(([dept, data]) => (
@@ -473,7 +473,7 @@ export function AnalyticsModule() {
 
           {/* Common Failure Reasons */}
           {Object.keys(analyticsData.itCheck.failureReasons).length > 0 && (
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
               <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
                 <AlertTriangle className="w-5 h-5 mr-2 text-red-600" />
                 Common Failure Reasons
@@ -500,7 +500,7 @@ export function AnalyticsModule() {
         <div className="space-y-6">
           {/* ChapmanCG Stats */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
               <div className="flex items-center">
                 <div className="p-3 rounded-full bg-blue-100">
                   <FileText className="w-6 h-6 text-blue-600" />
@@ -512,7 +512,7 @@ export function AnalyticsModule() {
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
               <div className="flex items-center">
                 <div className="p-3 rounded-full bg-green-100">
                   <Clock className="w-6 h-6 text-green-600" />
@@ -527,7 +527,7 @@ export function AnalyticsModule() {
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
               <div className="flex items-center">
                 <div className="p-3 rounded-full bg-purple-100">
                   <DollarSign className="w-6 h-6 text-purple-600" />
@@ -539,7 +539,7 @@ export function AnalyticsModule() {
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
               <div className="flex items-center">
                 <div className="p-3 rounded-full bg-orange-100">
                   <Users className="w-6 h-6 text-orange-600" />
@@ -555,7 +555,7 @@ export function AnalyticsModule() {
           </div>
 
           {/* Category Distribution */}
-          <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+          <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Work Category Distribution</h3>
             <div className="space-y-3">
               {Object.entries(analyticsData.chapmanCG.byCategory).map(([category, count]) => (
@@ -576,7 +576,7 @@ export function AnalyticsModule() {
           </div>
 
           {/* Technician Performance */}
-          <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+          <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Technician Performance</h3>
             <div className="space-y-3">
               {Object.entries(analyticsData.chapmanCG.byTechnician).map(([tech, data]) => (
@@ -614,7 +614,7 @@ export function AnalyticsModule() {
         <div className="space-y-6">
           {/* Activity Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
               <div className="flex items-center">
                 <div className="p-3 rounded-full bg-blue-100">
                   <Activity className="w-6 h-6 text-blue-600" />
@@ -626,7 +626,7 @@ export function AnalyticsModule() {
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
               <div className="flex items-center">
                 <div className="p-3 rounded-full bg-green-100">
                   <Users className="w-6 h-6 text-green-600" />
@@ -640,7 +640,7 @@ export function AnalyticsModule() {
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
               <div className="flex items-center">
                 <div className="p-3 rounded-full bg-purple-100">
                   <Zap className="w-6 h-6 text-purple-600" />
@@ -661,7 +661,7 @@ export function AnalyticsModule() {
 
           {/* Activity Breakdown */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Activity Types</h3>
               <div className="space-y-3">
                 {Object.entries(analyticsData.activity.byAction)
@@ -683,7 +683,7 @@ export function AnalyticsModule() {
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">User Activity</h3>
               <div className="space-y-3">
                 {Object.entries(analyticsData.activity.byUser)

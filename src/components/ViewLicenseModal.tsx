@@ -121,14 +121,14 @@ export function ViewLicenseModal({ license, onClose }: ViewLicenseModalProps) {
       <div className="bg-white rounded-lg shadow-xl w-full max-w-4xl max-h-[90vh] overflow-y-auto">
         <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-3">
-            <Key className="w-6 h-6 text-blue-600" />
+            <Key className="w-5 h-5 text-blue-600" />
             <div>
-              <h2 className="text-xl font-semibold text-gray-900">{license.name}</h2>
-              <p className="text-sm text-gray-600">{license.vendor} - {license.version}</p>
+              <h2 className="text-lg font-semibold text-gray-900">{license.name}</h2>
+              <p className="text-xs text-gray-600">{license.vendor} - {license.version}</p>
             </div>
           </div>
-          <div className="flex items-center space-x-4">
-            <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(license.status)}`}>
+          <div className="flex items-center space-x-3">
+            <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium ${getStatusColor(license.status)}`}>
               {getStatusIcon(license.status)}
               <span className="ml-1 capitalize">{license.status}</span>
             </span>
@@ -136,12 +136,12 @@ export function ViewLicenseModal({ license, onClose }: ViewLicenseModalProps) {
               onClick={onClose}
               className="text-gray-400 hover:text-gray-600 transition-colors"
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5" />
             </button>
           </div>
         </div>
 
-        <div className="p-6 space-y-8">
+        <div className="p-6 space-y-6">
           {/* Expiration Alerts */}
           {(mainLicenseStatus === 'expired' || mainLicenseStatus === 'expiring-soon' || mainLicenseStatus === 'expiring-warning') && (
             <div className={`border-2 rounded-xl p-4 ${getExpirationColor(mainLicenseStatus)}`}>
@@ -177,8 +177,8 @@ export function ViewLicenseModal({ license, onClose }: ViewLicenseModalProps) {
 
           {/* Basic Information */}
           <section>
-            <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-              <Key className="w-5 h-5 mr-2 text-blue-600" />
+            <h3 className="text-base font-semibold text-gray-900 mb-3 flex items-center">
+              <Key className="w-4 h-4 mr-2 text-blue-600" />
               License Information
             </h3>
             <div className="bg-gray-50 rounded-lg p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -205,8 +205,8 @@ export function ViewLicenseModal({ license, onClose }: ViewLicenseModalProps) {
 
           {/* License Usage */}
           <section>
-            <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-              <Users className="w-5 h-5 mr-2 text-blue-600" />
+            <h3 className="text-base font-semibold text-gray-900 mb-3 flex items-center">
+              <Users className="w-4 h-4 mr-2 text-blue-600" />
               License Usage
             </h3>
             <div className="bg-gray-50 rounded-lg p-4 space-y-4">
@@ -247,8 +247,8 @@ export function ViewLicenseModal({ license, onClose }: ViewLicenseModalProps) {
 
           {/* Financial Information */}
           <section>
-            <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-              <DollarSign className="w-5 h-5 mr-2 text-blue-600" />
+            <h3 className="text-base font-semibold text-gray-900 mb-3 flex items-center">
+              <DollarSign className="w-4 h-4 mr-2 text-blue-600" />
               Financial Information
             </h3>
             <div className="bg-gray-50 rounded-lg p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -267,8 +267,8 @@ export function ViewLicenseModal({ license, onClose }: ViewLicenseModalProps) {
 
           {/* Dates */}
           <section>
-            <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-              <Calendar className="w-5 h-5 mr-2 text-blue-600" />
+            <h3 className="text-base font-semibold text-gray-900 mb-3 flex items-center">
+              <Calendar className="w-4 h-4 mr-2 text-blue-600" />
               Important Dates
             </h3>
             <div className="bg-gray-50 rounded-lg p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -301,7 +301,7 @@ export function ViewLicenseModal({ license, onClose }: ViewLicenseModalProps) {
           {/* License Key */}
           {license.licenseKey && (
             <section>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">License Key</h3>
+              <h3 className="text-base font-semibold text-gray-900 mb-3">License Key</h3>
               <div className="bg-gray-50 rounded-lg p-4">
                 <div className="bg-white p-3 rounded-lg border border-gray-200">
                   <p className="font-mono text-sm text-gray-900 break-all">{license.licenseKey}</p>
@@ -313,8 +313,8 @@ export function ViewLicenseModal({ license, onClose }: ViewLicenseModalProps) {
           {/* Add-ins Section */}
           {license.addIns && license.addIns.length > 0 && (
             <section>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                <Key className="w-5 h-5 mr-2 text-blue-600" />
+              <h3 className="text-base font-semibold text-gray-900 mb-3 flex items-center">
+                <Key className="w-4 h-4 mr-2 text-blue-600" />
                 Add-ins ({license.addIns.length})
               </h3>
               <div className="space-y-4">
@@ -412,7 +412,7 @@ export function ViewLicenseModal({ license, onClose }: ViewLicenseModalProps) {
           {/* Notes */}
           {license.notes && (
             <section>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Notes</h3>
+              <h3 className="text-base font-semibold text-gray-900 mb-3">Notes</h3>
               <div className="bg-gray-50 rounded-lg p-4">
                 <div className="bg-white p-3 rounded-lg border border-gray-200">
                   <p className="text-gray-900 whitespace-pre-wrap">{license.notes}</p>
@@ -423,7 +423,7 @@ export function ViewLicenseModal({ license, onClose }: ViewLicenseModalProps) {
 
           {/* System Information */}
           <section>
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">System Information</h3>
+            <h3 className="text-base font-semibold text-gray-900 mb-3">System Information</h3>
             <div className="bg-gray-50 rounded-lg p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-600">Added By</label>
@@ -441,7 +441,7 @@ export function ViewLicenseModal({ license, onClose }: ViewLicenseModalProps) {
           <div className="flex justify-end">
             <button
               onClick={onClose}
-              className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 transition-all font-medium"
+              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 transition-all font-medium text-sm"
             >
               Close
             </button>

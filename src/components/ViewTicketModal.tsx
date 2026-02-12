@@ -106,7 +106,7 @@ export function ViewTicketModal({ ticket, comments, onClose, onUpdate, onAddComm
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-6xl max-h-[90vh] overflow-hidden border border-gray-100 flex flex-col">
         {/* Header */}
-        <div className="bg-gradient-to-r from-indigo-600 to-purple-700 px-8 py-6 text-white">
+        <div className="bg-gradient-to-r from-indigo-600 to-purple-700 px-8 py-4 text-white">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-4">
               <div className="bg-white/20 rounded-full p-2">
@@ -121,7 +121,7 @@ export function ViewTicketModal({ ticket, comments, onClose, onUpdate, onAddComm
               onClick={onClose}
               className="text-white/80 hover:text-white hover:bg-white/20 rounded-full p-2 transition-all duration-200"
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5" />
             </button>
           </div>
         </div>
@@ -130,10 +130,10 @@ export function ViewTicketModal({ ticket, comments, onClose, onUpdate, onAddComm
           {/* Main Content */}
           <div className="flex-1 overflow-y-auto p-6">
             {/* Ticket Details */}
-            <div className="bg-gray-50 rounded-xl p-6 mb-6">
+            <div className="bg-gray-50 rounded-xl p-4 mb-4">
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center space-x-3">
-                  <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium border ${getPriorityColor(ticket.priority)}`}>
+                  <div className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium border ${getPriorityColor(ticket.priority)}`}>
                     {getPriorityIcon(ticket.priority)}
                     <span className="ml-1 capitalize">{ticket.priority}</span>
                   </div>
@@ -147,7 +147,7 @@ export function ViewTicketModal({ ticket, comments, onClose, onUpdate, onAddComm
                       <select
                         value={newStatus}
                         onChange={(e) => setNewStatus(e.target.value as TicketStatus)}
-                        className="border border-gray-300 rounded-lg px-3 py-1 text-sm"
+                        className="h-10 border border-gray-300 rounded-lg px-3 py-2 text-sm"
                       >
                         <option value="open">Open</option>
                         <option value="in-progress">In Progress</option>
@@ -159,13 +159,13 @@ export function ViewTicketModal({ ticket, comments, onClose, onUpdate, onAddComm
                       </select>
                       <button
                         onClick={handleStatusUpdate}
-                        className="bg-green-600 text-white px-3 py-1 rounded-lg text-sm hover:bg-green-700"
+                        className="h-10 bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700"
                       >
                         Save
                       </button>
                       <button
                         onClick={() => setEditingStatus(false)}
-                        className="bg-gray-600 text-white px-3 py-1 rounded-lg text-sm hover:bg-gray-700"
+                        className="h-10 bg-gray-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-700"
                       >
                         Cancel
                       </button>
@@ -173,7 +173,7 @@ export function ViewTicketModal({ ticket, comments, onClose, onUpdate, onAddComm
                   ) : (
                     <button
                       onClick={() => setEditingStatus(true)}
-                      className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(ticket.status)} hover:opacity-80 transition-opacity`}
+                      className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium ${getStatusColor(ticket.status)} hover:opacity-80 transition-opacity`}
                     >
                       {formatStatus(ticket.status)}
                     </button>
@@ -199,7 +199,7 @@ export function ViewTicketModal({ ticket, comments, onClose, onUpdate, onAddComm
                   {ticket.labels.map(label => (
                     <span
                       key={label}
-                      className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
+                      className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
                     >
                       {label}
                     </span>
@@ -227,7 +227,7 @@ export function ViewTicketModal({ ticket, comments, onClose, onUpdate, onAddComm
 
             {/* Comments Section */}
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-gray-900 flex items-center">
+              <h3 className="text-base font-semibold text-gray-900 flex items-center">
                 <MessageSquare className="w-5 h-5 mr-2 text-indigo-600" />
                 Comments ({comments.length})
               </h3>
@@ -256,7 +256,7 @@ export function ViewTicketModal({ ticket, comments, onClose, onUpdate, onAddComm
                   <button
                     type="submit"
                     disabled={!newComment.trim()}
-                    className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center space-x-2 text-sm"
+                    className="h-10 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center space-x-2 text-sm font-medium"
                   >
                     <Send className="w-4 h-4" />
                     <span>Add Comment</span>
@@ -280,7 +280,7 @@ export function ViewTicketModal({ ticket, comments, onClose, onUpdate, onAddComm
                         <User className="w-4 h-4 text-gray-400" />
                         <span className="font-medium text-gray-900">{comment.createdByName}</span>
                         {comment.isPrivate && (
-                          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                          <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
                             Private
                           </span>
                         )}
@@ -306,19 +306,19 @@ export function ViewTicketModal({ ticket, comments, onClose, onUpdate, onAddComm
 
           {/* Sidebar */}
           <div className="w-80 border-l border-gray-200 bg-gray-50 p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Ticket Details</h3>
+            <h3 className="text-base font-semibold text-gray-900 mb-4">Ticket Details</h3>
             
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-600 mb-1">Status</label>
-                <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(ticket.status)}`}>
+                <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium ${getStatusColor(ticket.status)}`}>
                   {formatStatus(ticket.status)}
                 </span>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-600 mb-1">Priority</label>
-                <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium border ${getPriorityColor(ticket.priority)}`}>
+                <div className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium border ${getPriorityColor(ticket.priority)}`}>
                   {getPriorityIcon(ticket.priority)}
                   <span className="ml-1 capitalize">{ticket.priority}</span>
                 </div>
@@ -357,7 +357,7 @@ export function ViewTicketModal({ ticket, comments, onClose, onUpdate, onAddComm
                     {ticket.labels.map(label => (
                       <span
                         key={label}
-                        className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
+                        className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
                       >
                         {label}
                       </span>

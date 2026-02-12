@@ -1266,7 +1266,7 @@ export function ReportingModule() {
         {generatedReport && (
           <button 
             onClick={exportReport}
-            className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 focus:ring-4 focus:ring-green-200 transition-all flex items-center space-x-2 font-medium"
+            className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 focus:ring-4 focus:ring-green-200 transition-all flex items-center space-x-2 text-sm font-medium h-10"
           >
             <Download className="w-5 h-5" />
             <span>Export Report</span>
@@ -1338,14 +1338,14 @@ export function ReportingModule() {
               type="date"
               value={dateRange.start}
               onChange={(e) => setDateRange(prev => ({ ...prev, start: e.target.value }))}
-              className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-green-500 focus:border-green-500"
+              className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-green-500 focus:border-green-500 h-10"
             />
             <span className="text-gray-500">to</span>
             <input
               type="date"
               value={dateRange.end}
               onChange={(e) => setDateRange(prev => ({ ...prev, end: e.target.value }))}
-              className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-green-500 focus:border-green-500"
+              className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-green-500 focus:border-green-500 h-10"
             />
           </div>
           {(dateRange.start || dateRange.end) && (
@@ -1375,7 +1375,7 @@ export function ReportingModule() {
               }`}
               onClick={() => setSelectedReport(report.id)}
             >
-              <div className="p-6">
+              <div className="p-4">
                 <div className="flex items-start justify-between mb-4">
                   <div className={`p-3 rounded-xl ${
                     isSelected 
@@ -1509,7 +1509,7 @@ export function ReportingModule() {
 
       {/* Quick Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+        <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center">
             <div className="p-3 rounded-full bg-blue-100">
               <CheckCircle className="w-6 h-6 text-blue-600" />
@@ -1521,7 +1521,7 @@ export function ReportingModule() {
           </div>
         </div>
 
-        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+        <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center">
             <div className="p-3 rounded-full bg-green-100">
               <Users className="w-6 h-6 text-green-600" />
@@ -1533,7 +1533,7 @@ export function ReportingModule() {
           </div>
         </div>
 
-        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+        <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center">
             <div className="p-3 rounded-full bg-purple-100">
               <FileText className="w-6 h-6 text-purple-600" />
@@ -1545,7 +1545,7 @@ export function ReportingModule() {
           </div>
         </div>
 
-        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+        <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center">
             <div className="p-3 rounded-full bg-orange-100">
               <BarChart3 className="w-6 h-6 text-orange-600" />

@@ -60,9 +60,9 @@ export function FeedbackRouter() {
   if (!linkId) {
     return (
       <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-        <div className="bg-white rounded-lg shadow-lg p-8 text-center">
+        <div className="bg-white rounded-lg shadow-lg p-6 text-center">
           <h1 className="text-2xl font-bold text-gray-900 mb-4">Invalid Feedback Link</h1>
-          <p className="text-gray-600">The feedback link you're trying to access is invalid or has expired.</p>
+          <p className="text-sm text-gray-600">The feedback link you're trying to access is invalid or has expired.</p>
         </div>
       </div>
     );
@@ -73,9 +73,9 @@ export function FeedbackRouter() {
   if (!feedbackData) {
     return (
       <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-        <div className="bg-white rounded-lg shadow-lg p-8 text-center">
+        <div className="bg-white rounded-lg shadow-lg p-6 text-center">
           <h1 className="text-2xl font-bold text-gray-900 mb-4">Feedback Link Not Found</h1>
-          <p className="text-gray-600">The feedback link you're looking for could not be found.</p>
+          <p className="text-sm text-gray-600">The feedback link you're looking for could not be found.</p>
         </div>
       </div>
     );

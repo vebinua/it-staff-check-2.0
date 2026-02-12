@@ -219,7 +219,7 @@ export function CustomerServiceFeedbackModule() {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+        <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center">
             <div className="p-3 rounded-full bg-indigo-100">
               <Link className="w-6 h-6 text-indigo-600" />
@@ -231,7 +231,7 @@ export function CustomerServiceFeedbackModule() {
           </div>
         </div>
 
-        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+        <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center">
             <div className="p-3 rounded-full bg-green-100">
               <MessageSquare className="w-6 h-6 text-green-600" />
@@ -243,7 +243,7 @@ export function CustomerServiceFeedbackModule() {
           </div>
         </div>
 
-        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+        <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center">
             <div className="p-3 rounded-full bg-yellow-100">
               <Star className="w-6 h-6 text-yellow-600" />
@@ -265,7 +265,7 @@ export function CustomerServiceFeedbackModule() {
           </div>
         </div>
 
-        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+        <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center">
             <div className="p-3 rounded-full bg-purple-100">
               <BarChart3 className="w-6 h-6 text-purple-600" />
@@ -377,7 +377,7 @@ export function CustomerServiceFeedbackModule() {
               <Link className="w-5 h-5 text-gray-600" />
               <h3 className="text-lg font-semibold text-gray-900">Generated Feedback Links ({feedbackLinks.length})</h3>
             </div>
-            <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 focus:ring-4 focus:ring-green-200 transition-all flex items-center space-x-2 font-medium text-sm">
+            <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 focus:ring-4 focus:ring-green-200 transition-all flex items-center space-x-2 text-sm font-medium h-10">
               <Download className="w-4 h-4" />
               <span>Export Report</span>
             </button>
@@ -388,34 +388,34 @@ export function CustomerServiceFeedbackModule() {
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wide">
                   Staff Member
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wide">
                   Customer Name
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wide">
                   Client
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wide">
                   Task Name
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wide">
                   Generated Link
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wide">
                   Link Status
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wide">
                   Responses
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wide">
                   Rating
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wide">
                   Created
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wide">
                   Actions
                 </th>
               </tr>
@@ -434,7 +434,7 @@ export function CustomerServiceFeedbackModule() {
               ) : (
                 feedbackLinks.map((link) => (
                   <tr key={link.id} className="hover:bg-gray-50 transition-colors">
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="px-4 py-3 whitespace-nowrap text-sm">
                       <div className="flex items-center">
                         <div className="bg-indigo-100 rounded-full p-2 mr-3">
                           <User className="w-4 h-4 text-indigo-600" />
@@ -442,11 +442,11 @@ export function CustomerServiceFeedbackModule() {
                         <div className="font-medium text-gray-900">{link.staffName}</div>
                       </div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="px-4 py-3 whitespace-nowrap text-sm">
                       <div className="font-medium text-gray-900">{link.customerName}</div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                    <td className="px-4 py-3 whitespace-nowrap text-sm">
+                      <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
                         link.client === 'CG' ? 'bg-blue-100 text-blue-800' :
                         link.client === 'GIL' ? 'bg-green-100 text-green-800' :
                         link.client === 'Coach' ? 'bg-purple-100 text-purple-800' :
@@ -478,8 +478,8 @@ export function CustomerServiceFeedbackModule() {
                         )}
                       </div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                    <td className="px-4 py-3 whitespace-nowrap text-sm">
+                      <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
                         link.isUsed 
                           ? 'bg-gray-100 text-gray-800' 
                           : 'bg-green-100 text-green-800'
@@ -508,7 +508,7 @@ export function CustomerServiceFeedbackModule() {
                         <span className="font-medium">{link.responses}</span>
                       </div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="px-4 py-3 whitespace-nowrap text-sm">
                       {link.responses > 0 ? (
                         <div className="flex items-center space-x-2">
                           <div className="flex items-center">
@@ -582,7 +582,7 @@ export function CustomerServiceFeedbackModule() {
       {/* Feedback Analytics */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Client Distribution */}
-        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+        <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
           <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
             <Building className="w-5 h-5 mr-2 text-indigo-600" />
             Feedback by Client
@@ -627,7 +627,7 @@ export function CustomerServiceFeedbackModule() {
         </div>
 
         {/* Recent Activity */}
-        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+        <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
           <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
             <Calendar className="w-5 h-5 mr-2 text-indigo-600" />
             Recent Activity

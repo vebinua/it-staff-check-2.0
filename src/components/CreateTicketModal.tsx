@@ -249,7 +249,7 @@ export function CreateTicketModal({ onClose, onSave, currentUser }: CreateTicket
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden border border-gray-100 flex flex-col">
         {/* Header */}
-        <div className="bg-gradient-to-r from-indigo-600 to-purple-700 px-8 py-6 text-white">
+        <div className="bg-gradient-to-r from-indigo-600 to-purple-700 px-8 py-4 text-white">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-4">
               <div className="bg-white/20 rounded-full p-2">
@@ -264,16 +264,16 @@ export function CreateTicketModal({ onClose, onSave, currentUser }: CreateTicket
               onClick={onClose}
               className="text-white/80 hover:text-white hover:bg-white/20 rounded-full p-2 transition-all duration-200"
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5" />
             </button>
           </div>
         </div>
 
         <div className="overflow-y-auto flex-1 min-h-0">
-          <form id="ticket-form" onSubmit={handleSubmit} className="p-6 space-y-6">
+          <form id="ticket-form" onSubmit={handleSubmit} className="p-6 space-y-4">
             {/* Basic Information */}
             <section>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Basic Information</h3>
+              <h3 className="text-base font-semibold text-gray-900 mb-3">Basic Information</h3>
               <div className="bg-gray-50 rounded-xl p-4 space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -284,7 +284,7 @@ export function CreateTicketModal({ onClose, onSave, currentUser }: CreateTicket
                     required
                     value={formData.title}
                     onChange={(e) => handleInputChange('title', e.target.value)}
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-100 focus:border-indigo-500 transition-all duration-200 bg-white text-sm"
+                    className="w-full h-10 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-100 focus:border-indigo-500 transition-all duration-200 bg-white text-sm"
                     placeholder="Brief description of the issue"
                   />
                 </div>
@@ -459,7 +459,7 @@ export function CreateTicketModal({ onClose, onSave, currentUser }: CreateTicket
                       required
                       value={formData.category}
                       onChange={(e) => handleInputChange('category', e.target.value)}
-                      className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-100 focus:border-indigo-500 transition-all duration-200 bg-white text-sm"
+                      className="w-full h-10 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-100 focus:border-indigo-500 transition-all duration-200 bg-white text-sm"
                     >
                       <option value="">Select Category</option>
                       {TICKET_CATEGORIES.map(category => (
@@ -476,7 +476,7 @@ export function CreateTicketModal({ onClose, onSave, currentUser }: CreateTicket
                       type="date"
                       value={formData.dueDate}
                       onChange={(e) => handleInputChange('dueDate', e.target.value)}
-                      className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-100 focus:border-indigo-500 transition-all duration-200 bg-white text-sm"
+                      className="w-full h-10 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-100 focus:border-indigo-500 transition-all duration-200 bg-white text-sm"
                     />
                   </div>
                 </div>
@@ -485,13 +485,13 @@ export function CreateTicketModal({ onClose, onSave, currentUser }: CreateTicket
 
             {/* Priority Selection */}
             <section>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Priority Level</h3>
+              <h3 className="text-base font-semibold text-gray-900 mb-3">Priority Level</h3>
               <div className="bg-gray-50 rounded-xl p-4">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
                   {(['low', 'medium', 'high', 'urgent'] as TicketPriority[]).map((priority) => (
                     <label
                       key={priority}
-                      className={`flex items-center space-x-3 p-3 rounded-lg border-2 cursor-pointer transition-all duration-200 ${
+                      className={`flex items-center space-x-3 p-2.5 rounded-lg border cursor-pointer transition-all duration-200 ${
                         formData.priority === priority
                           ? `${getPriorityColor(priority)} border-current`
                           : 'border-gray-200 bg-white hover:border-gray-300'
@@ -517,7 +517,7 @@ export function CreateTicketModal({ onClose, onSave, currentUser }: CreateTicket
 
             {/* Assignment */}
             <section>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Assignment</h3>
+              <h3 className="text-base font-semibold text-gray-900 mb-3">Assignment</h3>
               <div className="bg-gray-50 rounded-xl p-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -530,7 +530,7 @@ export function CreateTicketModal({ onClose, onSave, currentUser }: CreateTicket
                       handleInputChange('assignedToName', e.target.value);
                       // Do NOT set assignedTo at all — we always send null for now
                     }}
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-100 focus:border-indigo-500 transition-all duration-200 bg-white text-sm"
+                    className="w-full h-10 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-100 focus:border-indigo-500 transition-all duration-200 bg-white text-sm"
                     placeholder="Enter assignee name (optional)"
                   />
                   <p className="text-xs text-gray-500 mt-1">Leave empty to create an unassigned ticket</p>
@@ -540,7 +540,7 @@ export function CreateTicketModal({ onClose, onSave, currentUser }: CreateTicket
 
             {/* Labels */}
             <section>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Labels</h3>
+              <h3 className="text-base font-semibold text-gray-900 mb-3">Labels</h3>
               <div className="bg-gray-50 rounded-xl p-4">
                 <div className="flex flex-wrap gap-2">
                   {TICKET_LABELS.map((label) => (
@@ -548,7 +548,7 @@ export function CreateTicketModal({ onClose, onSave, currentUser }: CreateTicket
                       key={label}
                       type="button"
                       onClick={() => toggleLabel(label)}
-                      className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 ${
+                      className={`px-2.5 py-1 rounded-full text-xs font-medium transition-all duration-200 ${
                         formData.labels.includes(label)
                           ? 'bg-indigo-600 text-white'
                           : 'bg-white text-gray-700 border border-gray-300 hover:border-indigo-300'
@@ -564,18 +564,18 @@ export function CreateTicketModal({ onClose, onSave, currentUser }: CreateTicket
         </div>
 
         {/* Footer */}
-        <div className="bg-gray-50 px-8 py-6 border-t border-gray-200 flex-shrink-0">
+        <div className="bg-gray-50 px-8 py-4 border-t border-gray-200 flex-shrink-0">
           <div className="flex justify-end space-x-4">
             <button
               onClick={onClose}
-              className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-xl hover:bg-gray-100 hover:border-gray-400 font-medium transition-all duration-200"
+              className="h-10 px-4 py-2 border border-gray-300 text-gray-700 rounded-xl hover:bg-gray-100 hover:border-gray-400 text-sm font-medium transition-all duration-200"
             >
               Cancel
             </button>
             <button
               type="submit"
               form="ticket-form"
-              className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-700 text-white rounded-xl hover:from-indigo-700 hover:to-purple-800 font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
+              className="h-10 px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-700 text-white rounded-xl hover:from-indigo-700 hover:to-purple-800 text-sm font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               Create Ticket
             </button>
