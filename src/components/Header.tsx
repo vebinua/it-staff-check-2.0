@@ -18,12 +18,12 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <Shield className="w-8 h-8 text-primary mr-3" />
+            <Shield className="w-8 h-8 text-blue-600 mr-3" />
             <h1 className="text-xl font-semibold text-gray-900">
               IT Asset Management System
             </h1>
           </div>
-
+          
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2">
               <User className="w-5 h-5 text-gray-500" />
@@ -32,7 +32,7 @@ export function Header() {
               </span>
               <span className={`px-2 py-1 rounded-full text-xs font-medium ${
                 state.currentUser?.role === 'global-admin'
-                  ? 'bg-primary-light text-primary-dark'
+                  ? 'bg-blue-100 text-blue-800'
                   : state.currentUser?.role === 'module-admin'
                   ? 'bg-purple-100 text-purple-800'
                   : 'bg-green-100 text-green-800'
@@ -102,7 +102,7 @@ export function Header() {
                   setShowMigrationModal(false);
                   await migrateLocalDataToDatabase();
                 }}
-                className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-hover"
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
               >
                 Migrate Data
               </button>

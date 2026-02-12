@@ -133,7 +133,7 @@ export function ViewPasswordModal({ entry, onClose, onEdit }: ViewPasswordModalP
           {/* Basic Information */}
           <section>
             <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-              <Key className="w-5 h-5 mr-2 text-primary" />
+              <Key className="w-5 h-5 mr-2 text-blue-600" />
               Login Information
             </h3>
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 space-y-4">
@@ -147,7 +147,7 @@ export function ViewPasswordModal({ entry, onClose, onEdit }: ViewPasswordModalP
                         href={entry.website} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="text-primary hover:text-primary-dark underline"
+                        className="text-blue-600 hover:text-blue-800 underline"
                       >
                         {entry.website}
                       </a>
@@ -269,7 +269,7 @@ export function ViewPasswordModal({ entry, onClose, onEdit }: ViewPasswordModalP
           {entry.customFields.length > 0 && (
             <section>
               <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                <FileText className="w-5 h-5 mr-2 text-primary" />
+                <FileText className="w-5 h-5 mr-2 text-blue-600" />
                 Custom Fields ({entry.customFields.length})
               </h3>
               <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 space-y-3">
@@ -313,7 +313,7 @@ export function ViewPasswordModal({ entry, onClose, onEdit }: ViewPasswordModalP
           {entry.tags.length > 0 && (
             <section>
               <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                <Tag className="w-5 h-5 mr-2 text-primary" />
+                <Tag className="w-5 h-5 mr-2 text-blue-600" />
                 Tags
               </h3>
               <div className="flex flex-wrap gap-2">
@@ -333,7 +333,7 @@ export function ViewPasswordModal({ entry, onClose, onEdit }: ViewPasswordModalP
           {entry.notes && (
             <section>
               <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                <FileText className="w-5 h-5 mr-2 text-primary" />
+                <FileText className="w-5 h-5 mr-2 text-blue-600" />
                 Notes
               </h3>
               <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">

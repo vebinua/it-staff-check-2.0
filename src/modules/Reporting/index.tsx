@@ -235,11 +235,11 @@ export function ReportingModule() {
 
   const categories = [
     { id: 'all', name: 'All Reports', icon: BarChart3, color: 'text-gray-600' },
-    { id: 'it-check', name: 'IT Check Reports', icon: CheckCircle, color: 'text-primary' },
+    { id: 'it-check', name: 'IT Check Reports', icon: CheckCircle, color: 'text-blue-600' },
     { id: 'logs', name: 'Activity Logs', icon: FileText, color: 'text-green-600' },
     { id: 'licenses', name: 'Software Licenses', icon: Key, color: 'text-purple-600' },
     { id: 'security', name: 'Security Reports', icon: Shield, color: 'text-red-600' },
-    { id: 'feedback', name: 'Customer Feedback', icon: MessageSquare, color: 'text-primary' },
+    { id: 'feedback', name: 'Customer Feedback', icon: MessageSquare, color: 'text-indigo-600' },
     { id: 'overview', name: 'System Overview', icon: TrendingUp, color: 'text-orange-600' }
   ];
 
@@ -1413,11 +1413,11 @@ export function ReportingModule() {
                       {report.fields.length} data fields
                     </span>
                     <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                      report.category === 'it-check' ? 'bg-primary-light text-primary-dark' :
+                      report.category === 'it-check' ? 'bg-blue-100 text-blue-800' :
                       report.category === 'logs' ? 'bg-green-100 text-green-800' :
                       report.category === 'licenses' ? 'bg-purple-100 text-purple-800' :
                       report.category === 'security' ? 'bg-red-100 text-red-800' :
-                      report.category === 'feedback' ? 'bg-primary-light text-primary-dark' :
+                      report.category === 'feedback' ? 'bg-indigo-100 text-indigo-800' :
                       'bg-orange-100 text-orange-800'
                     }`}>
                       {report.category.replace('-', ' ')}
@@ -1446,7 +1446,7 @@ export function ReportingModule() {
       {/* Generated Report Preview */}
       {generatedReport && (
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-          <div className="bg-gradient-to-r from-primary to-primary-dark px-6 py-4 text-white">
+          <div className="bg-gradient-to-r from-blue-600 to-purple-700 px-6 py-4 text-white">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
                 <div className="bg-white/20 rounded-full p-2">
@@ -1511,8 +1511,8 @@ export function ReportingModule() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center">
-            <div className="p-3 rounded-full bg-primary-light">
-              <CheckCircle className="w-6 h-6 text-primary" />
+            <div className="p-3 rounded-full bg-blue-100">
+              <CheckCircle className="w-6 h-6 text-blue-600" />
             </div>
             <div className="ml-4">
               <p className="text-sm font-medium text-gray-600">IT Check Entries</p>

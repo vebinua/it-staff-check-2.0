@@ -182,7 +182,7 @@ export function AnalyticsModule() {
       <div className="flex justify-between items-center">
         <div>
           <h2 className="text-2xl font-bold text-gray-900 flex items-center">
-            <TrendingUp className="w-8 h-8 mr-3 text-primary" />
+            <TrendingUp className="w-8 h-8 mr-3 text-indigo-600" />
             Analytics Dashboard
           </h2>
           <p className="text-gray-600 mt-1">
@@ -193,7 +193,7 @@ export function AnalyticsModule() {
           <select
             value={selectedTimeRange}
             onChange={(e) => setSelectedTimeRange(e.target.value)}
-            className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-primary focus:border-primary"
+            className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
           >
             {timeRanges.map(range => (
               <option key={range.value} value={range.value}>{range.label}</option>
@@ -203,31 +203,31 @@ export function AnalyticsModule() {
       </div>
 
       {/* System Health Overview */}
-      <div className="bg-gradient-to-r from-primary-light to-purple-50 border-2 border-primary-light rounded-2xl p-6">
+      <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-2 border-blue-200 rounded-2xl p-6">
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center space-x-3">
             <div className={`bg-gradient-to-r ${getHealthBgColor(analyticsData.system.systemHealth)} rounded-full p-3`}>
               <Shield className="w-8 h-8 text-white" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-gray-900">System Health Score</h3>
-              <p className="text-primary-dark text-sm">Overall system performance and compliance</p>
+              <h3 className="text-xl font-bold text-blue-900">System Health Score</h3>
+              <p className="text-blue-700 text-sm">Overall system performance and compliance</p>
             </div>
           </div>
           <div className="text-right">
             <div className={`text-4xl font-bold ${getHealthColor(analyticsData.system.systemHealth)}`}>
               {analyticsData.system.systemHealth}%
             </div>
-            <p className="text-sm text-primary-dark">Health Score</p>
+            <p className="text-sm text-blue-700">Health Score</p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <div className="bg-white rounded-lg p-4 border border-primary-light">
+          <div className="bg-white rounded-lg p-4 border border-blue-200">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-primary text-sm font-medium">IT Check Compliance</p>
-                <p className="text-2xl font-bold text-gray-900">
+                <p className="text-blue-600 text-sm font-medium">IT Check Compliance</p>
+                <p className="text-2xl font-bold text-blue-900">
                   {analyticsData.itCheck.total > 0 ? Math.round((analyticsData.itCheck.passed / analyticsData.itCheck.total) * 100) : 0}%
                 </p>
               </div>
@@ -283,7 +283,7 @@ export function AnalyticsModule() {
                 onClick={() => setSelectedMetric(metric.id as any)}
                 className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
                   selectedMetric === metric.id
-                    ? 'bg-primary text-white shadow-lg'
+                    ? 'bg-indigo-600 text-white shadow-lg'
                     : 'text-gray-700 hover:bg-gray-100'
                 }`}
               >
@@ -301,16 +301,16 @@ export function AnalyticsModule() {
           {/* Key Metrics Overview */}
           <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
             <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-              <BarChart3 className="w-5 h-5 mr-2 text-primary" />
+              <BarChart3 className="w-5 h-5 mr-2 text-indigo-600" />
               Key Performance Indicators
             </h3>
             <div className="space-y-4">
-              <div className="flex items-center justify-between p-3 bg-primary-light rounded-lg">
+              <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
                 <div className="flex items-center space-x-3">
-                  <CheckCircle className="w-5 h-5 text-primary" />
+                  <CheckCircle className="w-5 h-5 text-blue-600" />
                   <span className="font-medium">IT Check Pass Rate</span>
                 </div>
-                <span className="text-lg font-bold text-primary">
+                <span className="text-lg font-bold text-blue-600">
                   {analyticsData.itCheck.total > 0 ? Math.round((analyticsData.itCheck.passed / analyticsData.itCheck.total) * 100) : 0}%
                 </span>
               </div>
@@ -350,14 +350,14 @@ export function AnalyticsModule() {
           {/* Recent Activity Feed */}
           <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
             <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-              <Activity className="w-5 h-5 mr-2 text-primary" />
+              <Activity className="w-5 h-5 mr-2 text-indigo-600" />
               Recent System Activity
             </h3>
             <div className="space-y-3 max-h-80 overflow-y-auto">
               {analyticsData.activity.recentActivities.map((activity) => (
                 <div key={activity.id} className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
-                  <div className="bg-primary-light rounded-full p-2 mt-1">
-                    <Activity className="w-4 h-4 text-primary" />
+                  <div className="bg-indigo-100 rounded-full p-2 mt-1">
+                    <Activity className="w-4 h-4 text-indigo-600" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium text-gray-900">
@@ -384,8 +384,8 @@ export function AnalyticsModule() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
               <div className="flex items-center">
-                <div className="p-3 rounded-full bg-primary-light">
-                  <CheckCircle className="w-6 h-6 text-primary" />
+                <div className="p-3 rounded-full bg-blue-100">
+                  <CheckCircle className="w-6 h-6 text-blue-600" />
                 </div>
                 <div className="ml-4">
                   <p className="text-sm font-medium text-gray-600">Total Checks</p>
@@ -440,8 +440,8 @@ export function AnalyticsModule() {
               {Object.entries(analyticsData.itCheck.byDepartment).map(([dept, data]) => (
                 <div key={dept} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                   <div className="flex items-center space-x-3">
-                    <div className="bg-primary-light rounded-full p-2">
-                      <Users className="w-4 h-4 text-primary" />
+                    <div className="bg-blue-100 rounded-full p-2">
+                      <Users className="w-4 h-4 text-blue-600" />
                     </div>
                     <span className="font-medium text-gray-900">{dept}</span>
                   </div>
@@ -502,8 +502,8 @@ export function AnalyticsModule() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
               <div className="flex items-center">
-                <div className="p-3 rounded-full bg-primary-light">
-                  <FileText className="w-6 h-6 text-primary" />
+                <div className="p-3 rounded-full bg-blue-100">
+                  <FileText className="w-6 h-6 text-blue-600" />
                 </div>
                 <div className="ml-4">
                   <p className="text-sm font-medium text-gray-600">Total Entries</p>
@@ -565,7 +565,7 @@ export function AnalyticsModule() {
                     <span className="text-gray-600">{count} entries</span>
                     <div className="w-20 bg-gray-200 rounded-full h-2">
                       <div 
-                        className="h-2 bg-primary rounded-full"
+                        className="h-2 bg-blue-500 rounded-full"
                         style={{ width: `${(count / analyticsData.chapmanCG.totalEntries) * 100}%` }}
                       />
                     </div>
@@ -588,7 +588,7 @@ export function AnalyticsModule() {
                   <div className="grid grid-cols-3 gap-4 text-sm">
                     <div>
                       <p className="text-gray-600">Time Logged</p>
-                      <p className="font-semibold text-primary">
+                      <p className="font-semibold text-blue-600">
                         {Math.floor(data.timeMinutes / 60)}h {data.timeMinutes % 60}m
                       </p>
                     </div>
@@ -616,8 +616,8 @@ export function AnalyticsModule() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
               <div className="flex items-center">
-                <div className="p-3 rounded-full bg-primary-light">
-                  <Activity className="w-6 h-6 text-primary" />
+                <div className="p-3 rounded-full bg-blue-100">
+                  <Activity className="w-6 h-6 text-blue-600" />
                 </div>
                 <div className="ml-4">
                   <p className="text-sm font-medium text-gray-600">Total Activities</p>
@@ -673,7 +673,7 @@ export function AnalyticsModule() {
                         <span className="text-gray-600">{count}</span>
                         <div className="w-16 bg-gray-200 rounded-full h-2">
                           <div 
-                            className="h-2 bg-primary rounded-full"
+                            className="h-2 bg-indigo-500 rounded-full"
                             style={{ width: `${(count / analyticsData.activity.totalActivities) * 100}%` }}
                           />
                         </div>
@@ -742,17 +742,17 @@ export function AnalyticsModule() {
       {/* System Performance Trends */}
       <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
         <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-          <TrendingUp className="w-5 h-5 mr-2 text-primary" />
+          <TrendingUp className="w-5 h-5 mr-2 text-indigo-600" />
           Performance Trends ({selectedTimeRange})
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="text-center p-4 bg-primary-light rounded-lg">
-            <div className="text-3xl font-bold text-primary mb-2">
+          <div className="text-center p-4 bg-blue-50 rounded-lg">
+            <div className="text-3xl font-bold text-blue-600 mb-2">
               {analyticsData.itCheck.total > 0 ? '+' : ''}
               {analyticsData.itCheck.total}
             </div>
-            <p className="text-sm text-primary-dark font-medium">IT Check Entries</p>
-            <p className="text-xs text-primary">
+            <p className="text-sm text-blue-700 font-medium">IT Check Entries</p>
+            <p className="text-xs text-blue-600">
               {analyticsData.itCheck.passed} passed, {analyticsData.itCheck.failed} failed
             </p>
           </div>

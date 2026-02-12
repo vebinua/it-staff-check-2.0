@@ -45,11 +45,11 @@ export function ActivityLogModal({ onClose }: ActivityLogModalProps) {
     const colors = {
       login: 'bg-gradient-to-r from-green-500 to-teal-500 text-white',
       logout: 'bg-gradient-to-r from-gray-500 to-gray-600 text-white',
-      add_entry: 'bg-gradient-to-r from-primary to-primary-dark text-white',
+      add_entry: 'bg-gradient-to-r from-blue-500 to-purple-600 text-white',
       update_entry: 'bg-gradient-to-r from-yellow-500 to-orange-500 text-white',
       delete_entry: 'bg-gradient-to-r from-red-500 to-pink-500 text-white',
       add_user: 'bg-gradient-to-r from-purple-500 to-pink-500 text-white',
-      update_user: 'bg-gradient-to-r from-primary to-purple-500 text-white',
+      update_user: 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white',
       delete_user: 'bg-gradient-to-r from-red-500 to-pink-500 text-white',
       view_entry: 'bg-gradient-to-r from-gray-500 to-gray-600 text-white',
       email_entry: 'bg-gradient-to-r from-green-500 to-teal-500 text-white',
@@ -68,7 +68,7 @@ export function ActivityLogModal({ onClose }: ActivityLogModalProps) {
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-6xl max-h-[90vh] overflow-hidden border border-gray-100 flex flex-col">
         {/* Header */}
-        <div className="bg-gradient-to-r from-primary to-primary-dark px-8 py-6 text-white">
+        <div className="bg-gradient-to-r from-blue-600 to-purple-700 px-8 py-6 text-white">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-4">
               <div className="bg-white/20 rounded-full p-3">
@@ -76,7 +76,7 @@ export function ActivityLogModal({ onClose }: ActivityLogModalProps) {
               </div>
               <div>
                 <h2 className="text-2xl font-bold">Activity Log</h2>
-                <p className="text-primary-light mt-1">View system activity and user actions ({state.activityLogs.length} total activities)</p>
+                <p className="text-blue-100 mt-1">View system activity and user actions ({state.activityLogs.length} total activities)</p>
               </div>
             </div>
             <button
@@ -92,7 +92,7 @@ export function ActivityLogModal({ onClose }: ActivityLogModalProps) {
           {/* Filters */}
           <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 mb-8 border border-gray-200 shadow-inner">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="bg-gradient-to-r from-primary to-primary-dark rounded-full p-2">
+              <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-full p-2">
                 <Filter className="w-5 h-5 text-white" />
               </div>
               <h3 className="text-lg font-bold text-gray-900">Filter Activities</h3>
@@ -105,14 +105,14 @@ export function ActivityLogModal({ onClose }: ActivityLogModalProps) {
                   placeholder="Search activities..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-primary-light focus:border-primary transition-all duration-200 bg-white"
+                  className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white"
                 />
               </div>
               
               <select
                 value={actionFilter}
                 onChange={(e) => setActionFilter(e.target.value)}
-                className="border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-primary-light focus:border-primary transition-all duration-200 bg-white"
+                className="border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white"
               >
                 <option value="all">All Actions</option>
                 {uniqueActions.map(action => (
@@ -123,7 +123,7 @@ export function ActivityLogModal({ onClose }: ActivityLogModalProps) {
               <select
                 value={userFilter}
                 onChange={(e) => setUserFilter(e.target.value)}
-                className="border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-primary-light focus:border-primary transition-all duration-200 bg-white"
+                className="border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white"
               >
                 <option value="all">All Users</option>
                 {uniqueUsers.map(user => (
@@ -186,8 +186,8 @@ export function ActivityLogModal({ onClose }: ActivityLogModalProps) {
                       <tr key={log.id} className="hover:bg-gray-50 transition-colors duration-150">
                         <td className="px-8 py-6 whitespace-nowrap">
                           <div className="flex items-center space-x-4">
-                            <div className="bg-gradient-to-br from-primary-light to-purple-100 rounded-full p-3">
-                              <User className="w-6 h-6 text-primary" />
+                            <div className="bg-gradient-to-br from-blue-100 to-purple-100 rounded-full p-3">
+                              <User className="w-6 h-6 text-blue-600" />
                             </div>
                             <div className="font-semibold text-gray-900 text-lg">{log.userName}</div>
                           </div>

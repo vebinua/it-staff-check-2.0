@@ -73,7 +73,7 @@ export function ITCheckDashboardModule() {
       <div className="flex justify-between items-center">
         <div>
           <h2 className="text-2xl font-bold text-gray-900 flex items-center">
-            <CheckCircle className="w-8 h-8 mr-3 text-primary" />
+            <CheckCircle className="w-8 h-8 mr-3 text-blue-600" />
             IT Check Dashboard
           </h2>
           <p className="text-gray-600 mt-1">
@@ -83,7 +83,7 @@ export function ITCheckDashboardModule() {
         {canManageEntries && (
           <button
             onClick={() => setShowAddModal(true)}
-            className="bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-hover focus:ring-4 focus:ring-primary-light transition-all flex items-center space-x-2 font-medium"
+            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 transition-all flex items-center space-x-2 font-medium"
           >
             <Plus className="w-5 h-5" />
             <span>Add New Entry</span>
@@ -103,14 +103,14 @@ export function ITCheckDashboardModule() {
               placeholder="Search by name, department, or PC model..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
           
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value as 'all' | 'passed' | 'failed')}
-            className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary focus:border-primary"
+            className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           >
             <option value="all">All Status</option>
             <option value="passed">Passed</option>
@@ -120,7 +120,7 @@ export function ITCheckDashboardModule() {
           <select
             value={departmentFilter}
             onChange={(e) => handleDepartmentChange(e.target.value)}
-            className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary focus:border-primary"
+            className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           >
             <option value="all">All Departments</option>
             {departments.map(dept => (
@@ -132,7 +132,7 @@ export function ITCheckDashboardModule() {
             <select
               value={batchFilter}
               onChange={(e) => setBatchFilter(e.target.value)}
-              className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary focus:border-primary"
+              className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             >
               <option value="all">All Batches</option>
               {blabBatches.map(batch => (
@@ -237,7 +237,7 @@ export function ITCheckDashboardModule() {
                           <>
                             <button
                               onClick={() => setEditingEntry(entry)}
-                              className="text-primary hover:text-blue-800 p-1 rounded hover:bg-blue-50 transition-colors"
+                              className="text-blue-600 hover:text-blue-800 p-1 rounded hover:bg-blue-50 transition-colors"
                               title="Edit Entry"
                             >
                               <Edit className="w-4 h-4" />

@@ -129,7 +129,7 @@ export function PasswordGeneratorModal({ onClose, onUsePassword }: PasswordGener
                 </code>
                 <button
                   onClick={copyToClipboard}
-                  className="flex items-center space-x-2 bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-hover transition-all"
+                  className="flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-all"
                 >
                   <Copy className="w-4 h-4" />
                   <span>Copy</span>

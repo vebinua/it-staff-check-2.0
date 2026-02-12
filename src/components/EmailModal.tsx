@@ -113,7 +113,7 @@ PC Type: ${entry.computerType === 'Windows' ? 'Desktop/Laptop' : 'Mac'}`;
             <a
               href={mailtoLink}
               onClick={handleEmailClick}
-              className="flex items-center space-x-2 px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary-hover focus:ring-4 focus:ring-primary-light transition-all font-medium"
+              className="flex items-center space-x-2 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 transition-all font-medium"
             >
               <Mail className="w-4 h-4" />
               <span>Open in Email Client</span>

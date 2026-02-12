@@ -51,7 +51,7 @@ export function ModulesModal({ onClose, onModuleSelect }: ModulesModalProps) {
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-7xl max-h-[90vh] overflow-hidden border border-gray-100 flex flex-col">
         {/* Header */}
-        <div className="bg-gradient-to-r from-primary to-purple-700 px-8 py-6 text-white">
+        <div className="bg-gradient-to-r from-blue-600 to-purple-700 px-8 py-6 text-white">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-4">
               <div className="bg-white/20 rounded-full p-3">
@@ -176,7 +176,7 @@ export function ModulesModal({ onClose, onModuleSelect }: ModulesModalProps) {
                   
                   {module.enabled && (
                     <div className="mt-4 pt-4 border-t border-gray-100">
-                      <button className="w-full bg-gradient-to-r from-primary to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-2 px-4 rounded-lg font-medium transition-all duration-200 shadow-sm hover:shadow-md">
+                      <button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-2 px-4 rounded-lg font-medium transition-all duration-200 shadow-sm hover:shadow-md">
                         Open Module
                       </button>
                     </div>
