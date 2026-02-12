@@ -207,14 +207,19 @@ export function AddInternalLogModal({ entry, onClose, onSave, existingEntries }:
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Client Name *
                     </label>
-                    <input
-                      type="text"
+                    <select
                       required
                       value={formData.clientName}
                       onChange={(e) => handleInputChange('clientName', e.target.value)}
                       className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-100 focus:border-green-500 transition-all duration-200 bg-white text-sm"
-                      placeholder="Enter client name"
-                    />
+                    >
+                      <option value="">Select client</option>
+                      {staffMembers.map((staff) => (
+                        <option key={staff.id} value={staff.name}>
+                          {staff.name}
+                        </option>
+                      ))}
+                    </select>
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
