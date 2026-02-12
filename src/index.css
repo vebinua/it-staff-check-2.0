@@ -36,7 +36,3 @@
   --border-light: #F3F4F6;
   --border-focus: #3DDBB8;
 }
-
-body {
-  background-color: var(--bg-main);
-}
