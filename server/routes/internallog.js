@@ -1,6 +1,6 @@
 const express = require('express');
 const { pool } = require('../config/database');
-const { authenticateToken, requireRole } = require('../middleware/auth');
+const { authenticateToken, requireRole, requireModulePermission } = require('../middleware/auth');
 
 const router = express.Router();
 
@@ -42,7 +42,7 @@ router.get('/', authenticateToken, async (req, res) => {
   }
 });
 
-router.post('/', authenticateToken, async (req, res) => {
+router.post('/', authenticateToken, requireModulePermission('internal-log'), async (req, res) => {
   try {
     const {
       idCode, clientName, subjectIssue, category,
@@ -79,7 +79,7 @@ router.post('/', authenticateToken, async (req, res) => {
   }
 });
 
-router.put('/:id', authenticateToken, async (req, res) => {
+router.put('/:id', authenticateToken, requireModulePermission('internal-log'), async (req, res) => {
   try {
     const entryId = req.params.id;
     const {
@@ -116,7 +116,7 @@ router.put('/:id', authenticateToken, async (req, res) => {
   }
 });
 
-router.delete('/:id', authenticateToken, requireRole(['global-admin']), async (req, res) => {
+router.delete('/:id', authenticateToken, requireModulePermission('internal-log'), async (req, res) => {
   try {
     const entryId = req.params.id;
 

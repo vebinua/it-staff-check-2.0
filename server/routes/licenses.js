@@ -1,6 +1,6 @@
 const express = require('express');
 const { pool } = require('../config/database');
-const { authenticateToken, requireRole } = require('../middleware/auth');
+const { authenticateToken, requireRole, requireModulePermission } = require('../middleware/auth');
 
 const router = express.Router();
 
@@ -72,7 +72,7 @@ router.get('/', authenticateToken, async (req, res) => {
 });
 
 // CREATE
-router.post('/', authenticateToken, async (req, res) => {
+router.post('/', authenticateToken, requireModulePermission('software-licenses'), async (req, res) => {
   const connection = await pool.getConnection();
 
   try {
@@ -155,7 +155,7 @@ router.post('/', authenticateToken, async (req, res) => {
 });
 
 // UPDATE
-router.put('/:id', authenticateToken, async (req, res) => {
+router.put('/:id', authenticateToken, requireModulePermission('software-licenses'), async (req, res) => {
   const connection = await pool.getConnection();
 
   try {
@@ -235,7 +235,7 @@ router.put('/:id', authenticateToken, async (req, res) => {
 });
 
 // DELETE (unchanged – already safe)
-router.delete('/:id', authenticateToken, requireRole(['global-admin']), async (req, res) => {
+router.delete('/:id', authenticateToken, requireModulePermission('software-licenses'), async (req, res) => {
   try {
     const licenseId = req.params.id;
 

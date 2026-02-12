@@ -47,4 +47,22 @@ const requireRole = (roles) => {
   };
 };
 
-module.exports = { authenticateToken, requireRole };
+const requireModulePermission = (moduleName) => {
+  return (req, res, next) => {
+    if (!req.user) {
+      return res.status(401).json({ error: 'Authentication required' });
+    }
+
+    if (req.user.role === 'global-admin') {
+      return next();
+    }
+
+    if (req.user.role === 'module-admin' && req.user.modulePermissions && req.user.modulePermissions.includes(moduleName)) {
+      return next();
+    }
+
+    return res.status(403).json({ error: 'Insufficient permissions to manage this module' });
+  };
+};
+
+module.exports = { authenticateToken, requireRole, requireModulePermission };

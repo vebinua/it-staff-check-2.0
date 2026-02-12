@@ -1,6 +1,6 @@
 const express = require('express');
 const { pool } = require('../config/database');
-const { authenticateToken } = require('../middleware/auth');
+const { authenticateToken, requireModulePermission } = require('../middleware/auth');
 
 const router = express.Router();
 
@@ -80,7 +80,7 @@ router.get('/', authenticateToken, async (req, res) => {
   }
 });
 
-router.post('/', authenticateToken, async (req, res) => {
+router.post('/', authenticateToken, requireModulePermission('password-manager'), async (req, res) => {
   const connection = await pool.getConnection();
 
   try {
@@ -177,7 +177,7 @@ router.post('/', authenticateToken, async (req, res) => {
   }
 });
 
-router.put('/:id', authenticateToken, async (req, res) => {
+router.put('/:id', authenticateToken, requireModulePermission('password-manager'), async (req, res) => {
   const connection = await pool.getConnection();
 
   try {
@@ -241,7 +241,7 @@ router.put('/:id', authenticateToken, async (req, res) => {
   }
 });
 
-router.delete('/:id', authenticateToken, async (req, res) => {
+router.delete('/:id', authenticateToken, requireModulePermission('password-manager'), async (req, res) => {
   try {
     const entryId = req.params.id;
 
@@ -297,7 +297,7 @@ router.get('/notes', authenticateToken, async (req, res) => {
   }
 });
 
-router.post('/notes', authenticateToken, async (req, res) => {
+router.post('/notes', authenticateToken, requireModulePermission('password-manager'), async (req, res) => {
   try {
     const { title, content, category, isFavorite, tags } = req.body;
 
@@ -316,7 +316,7 @@ router.post('/notes', authenticateToken, async (req, res) => {
   }
 });
 
-router.put('/notes/:id', authenticateToken, async (req, res) => {
+router.put('/notes/:id', authenticateToken, requireModulePermission('password-manager'), async (req, res) => {
   try {
     const noteId = req.params.id;
     const { title, content, category, isFavorite, tags } = req.body;
@@ -335,7 +335,7 @@ router.put('/notes/:id', authenticateToken, async (req, res) => {
   }
 });
 
-router.delete('/notes/:id', authenticateToken, async (req, res) => {
+router.delete('/notes/:id', authenticateToken, requireModulePermission('password-manager'), async (req, res) => {
   try {
     const noteId = req.params.id;
 

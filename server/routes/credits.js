@@ -1,6 +1,6 @@
 const express = require('express');
 const { pool } = require('../config/database');
-const { authenticateToken, requireRole } = require('../middleware/auth');
+const { authenticateToken, requireRole, requireModulePermission } = require('../middleware/auth');
 
 const router = express.Router();
 
@@ -60,7 +60,7 @@ router.get('/active', authenticateToken, async (req, res) => {
   }
 });
 
-router.post('/', authenticateToken, requireRole(['global-admin']), async (req, res) => {
+router.post('/', authenticateToken, requireModulePermission('chapmancg-log'), async (req, res) => {
   try {
     const { blockNumber, purchaseDate, totalCredits, isActive } = req.body;
 
@@ -84,7 +84,7 @@ router.post('/', authenticateToken, requireRole(['global-admin']), async (req, r
   }
 });
 
-router.put('/:id', authenticateToken, requireRole(['global-admin']), async (req, res) => {
+router.put('/:id', authenticateToken, requireModulePermission('chapmancg-log'), async (req, res) => {
   try {
     const blockId = req.params.id;
     const { blockNumber, purchaseDate, totalCredits, isActive } = req.body;
@@ -107,7 +107,7 @@ router.put('/:id', authenticateToken, requireRole(['global-admin']), async (req,
   }
 });
 
-router.delete('/:id', authenticateToken, requireRole(['global-admin']), async (req, res) => {
+router.delete('/:id', authenticateToken, requireModulePermission('chapmancg-log'), async (req, res) => {
   try {
     const blockId = req.params.id;
 

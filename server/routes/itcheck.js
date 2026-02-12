@@ -1,6 +1,6 @@
 const express = require('express');
 const { pool } = require('../config/database');
-const { authenticateToken, requireRole } = require('../middleware/auth');
+const { authenticateToken, requireRole, requireModulePermission } = require('../middleware/auth');
 
 const router = express.Router();
 
@@ -71,7 +71,7 @@ router.get('/', authenticateToken, async (req, res) => {
 });
 
 // Create new IT check entry
-router.post('/', authenticateToken, requireRole(['admin', 'global-admin', 'editor']), async (req, res) => {
+router.post('/', authenticateToken, requireModulePermission('it-check'), async (req, res) => {
   const connection = await pool.getConnection();
   
   try {
@@ -136,7 +136,7 @@ router.post('/', authenticateToken, requireRole(['admin', 'global-admin', 'edito
 });
 
 // Update IT check entry
-router.put('/:id', authenticateToken, requireRole(['admin', 'global-admin', 'editor']), async (req, res) => {
+router.put('/:id', authenticateToken, requireModulePermission('it-check'), async (req, res) => {
   const connection = await pool.getConnection();
   
   try {
@@ -205,7 +205,7 @@ router.put('/:id', authenticateToken, requireRole(['admin', 'global-admin', 'edi
 });
 
 // Delete IT check entry
-router.delete('/:id', authenticateToken, requireRole(['global-admin']), async (req, res) => {
+router.delete('/:id', authenticateToken, requireModulePermission('it-check'), async (req, res) => {
   try {
     const entryId = req.params.id;
     
