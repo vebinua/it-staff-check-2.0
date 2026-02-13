@@ -52,6 +52,16 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
 
 export const AVAILABLE_MODULES: Module[] = [
   {
+    id: 'analytics',
+    name: 'Analytics Dashboard',
+    description: 'Advanced insights and performance metrics across all systems',
+    icon: 'TrendingUp',
+    category: 'analytics',
+    enabled: true,
+    permissions: ['global-admin', 'module-admin', 'standard-user'],
+    component: AnalyticsModule
+  },
+  {
     id: 'it-check-dashboard',
     name: 'IT Check Dashboard',
     description: 'Manage and view all staff IT check entries',
