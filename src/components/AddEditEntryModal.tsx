@@ -574,14 +574,23 @@ export function AddEditEntryModal({ entry, onClose }: AddEditEntryModalProps) {
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Application Name *
                     </label>
-                    <input
-                      type="text"
+                    <select
                       required
                       value={app.name}
                       onChange={(e) => updateInstalledApp(index, 'name', e.target.value)}
                       className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm"
-                      placeholder="e.g., Microsoft Office"
-                    />
+                    >
+                      <option value="">Select Application</option>
+                      <option value="MS Office">MS Office</option>
+                      <option value="Time Doctor">Time Doctor</option>
+                      <option value="Trend Micro">Trend Micro</option>
+                      <option value="Prey">Prey</option>
+                      <option value="Chrome">Chrome</option>
+                      <option value="Adobe Reader">Adobe Reader</option>
+                      <option value="Slack">Slack</option>
+                      <option value="OneDrive">OneDrive</option>
+                      <option value="WhatsApp">WhatsApp</option>
+                    </select>
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
