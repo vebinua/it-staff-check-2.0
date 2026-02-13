@@ -626,7 +626,7 @@ export function UserManagementModal({ onClose }: UserManagementModalProps) {
           )}
 
           {/* Users List */}
-          <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+          <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden">
             <div className="bg-gradient-to-r from-gray-50 to-gray-100 px-8 py-6 border-b border-gray-200">
               <div className="flex items-center space-x-3">
                 <Users className="w-6 h-6 text-gray-600" />
