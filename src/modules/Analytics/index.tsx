@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { TrendingUp, BarChart3, PieChart, Activity, Users, User, Package, Calendar, DollarSign, Shield, CheckCircle, XCircle, AlertTriangle, Clock, FileText, Key, MessageSquare, Zap } from 'lucide-react';
+import { TrendingUp, BarChart3, PieChart, Activity, Users, Package, Calendar, DollarSign, Shield, CheckCircle, XCircle, AlertTriangle, Clock, FileText, Key, MessageSquare, Zap } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { ITCheckEntry, ChapmanCGLogEntry, ActivityLog } from '../../types';
 import { validateEntry } from '../../utils/validation';

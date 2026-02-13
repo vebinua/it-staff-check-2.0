@@ -21,7 +21,7 @@ export function Dashboard({ currentPage = 'dashboard', onNavigate }: DashboardPr
   const [editingEntry, setEditingEntry] = useState<ITCheckEntry | null>(null);
   const [emailEntry, setEmailEntry] = useState<ITCheckEntry | null>(null);
   const [viewingEntry, setViewingEntry] = useState<ITCheckEntry | null>(null);
-  const [selectedModule, setSelectedModule] = useState<string | null>('analytics');
+  const [selectedModule, setSelectedModule] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState<'all' | 'passed' | 'failed'>('all');
   const [departmentFilter, setDepartmentFilter] = useState<string>('all');
@@ -164,15 +164,12 @@ export function Dashboard({ currentPage = 'dashboard', onNavigate }: DashboardPr
   };
 
   const handleModuleSelect = (moduleId: string) => {
+    // If we're not on dashboard, navigate back to dashboard first
+    if (currentPage !== 'dashboard') {
+      onNavigate?.('dashboard');
+    }
     setSelectedModule(moduleId);
   };
-
-  // Reset to analytics module when returning to dashboard
-  React.useEffect(() => {
-    if (currentPage === 'dashboard' && !selectedModule) {
-      setSelectedModule('analytics');
-    }
-  }, [currentPage, selectedModule]);
 
   const handleModuleClose = () => {
     setSelectedModule(null);
